@@ -377,7 +377,7 @@
             this.register});
             this.toolStrip2.Location = new System.Drawing.Point(6, 9);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(350, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(350, 31);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "Bạn chưa đăng nhập";
             // 
@@ -385,14 +385,14 @@
             // 
             this.txtDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(111, 24);
+            this.txtDate.Size = new System.Drawing.Size(111, 28);
             this.txtDate.Text = "toolStripLabel1";
             // 
             // lblInfor
             // 
             this.lblInfor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfor.Name = "lblInfor";
-            this.lblInfor.Size = new System.Drawing.Size(149, 24);
+            this.lblInfor.Size = new System.Drawing.Size(149, 28);
             this.lblInfor.Text = "Bạn chưa đăng nhập!";
             // 
             // Logout
@@ -401,7 +401,7 @@
             this.Logout.Image = ((System.Drawing.Image)(resources.GetObject("Logout.Image")));
             this.Logout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(29, 24);
+            this.Logout.Size = new System.Drawing.Size(29, 28);
             this.Logout.Text = "Đăng xuất";
             this.Logout.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
@@ -411,7 +411,7 @@
             this.Login.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Import;
             this.Login.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(29, 24);
+            this.Login.Size = new System.Drawing.Size(29, 28);
             this.Login.Text = "Login";
             this.Login.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -421,7 +421,7 @@
             this.register.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Add_User_Male;
             this.register.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.register.Name = "register";
-            this.register.Size = new System.Drawing.Size(29, 24);
+            this.register.Size = new System.Drawing.Size(29, 28);
             this.register.Text = "register";
             this.register.Click += new System.EventHandler(this.btnDangky_Click);
             // 
@@ -517,6 +517,7 @@
             this.PanelMain.Name = "PanelMain";
             this.PanelMain.Size = new System.Drawing.Size(804, 664);
             this.PanelMain.TabIndex = 14;
+            this.PanelMain.Resize += new System.EventHandler(this.PanelMain_Resize);
             // 
             // User
             // 

@@ -37,6 +37,7 @@ namespace Do_anLaptrinhWinCK
             ThucDon.Visible = false;
             User.Visible = false;
             btnMenu.PerformClick();
+            PanelMain.Resize += PanelMain_Resize;  // Đảm bảo đăng ký sự kiện Resize
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -147,31 +148,27 @@ namespace Do_anLaptrinhWinCK
 
         private void btnDangxuat_Click(object sender, EventArgs e)
         {
-            // Xác nhận đăng xuất
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
-                // Reset thông tin người dùng
                 infor = "Bạn chưa đăng nhập!";
                 UpdateLoginState();
 
-                // Hiển thị form đăng nhập trong Panel2 hoặc ẩn giao diện chính
-                PanelMain.Controls.Clear(); // Xóa các control hiện tại trên PanelMain
+                PanelMain.Controls.Clear();
 
-                // Tạo form đăng nhập
                 frmLogin loginForm = new frmLogin
                 {
                     TopLevel = false,
                     FormBorderStyle = FormBorderStyle.None,
-                    Dock = DockStyle.Fill // Hoặc căn giữa như hướng dẫn ở trên
                 };
 
-                // Xử lý sự kiện sau khi đăng nhập lại thành công
                 loginForm.LoginSuccess += LoginForm_LoginSuccess;
 
-                PanelMain.Controls.Add(loginForm); // Hiển thị form đăng nhập
+                PanelMain.Controls.Add(loginForm);
                 loginForm.Show();
+
+                CenterFormInPanel(loginForm);
             }
         }
 
@@ -196,10 +193,42 @@ namespace Do_anLaptrinhWinCK
             }
         }
 
+        // Hàm căn giữa form trong PanelMain
+        private void CenterFormInPanel(Form form)
+        {
+            int x = (PanelMain.Width - form.Width) / 2;
+            int y = (PanelMain.Height - form.Height) / 2;
+            form.Location = new Point(x, y);
+        }
+
+        // Đảm bảo khi kích thước PanelMain thay đổi, form vẫn ở giữa
+        private void PanelMain_Resize(object sender, EventArgs e)
+        {
+            foreach (Control control in PanelMain.Controls)
+            {
+                if (control is frmLogin)
+                {
+                    CenterFormInPanel((Form)control);
+                }
+                else if (control is frmDangky)
+                {
+                    CenterFormInPanel((Form)control);
+                }
+            }
+        }
         private void btnDangky_Click(object sender, EventArgs e)
         {
-            frmDangky dangky = new frmDangky();
-            ShowFormInPanel(dangky);
+            PanelMain.Controls.Clear();
+
+            frmDangky dangky = new frmDangky
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            PanelMain.Controls.Add(dangky);
+            dangky.Show();
+
+            CenterFormInPanel(dangky);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -217,15 +246,14 @@ namespace Do_anLaptrinhWinCK
 
             frmLogin loginForm = new frmLogin
             {
-                TopLevel = false,        
+                TopLevel = false,
                 FormBorderStyle = FormBorderStyle.None,
             };
-            int x = (PanelMain.Width - loginForm.Width) / 2;
-            int y = (PanelMain.Height - loginForm.Height) / 2;
-            loginForm.Location = new Point(x, y);
 
             PanelMain.Controls.Add(loginForm);
             loginForm.Show();
+
+            CenterFormInPanel(loginForm);
         }
 
 
