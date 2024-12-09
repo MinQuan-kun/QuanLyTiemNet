@@ -10,22 +10,23 @@ CREATE DATABASE QLTiemNet
 Use QLTiemNet
 GO
 
+-- Bảng Admin
+CREATE TABLE Admin(
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Password NVARCHAR(MAX) NOT NULL,
+    Role Bit
+)
 -- Bảng Users
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
     Username VARCHAR(50) NOT NULL UNIQUE,
     Password VARBINARY(MAX) NOT NULL,
-    Email VARCHAR(50),
-    OTP VARCHAR(50),
     RandomKey VARCHAR(50),
-    OTPDatesend DATETIME,
-    OTPDatecreate DATETIME,
     CardID INT,
     Point DECIMAL(10, 2) DEFAULT 0.00, 
-    Role NVARCHAR(500) CHECK (Role IN (N'Admin', N'Nhân viên', N'Người dùng')),
-    Active NVARCHAR(500) CHECK (Active IN (N'đang hoạt động', N'Đã khóa')),
-    DataActive DATETIME
 );
+
 -- Bảng thẻ
 CREATE TABLE Cards (
     CardID INT PRIMARY KEY IDENTITY(1,1),  
@@ -34,6 +35,7 @@ CREATE TABLE Cards (
     Stas NVARCHAR(500) CHECK (Stas IN (N'đang hoạt động', N'Đã khóa')),
     Balance DECIMAL(10, 2) DEFAULT 0.0
 );
+
 -- Bảng máy
 CREATE TABLE Computers (
     ComputerID INT PRIMARY KEY IDENTITY(1,1),  
@@ -134,11 +136,11 @@ VALUES
 -- ('Comp06', N'VIP', 'Offline'),
 -- ('Comp07', N'Gaming', 'Offline');
 
--- Dữ liệu cho bảng Users
-INSERT INTO Users (Username, Password, Email, OTP, RandomKey, Role, Active)
+-- Dữ liệu cho bảng Quanly
+INSERT INTO Admin (Username, Password, Role)
 VALUES
-('Admin', 0x74AB86B94B7D310DDCF98F0E583ACCBC, N'Admin123@gmail.com','1147','1147', N'Admin', N'Đang hoạt động')
-
+('Admin', 123, 0),
+('NhanVien', 123, 1)
 
 -- Trigger cập nhật CardID
 GO

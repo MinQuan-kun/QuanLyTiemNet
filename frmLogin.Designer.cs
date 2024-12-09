@@ -35,6 +35,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.LinkQuenmk = new System.Windows.Forms.LinkLabel();
             this.lblerror = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,7 +46,6 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.LinkQuenmk = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -141,6 +141,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(306, 317);
             this.panel2.TabIndex = 0;
+            // 
+            // LinkQuenmk
+            // 
+            this.LinkQuenmk.AutoSize = true;
+            this.LinkQuenmk.Location = new System.Drawing.Point(164, 207);
+            this.LinkQuenmk.Name = "LinkQuenmk";
+            this.LinkQuenmk.Size = new System.Drawing.Size(96, 17);
+            this.LinkQuenmk.TabIndex = 7;
+            this.LinkQuenmk.TabStop = true;
+            this.LinkQuenmk.Text = "Quên mật khẩu";
+            this.LinkQuenmk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkQuenmk_LinkClicked);
             // 
             // lblerror
             // 
@@ -256,17 +267,6 @@
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
             // 
-            // LinkQuenmk
-            // 
-            this.LinkQuenmk.AutoSize = true;
-            this.LinkQuenmk.Location = new System.Drawing.Point(164, 207);
-            this.LinkQuenmk.Name = "LinkQuenmk";
-            this.LinkQuenmk.Size = new System.Drawing.Size(96, 17);
-            this.LinkQuenmk.TabIndex = 7;
-            this.LinkQuenmk.TabStop = true;
-            this.LinkQuenmk.Text = "Quên mật khẩu";
-            this.LinkQuenmk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkQuenmk_LinkClicked);
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -285,6 +285,9 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

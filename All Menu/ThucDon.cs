@@ -41,14 +41,10 @@ namespace Do_anLaptrinhWinCK.All_Computer
             using (databaseDataContext db = new databaseDataContext())
             {
                 // Tìm người dùng trong cơ sở dữ liệu
-                User user = db.Users.SingleOrDefault(p => p.Username == username);
+                Admin user = db.Admins.SingleOrDefault(p => p.Username == username);
                 if (user != null)
                 {
-                    if (user.Role == "Nhân viên")
-                    {
-                        PanelAdmin.Visible = false;
-                    }
-                    else if(user.Role == "Người dùng")
+                    if(user.Role == true)
                     {
                         PanelAdmin.Visible = false;
                         PanelNV.Visible = false;

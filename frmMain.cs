@@ -28,17 +28,11 @@ namespace Do_anLaptrinhWinCK
             infor = _infor;
             lblInfor.Text = infor;
         }
-        private void Default()
-        {
-            btnDanhmuc.Enabled = false;
-            btnChucnang.Enabled = false;
-        }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             UpdateLoginState();
-            Default();
             Menu.Visible = false;
             Account.Visible = false;
             btnMenu.PerformClick();
@@ -103,7 +97,6 @@ namespace Do_anLaptrinhWinCK
             Logout.Enabled = isLoggedIn;
             btnDangNhap.Enabled = !isLoggedIn;
             Login.Enabled = !isLoggedIn;
-            btnDangky.Enabled = !isLoggedIn;
             register.Enabled = !isLoggedIn;
 
             if (isLoggedIn)
@@ -113,27 +106,19 @@ namespace Do_anLaptrinhWinCK
                 using (databaseDataContext db = new databaseDataContext())
                 {
                     // Tìm người dùng trong cơ sở dữ liệu
-                    User user = db.Users.SingleOrDefault(p => p.Username == username);
+                    Admin user = db.Admins.SingleOrDefault(p => p.Username == username);
                     if (user != null)
                     {
-                        if (user.Role == "Admin")
+                        if (user.Role == false)
                         {
                             btnChucnang.Enabled = true;
                             btnDanhmuc.Enabled = true;
-                        }
-                        else if (user.Role == "Nhân viên")
-                        {
-                            btnChucnang.Enabled = true;
-                            btnDanhmuc.Enabled = true;
-                            btnTaikhoan.Enabled = false;
-                            
                         }
                         else
                         {
-                            // Khách hàng
+                            // Nhân viên
                             btnChucnang.Enabled = true;
                             btnTaikhoan.Visible = false;
-                            btnDanhmuc.Enabled = true;
                         }
                     }
                 }
@@ -170,7 +155,6 @@ namespace Do_anLaptrinhWinCK
                 this.Hide();
                 frmMain mainnew = new frmMain();
                 mainnew.ShowDialog();
-                this.Close();
             }
         }
 
@@ -192,9 +176,6 @@ namespace Do_anLaptrinhWinCK
                 Application.Exit();
             }
         }
-
- 
-
         private void btnDatmay_Click(object sender, EventArgs e)
         {
             

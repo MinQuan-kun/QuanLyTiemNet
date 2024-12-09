@@ -30,6 +30,9 @@ namespace Do_anLaptrinhWinCK
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertAdmin(Admin instance);
+    partial void UpdateAdmin(Admin instance);
+    partial void DeleteAdmin(Admin instance);
     partial void InsertBill(Bill instance);
     partial void UpdateBill(Bill instance);
     partial void DeleteBill(Bill instance);
@@ -81,6 +84,14 @@ namespace Do_anLaptrinhWinCK
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Admin> Admins
+		{
+			get
+			{
+				return this.GetTable<Admin>();
+			}
 		}
 		
 		public System.Data.Linq.Table<Bill> Bills
@@ -136,6 +147,140 @@ namespace Do_anLaptrinhWinCK
 			get
 			{
 				return this.GetTable<User>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]
+	public partial class Admin : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Username;
+		
+		private string _Password;
+		
+		private System.Nullable<bool> _Role;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnRoleChanging(System.Nullable<bool> value);
+    partial void OnRoleChanged();
+    #endregion
+		
+		public Admin()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="Bit")]
+		public System.Nullable<bool> Role
+		{
+			get
+			{
+				return this._Role;
+			}
+			set
+			{
+				if ((this._Role != value))
+				{
+					this.OnRoleChanging(value);
+					this.SendPropertyChanging();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1324,25 +1469,11 @@ namespace Do_anLaptrinhWinCK
 		
 		private System.Data.Linq.Binary _Password;
 		
-		private string _Email;
-		
-		private string _OTP;
-		
-		private System.Nullable<System.DateTime> _OTPDatesend;
-		
-		private System.Nullable<System.DateTime> _OTPDatecreate;
+		private string _RandomKey;
 		
 		private System.Nullable<int> _CardID;
 		
 		private System.Nullable<decimal> _Point;
-		
-		private string _Role;
-		
-		private string _Active;
-		
-		private System.Nullable<System.DateTime> _DataActive;
-		
-		private string _Randomkey;
 		
 		private EntitySet<Bill> _Bills;
 		
@@ -1360,26 +1491,12 @@ namespace Do_anLaptrinhWinCK
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(System.Data.Linq.Binary value);
     partial void OnPasswordChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnOTPChanging(string value);
-    partial void OnOTPChanged();
-    partial void OnOTPDatesendChanging(System.Nullable<System.DateTime> value);
-    partial void OnOTPDatesendChanged();
-    partial void OnOTPDatecreateChanging(System.Nullable<System.DateTime> value);
-    partial void OnOTPDatecreateChanged();
+    partial void OnRandomKeyChanging(string value);
+    partial void OnRandomKeyChanged();
     partial void OnCardIDChanging(System.Nullable<int> value);
     partial void OnCardIDChanged();
     partial void OnPointChanging(System.Nullable<decimal> value);
     partial void OnPointChanged();
-    partial void OnRoleChanging(string value);
-    partial void OnRoleChanged();
-    partial void OnActiveChanging(string value);
-    partial void OnActiveChanged();
-    partial void OnDataActiveChanging(System.Nullable<System.DateTime> value);
-    partial void OnDataActiveChanged();
-    partial void OnRandomkeyChanging(string value);
-    partial void OnRandomkeyChanged();
     #endregion
 		
 		public User()
@@ -1450,82 +1567,22 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
-		public string Email
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RandomKey", DbType="VarChar(50)")]
+		public string RandomKey
 		{
 			get
 			{
-				return this._Email;
+				return this._RandomKey;
 			}
 			set
 			{
-				if ((this._Email != value))
+				if ((this._RandomKey != value))
 				{
-					this.OnEmailChanging(value);
+					this.OnRandomKeyChanging(value);
 					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTP", DbType="VarChar(50)")]
-		public string OTP
-		{
-			get
-			{
-				return this._OTP;
-			}
-			set
-			{
-				if ((this._OTP != value))
-				{
-					this.OnOTPChanging(value);
-					this.SendPropertyChanging();
-					this._OTP = value;
-					this.SendPropertyChanged("OTP");
-					this.OnOTPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTPDatesend", DbType="DateTime")]
-		public System.Nullable<System.DateTime> OTPDatesend
-		{
-			get
-			{
-				return this._OTPDatesend;
-			}
-			set
-			{
-				if ((this._OTPDatesend != value))
-				{
-					this.OnOTPDatesendChanging(value);
-					this.SendPropertyChanging();
-					this._OTPDatesend = value;
-					this.SendPropertyChanged("OTPDatesend");
-					this.OnOTPDatesendChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTPDatecreate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> OTPDatecreate
-		{
-			get
-			{
-				return this._OTPDatecreate;
-			}
-			set
-			{
-				if ((this._OTPDatecreate != value))
-				{
-					this.OnOTPDatecreateChanging(value);
-					this.SendPropertyChanging();
-					this._OTPDatecreate = value;
-					this.SendPropertyChanged("OTPDatecreate");
-					this.OnOTPDatecreateChanged();
+					this._RandomKey = value;
+					this.SendPropertyChanged("RandomKey");
+					this.OnRandomKeyChanged();
 				}
 			}
 		}
@@ -1570,86 +1627,6 @@ namespace Do_anLaptrinhWinCK
 					this._Point = value;
 					this.SendPropertyChanged("Point");
 					this.OnPointChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(500)")]
-		public string Role
-		{
-			get
-			{
-				return this._Role;
-			}
-			set
-			{
-				if ((this._Role != value))
-				{
-					this.OnRoleChanging(value);
-					this.SendPropertyChanging();
-					this._Role = value;
-					this.SendPropertyChanged("Role");
-					this.OnRoleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="NVarChar(500)")]
-		public string Active
-		{
-			get
-			{
-				return this._Active;
-			}
-			set
-			{
-				if ((this._Active != value))
-				{
-					this.OnActiveChanging(value);
-					this.SendPropertyChanging();
-					this._Active = value;
-					this.SendPropertyChanged("Active");
-					this.OnActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataActive", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DataActive
-		{
-			get
-			{
-				return this._DataActive;
-			}
-			set
-			{
-				if ((this._DataActive != value))
-				{
-					this.OnDataActiveChanging(value);
-					this.SendPropertyChanging();
-					this._DataActive = value;
-					this.SendPropertyChanged("DataActive");
-					this.OnDataActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Randomkey", DbType="VarChar(50)")]
-		public string Randomkey
-		{
-			get
-			{
-				return this._Randomkey;
-			}
-			set
-			{
-				if ((this._Randomkey != value))
-				{
-					this.OnRandomkeyChanging(value);
-					this.SendPropertyChanging();
-					this._Randomkey = value;
-					this.SendPropertyChanged("Randomkey");
-					this.OnRandomkeyChanged();
 				}
 			}
 		}

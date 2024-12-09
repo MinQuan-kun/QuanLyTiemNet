@@ -93,50 +93,38 @@ namespace Do_anLaptrinhWinCK
             {
                 databaseDataContext db = new databaseDataContext();
                 User user = db.Users.SingleOrDefault(p => p.Username == _username);
-                if (user != null)
+                Admin ad = db.Admins.SingleOrDefault(p => p.Username == _username && p.Password == _password);
+                
+                if(ad != null)
                 {
-                    // Kiểm tra trạng thái đã Active  
-                    if (user.Active == "Đã khóa")
+                    if (ad.Role == false) // Role = 0
                     {
-                        DialogResult result = MessageBox.Show("Tài khoản chưa xác thực. Vui lòng kích hoạt tài khoản", "Thông báo", MessageBoxButtons.OK);
-
-                        if (result == DialogResult.OK)
-                        {
-                            this.Hide();
-                            this.Close(); // xóa frmLogin khi mở frmDangky
-                            frmDangky frmRes = new frmDangky();
-                            // Hiển thị form đăng ký
-                            frmRes.Show();
-                            // Cấu hình các panel trong frmDangky
-                            frmRes.Paneldk.Visible = false;
-                            frmRes.PanelXacthuc.Visible = true;
-                            frmRes.txtUsername.Text = user.Username;
-                            return;
-                        }
+                        MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
+                        frmMain.infor = $"Admin: {ad.Username}";
                     }
+                    else // Role = 1
+                    {
+                        MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
+                        frmMain.infor = $"Nhân viên: {ad.Username}";
+                    }
+                    this.DialogResult = DialogResult.OK;
+                    this.Hide();
+                    frmMain Main = new frmMain();
+                    Main.ShowDialog();
+                }    
+                else if (user != null)
+                {
                     // Kiểm tra mật khẩu đang lưu trong database
                     MD5 md5 = MD5.Create();
-                    byte[] inputBytes = Encoding.ASCII.GetBytes(_password + user.Randomkey);
+                    byte[] inputBytes = Encoding.ASCII.GetBytes(_password + user.RandomKey);
                     byte[] hashBytes = md5.ComputeHash(inputBytes);
                     if(user.Password == hashBytes)
-                    {
-                        if(user.Role == "Admin")
-                        {
-                            MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
-                            frmMain.infor = $"Admin: {user.Username}";
-                        }
-                        else if (user.Role == "Nhân viên")
-                        {
-                            MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
-                            frmMain.infor = $"Nhân viên: {user.Username}";
-                        }
-                        else if(user.Role == "Người dùng")
-                        {
-                            MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
-                            frmMain.infor = $"Người dùng: {user.Username}";
-                        }
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
+                    { 
+                        MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
+                        frmMain.infor = $"Người dùng: {user.Username}";
+                        this.Hide();
+                        frmUser Us = new frmUser();
+                        Us.ShowDialog();
                     }   
                 }
                 else

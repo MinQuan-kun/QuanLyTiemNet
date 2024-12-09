@@ -38,11 +38,7 @@ namespace Do_anLaptrinhWinCK.All_Customer
                         m.UserID,
                         m.Password,
                         m.Username,
-                        m.Role,
                         m.CardID,
-                        m.Active,
-                        m.Email,
-                        m.OTP,
                         m.Point
                     }).ToList();
             }
@@ -65,8 +61,6 @@ namespace Do_anLaptrinhWinCK.All_Customer
             {
                 txtID.Text = user.UserID.ToString();
                 txtUsername.Text = user.Username;
-                cbActive.Text = user.Active.ToString();
-                cbRole.Text = user.Role;
             }
         }
 
@@ -74,18 +68,11 @@ namespace Do_anLaptrinhWinCK.All_Customer
         private void btnSua_Click(object sender, EventArgs e)
         {
             int? ID = string.IsNullOrWhiteSpace(txtID.Text) ? (int?)null : int.Parse(txtID.Text);
-            string Role = string.IsNullOrWhiteSpace(cbRole.Text) ? null : cbRole.Text;
-            string Active = string.IsNullOrWhiteSpace(cbActive.Text) ? null : cbActive.Text;
             string name = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text;
             if (ID == null)
             {
                 MessageBox.Show("Vui lòng nhập UserID để chỉnh sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtID.Focus();
-                return;
-            }
-            if(string.IsNullOrEmpty(Role) && string.IsNullOrEmpty(Active))
-            {
-                MessageBox.Show("Vai trò và trạng thái không được để trống", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
             using (databaseDataContext db = new databaseDataContext())
@@ -94,10 +81,7 @@ namespace Do_anLaptrinhWinCK.All_Customer
 
                 if (existingUser != null)
                 {
-                    existingUser.Role = Role;
-                    existingUser.Active = Active;
                     db.SubmitChanges();
-
                     MessageBox.Show("Chỉnh sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadDuLieu();
                 }
@@ -112,8 +96,6 @@ namespace Do_anLaptrinhWinCK.All_Customer
         {
             int? ID = string.IsNullOrWhiteSpace(txtID.Text) ? (int?)null : int.Parse(txtID.Text);
             string name = string.IsNullOrWhiteSpace(txtUsername.Text) ? null : txtUsername.Text;
-            string Role = string.IsNullOrWhiteSpace(cbRole.Text) ? null : cbRole.Text;
-            string Active = string.IsNullOrWhiteSpace(cbActive.Text) ? null : cbActive.Text;
 
             databaseDataContext db = new databaseDataContext();
             var query = db.Users.AsQueryable();
@@ -125,14 +107,6 @@ namespace Do_anLaptrinhWinCK.All_Customer
             {
                 query = query.Where(m => m.Username.Contains(name));
             }
-            if (!string.IsNullOrEmpty(Role))
-            {
-                query = query.Where(m => m.Role.Contains(Role));
-            }
-            if (!string.IsNullOrEmpty(Active))
-            {
-                query = query.Where(m => m.Active.Contains(Active));
-            }
             var results = query.ToList();
             if (results.Count > 0)
             {
@@ -141,11 +115,7 @@ namespace Do_anLaptrinhWinCK.All_Customer
                     m.UserID,
                     m.Password,
                     m.Username,
-                    m.Role,
                     m.CardID,
-                    m.Active,
-                    m.Email,
-                    m.OTP,
                     m.Point
                 }).ToList();
             }
@@ -167,18 +137,10 @@ namespace Do_anLaptrinhWinCK.All_Customer
             var existingUser = db.Users.SingleOrDefault(u => u.UserID == ID);
             if (existingUser != null)
             {
-                if(existingUser.Role != "Admin")
-                {
-                    db.Users.DeleteOnSubmit(existingUser);
-                    db.SubmitChanges();
-                    loadDuLieu();
-                    MessageBox.Show("Xóa tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }    
-                else
-                {
-                    MessageBox.Show("Không thể xóa tài khoản admin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }    
+                db.Users.DeleteOnSubmit(existingUser);
+                db.SubmitChanges();
+                loadDuLieu();
+                MessageBox.Show("Xóa tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);      
             }
             else 
             {
