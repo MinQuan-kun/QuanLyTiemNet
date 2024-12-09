@@ -35,7 +35,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LinkQuenmk = new System.Windows.Forms.LinkLabel();
             this.lblerror = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -124,7 +123,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.LinkQuenmk);
             this.panel2.Controls.Add(this.lblerror);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -141,17 +139,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(306, 317);
             this.panel2.TabIndex = 0;
-            // 
-            // LinkQuenmk
-            // 
-            this.LinkQuenmk.AutoSize = true;
-            this.LinkQuenmk.Location = new System.Drawing.Point(164, 207);
-            this.LinkQuenmk.Name = "LinkQuenmk";
-            this.LinkQuenmk.Size = new System.Drawing.Size(96, 17);
-            this.LinkQuenmk.TabIndex = 7;
-            this.LinkQuenmk.TabStop = true;
-            this.LinkQuenmk.Text = "Quên mật khẩu";
-            this.LinkQuenmk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkQuenmk_LinkClicked);
             // 
             // lblerror
             // 
@@ -285,6 +272,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseUp);
@@ -318,7 +306,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.LinkLabel LinkQuenmk;
     }
 }
 

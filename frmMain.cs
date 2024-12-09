@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,8 +34,8 @@ namespace Do_anLaptrinhWinCK
         {
             timer1.Enabled = true;
             UpdateLoginState();
-            Menu.Visible = false;
-            Account.Visible = false;
+            ThucDon.Visible = false;
+            User.Visible = false;
             btnMenu.PerformClick();
         }
 
@@ -65,7 +66,7 @@ namespace Do_anLaptrinhWinCK
             subpanelHethong.Visible = false;
             subpanelDanhmuc.Visible = false;
             subpanelChucnang.Visible = false;
-            Menu.Visible = false;
+            ThucDon.Visible = false;
         }
 
         private void hideSubMenu()
@@ -74,7 +75,7 @@ namespace Do_anLaptrinhWinCK
                 subpanelHethong.Visible = false;
             if (subpanelDanhmuc.Visible)
                 subpanelDanhmuc.Visible = false;
-            if(subpanelChucnang.Visible)
+            if (subpanelChucnang.Visible)
                 subpanelChucnang.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
@@ -146,27 +147,45 @@ namespace Do_anLaptrinhWinCK
 
         private void btnDangxuat_Click(object sender, EventArgs e)
         {
+            // Xác nhận đăng xuất
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
+                // Reset thông tin người dùng
                 infor = "Bạn chưa đăng nhập!";
-                UpdateLoginState(); 
-                this.Hide();
-                frmMain mainnew = new frmMain();
-                mainnew.ShowDialog();
+                UpdateLoginState();
+
+                // Hiển thị form đăng nhập trong Panel2 hoặc ẩn giao diện chính
+                PanelMain.Controls.Clear(); // Xóa các control hiện tại trên PanelMain
+
+                // Tạo form đăng nhập
+                frmLogin loginForm = new frmLogin
+                {
+                    TopLevel = false,
+                    FormBorderStyle = FormBorderStyle.None,
+                    Dock = DockStyle.Fill // Hoặc căn giữa như hướng dẫn ở trên
+                };
+
+                // Xử lý sự kiện sau khi đăng nhập lại thành công
+                loginForm.LoginSuccess += LoginForm_LoginSuccess;
+
+                PanelMain.Controls.Add(loginForm); // Hiển thị form đăng nhập
+                loginForm.Show();
             }
         }
 
-
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        // Xử lý sự kiện khi đăng nhập lại thành công
+        private void LoginForm_LoginSuccess(object sender, string username)
         {
-            if (infor != "Bạn chưa đăng nhập!")
-            {
-                e.Cancel = true; // Hủy hành động đóng form
-                this.Hide(); // Ẩn form thay vì đóng
-            }
+            infor = $"Đăng nhập thành công: {username}";
+            UpdateLoginState();
+
+            // Quay lại giao diện chính
+            PanelMain.Controls.Clear();
+            // Thêm các control chính hoặc giao diện tùy chỉnh
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -176,22 +195,11 @@ namespace Do_anLaptrinhWinCK
                 Application.Exit();
             }
         }
-        private void btnDatmay_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            Menu.Visible = true;
-            Menu.BringToFront();
-        }
 
         private void btnDangky_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmDangky frmDangky = new frmDangky();
-            frmDangky.ShowDialog();
+            frmDangky dangky = new frmDangky();
+            ShowFormInPanel(dangky);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -205,30 +213,53 @@ namespace Do_anLaptrinhWinCK
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            using (frmLogin loginForm = new frmLogin())
+            PanelMain.Controls.Clear();
+
+            frmLogin loginForm = new frmLogin
             {
-                loginForm.Owner = this;
-                if (loginForm.ShowDialog() == DialogResult.OK)
-                {
-                    UpdateLoginState();
-                }
-            }
+                TopLevel = false,        
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            int x = (PanelMain.Width - loginForm.Width) / 2;
+            int y = (PanelMain.Height - loginForm.Height) / 2;
+            loginForm.Location = new Point(x, y);
+
+            PanelMain.Controls.Add(loginForm);
+            loginForm.Show();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnTaikhoan_Click(object sender, EventArgs e)
         {
-            Account.Visible = true;
-            Account.BringToFront();
+            User.Visible = true;
+            User.BringToFront();
         }
 
-        private void btnDatmay_Click_1(object sender, EventArgs e)
+        private void ShowFormInPanel(Form childForm)
+        {
+            PanelMain.Controls.Clear();
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(childForm);
+            PanelMain.Tag = childForm;
+            childForm.Show();
+        }
+
+        private void btnDangkythe_Click(object sender, EventArgs e)
+        {
+            frmCard cardForm = new frmCard();
+            ShowFormInPanel(cardForm);
+        }
+        private void btnDatmay_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            ThucDon.Visible = true;
+            ThucDon.BringToFront();
         }
     }
 }

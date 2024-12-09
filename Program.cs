@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Do_anLaptrinhWinCK
@@ -16,7 +14,25 @@ namespace Do_anLaptrinhWinCK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+
+            frmLogin loginForm = new frmLogin();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                if (frmMain.infor.StartsWith("Admin"))
+                {
+                    // Nếu là Admin, mở frmMain
+                    Application.Run(new frmMain());
+                }
+                else if (frmMain.infor.StartsWith("Người dùng"))
+                {
+                    // Nếu là User, mở frmUser
+                    Application.Run(new frmUser());
+                }
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

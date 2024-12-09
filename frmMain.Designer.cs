@@ -56,15 +56,15 @@
             this.Logout = new System.Windows.Forms.ToolStripButton();
             this.Login = new System.Windows.Forms.ToolStripButton();
             this.register = new System.Windows.Forms.ToolStripButton();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelhethong = new System.Windows.Forms.Panel();
             this.btnminisize = new Guna.UI2.WinForms.Guna2Button();
             this.btnfullsize = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.Account = new Do_anLaptrinhWinCK.All_Customer.User();
-            this.Menu = new Do_anLaptrinhWinCK.All_Computer.ThucDon();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.PanelMain = new System.Windows.Forms.Panel();
+            this.User = new Do_anLaptrinhWinCK.All_Customer.User();
+            this.ThucDon = new Do_anLaptrinhWinCK.All_Computer.ThucDon();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.subpanelHethong.SuspendLayout();
@@ -72,9 +72,9 @@
             this.panel1.SuspendLayout();
             this.subpanelChucnang.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panelhethong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.PanelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -312,6 +312,7 @@
             this.btnDangkythe.Text = "Đăng ký thẻ";
             this.btnDangkythe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangkythe.UseVisualStyleBackColor = false;
+            this.btnDangkythe.Click += new System.EventHandler(this.btnDangkythe_Click);
             // 
             // btnDatmay
             // 
@@ -328,7 +329,7 @@
             this.btnDatmay.Text = "Đặt máy ";
             this.btnDatmay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDatmay.UseVisualStyleBackColor = false;
-            this.btnDatmay.Click += new System.EventHandler(this.btnDatmay_Click_1);
+            this.btnDatmay.Click += new System.EventHandler(this.btnDatmay_Click);
             // 
             // btnChucnang
             // 
@@ -424,20 +425,20 @@
             this.register.Text = "register";
             this.register.Click += new System.EventHandler(this.btnDangky_Click);
             // 
-            // panel4
+            // panelhethong
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel4.Controls.Add(this.btnminisize);
-            this.panel4.Controls.Add(this.btnfullsize);
-            this.panel4.Controls.Add(this.toolStrip2);
-            this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Controls.Add(this.btnClose);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(246, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(804, 36);
-            this.panel4.TabIndex = 13;
+            this.panelhethong.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelhethong.Controls.Add(this.btnminisize);
+            this.panelhethong.Controls.Add(this.btnfullsize);
+            this.panelhethong.Controls.Add(this.toolStrip2);
+            this.panelhethong.Controls.Add(this.pictureBox4);
+            this.panelhethong.Controls.Add(this.btnClose);
+            this.panelhethong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelhethong.Location = new System.Drawing.Point(246, 0);
+            this.panelhethong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelhethong.Name = "panelhethong";
+            this.panelhethong.Size = new System.Drawing.Size(804, 36);
+            this.panelhethong.TabIndex = 13;
             // 
             // btnminisize
             // 
@@ -507,40 +508,34 @@
             this.btnClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panel3
+            // PanelMain
             // 
-            this.panel3.Controls.Add(this.Account);
-            this.panel3.Controls.Add(this.Menu);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(246, 36);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(804, 664);
-            this.panel3.TabIndex = 14;
+            this.PanelMain.Controls.Add(this.User);
+            this.PanelMain.Controls.Add(this.ThucDon);
+            this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelMain.Location = new System.Drawing.Point(246, 36);
+            this.PanelMain.Name = "PanelMain";
+            this.PanelMain.Size = new System.Drawing.Size(804, 664);
+            this.PanelMain.TabIndex = 14;
             // 
-            // Account
+            // User
             // 
-            this.Account.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Account.Location = new System.Drawing.Point(0, 0);
-            this.Account.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Account.Name = "Account";
-            this.Account.Size = new System.Drawing.Size(804, 664);
-            this.Account.TabIndex = 1;
+            this.User.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.User.Location = new System.Drawing.Point(0, 0);
+            this.User.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.User.Name = "User";
+            this.User.Size = new System.Drawing.Size(804, 664);
+            this.User.TabIndex = 1;
             // 
-            // Menu
+            // ThucDon
             // 
-            this.Menu.AutoSize = true;
-            this.Menu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Menu.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu.Location = new System.Drawing.Point(0, 0);
-            this.Menu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(804, 664);
-            this.Menu.TabIndex = 0;
-            this.Menu.Load += new System.EventHandler(this.Menu_Load);
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.TargetControl = this.panel3;
+            this.ThucDon.AutoSize = true;
+            this.ThucDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ThucDon.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThucDon.Location = new System.Drawing.Point(0, 0);
+            this.ThucDon.Name = "ThucDon";
+            this.ThucDon.Size = new System.Drawing.Size(804, 664);
+            this.ThucDon.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -548,8 +543,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1050, 700);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.PanelMain);
+            this.Controls.Add(this.panelhethong);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -570,11 +565,11 @@
             this.subpanelChucnang.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelhethong.ResumeLayout(false);
+            this.panelhethong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.PanelMain.ResumeLayout(false);
+            this.PanelMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -591,12 +586,11 @@
         private System.Windows.Forms.ToolStripLabel txtDate;
         private System.Windows.Forms.ToolStripLabel lblInfor;
         private System.Windows.Forms.ToolStripButton Logout;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelhethong;
         private Guna.UI2.WinForms.Guna2Button btnfullsize;
         private System.Windows.Forms.PictureBox pictureBox4;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnminisize;
-        private System.Windows.Forms.Panel panel3;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripButton Login;
@@ -610,10 +604,11 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel subpanelChucnang;
-        private All_Computer.ThucDon Menu;
         private System.Windows.Forms.Button btnDatmay;
         private System.Windows.Forms.ToolStripButton register;
         private System.Windows.Forms.Button btnDangkythe;
-        private All_Customer.User Account;
+        private System.Windows.Forms.Panel PanelMain;
+        public All_Customer.User User;
+        public All_Computer.ThucDon ThucDon;
     }
 }

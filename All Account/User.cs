@@ -153,7 +153,5 @@ namespace Do_anLaptrinhWinCK.All_Customer
         {
 
         }
-
-        
     }
 }

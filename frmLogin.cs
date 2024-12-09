@@ -1,5 +1,4 @@
-﻿using Do_anLaptrinhWinCK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +16,8 @@ namespace Do_anLaptrinhWinCK
 {
     public partial class frmLogin : Form
     {
-        public static string UserInfo { get; private set; } = "Bạn chưa đăng nhập!"; // Thuộc tính lưu thông tin người dùng
+        public event EventHandler<string> LoginSuccess;
+        public static string UserInfo { get; private set; } = "Bạn chưa đăng nhập!";
         public frmLogin()
         {
             InitializeComponent();
@@ -75,10 +75,11 @@ namespace Do_anLaptrinhWinCK
         {
             string _username = txtUsername.Text;
             string _password = txtPassword.Text;
-            if( _username == "" && _password == "")
+
+            if (_username == "" && _password == "")
             {
                 MessageBox.Show("Vui lòng điền thông tin!", "Thông báo", MessageBoxButtons.OK);
-            }    
+            }
             else if (_username == "")
             {
                 MessageBox.Show("Vui lòng nhập tên người dùng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -94,51 +95,36 @@ namespace Do_anLaptrinhWinCK
                 databaseDataContext db = new databaseDataContext();
                 User user = db.Users.SingleOrDefault(p => p.Username == _username);
                 Admin ad = db.Admins.SingleOrDefault(p => p.Username == _username && p.Password == _password);
-                
-                if(ad != null)
+
+                if (ad != null)
                 {
-                    if (ad.Role == false) // Role = 0
-                    {
-                        MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
-                        frmMain.infor = $"Admin: {ad.Username}";
-                    }
-                    else // Role = 1
-                    {
-                        MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
-                        frmMain.infor = $"Nhân viên: {ad.Username}";
-                    }
-                    this.DialogResult = DialogResult.OK;
-                    this.Hide();
-                    frmMain Main = new frmMain();
-                    Main.ShowDialog();
-                }    
+                    // Xử lý đăng nhập với Admin
+                    MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
+                    frmMain.infor = $"Admin: {ad.Username}";
+                    this.DialogResult = DialogResult.OK; 
+                    this.Close();
+                }
                 else if (user != null)
                 {
-                    // Kiểm tra mật khẩu đang lưu trong database
+                    // Kiểm tra mật khẩu cho User
                     MD5 md5 = MD5.Create();
                     byte[] inputBytes = Encoding.ASCII.GetBytes(_password + user.RandomKey);
                     byte[] hashBytes = md5.ComputeHash(inputBytes);
-                    if(user.Password == hashBytes)
-                    { 
+
+                    if (user.Password == hashBytes)
+                    {
                         MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
                         frmMain.infor = $"Người dùng: {user.Username}";
-                        this.Hide();
-                        frmUser Us = new frmUser();
-                        Us.ShowDialog();
-                    }   
+                        this.DialogResult = DialogResult.OK; 
+                        this.Close();
+                    }
                 }
                 else
                 {
                     lblerror.Visible = true;
                     txtPassword.Focus();
-                }    
+                }
             }
-        }
-        private void LinkQuenmk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            frmConfirm frm = new frmConfirm();  
-            frm.ShowDialog();
         }
     }
 }
