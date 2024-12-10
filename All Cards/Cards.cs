@@ -56,20 +56,47 @@ namespace Do_anLaptrinhWinCK.All_Cards
                 {
                     txtUserID.Text = card.UserID.ToString();
                     txtBalance.Text = card.Balance.ToString();
-                    cbStatus.Text = card.Stas.ToString();
                     cbType.Text = card.CardType.ToString();
                 }
             }
         }
 
-        private void btnDk_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnTim_Click(object sender, EventArgs e)
         {
+            int? ID = string.IsNullOrWhiteSpace(txtUserID.Text) ? (int?)null : int.Parse(txtUserID.Text);
+            decimal? sodu = string.IsNullOrWhiteSpace(txtBalance.Text) ? (decimal?)null : decimal.Parse(txtBalance.Text);
+            string Type = string.IsNullOrWhiteSpace(cbType.Text) ? null : cbType.Text;
+            databaseDataContext db = new databaseDataContext();
+            var query = db.Cards.AsQueryable();
 
+            if (ID.HasValue)
+            {
+                query = query.Where(m => m.UserID == ID.Value);
+            }
+            if (sodu.HasValue)
+            {
+                query = query.Where(m => m.Balance == sodu.Value);
+            }
+            if (!string.IsNullOrEmpty(Type))
+            {
+                query = query.Where(m => m.CardType.Contains(Type));
+            }
+            var results = query.ToList();
+            if (results.Count > 0)
+            {
+                dgvCards.DataSource = results.Select(m => new
+                {
+                    m.UserID,
+                    m.CardID,
+                    m.CardType,
+                    m.Balance,
+                    m.Stas
+                }).ToList();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnInds_Click(object sender, EventArgs e)
@@ -79,7 +106,30 @@ namespace Do_anLaptrinhWinCK.All_Cards
 
         private void btnBlock_Click(object sender, EventArgs e)
         {
+            databaseDataContext db = new databaseDataContext();
+            int ID = int.Parse(txtUserID.Text);
+            Card the = db.Cards.SingleOrDefault(c => c.UserID == ID);
+            if (the != null)
+            {
+                the.Stas = "Đã khóa";
+                db.SubmitChanges();
+                loadDuLieu();
+                MessageBox.Show("Khóa thẻ thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
 
+        private void btnMothe_Click(object sender, EventArgs e)
+        {
+            databaseDataContext db = new databaseDataContext();
+            int ID = int.Parse(txtUserID.Text);
+            Card the = db.Cards.SingleOrDefault(c => c.UserID == ID);
+            if (the != null)
+            {
+                the.Stas = "Đang hoạt động";
+                db.SubmitChanges();
+                loadDuLieu();
+                MessageBox.Show("Mở thẻ thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
     }
 }

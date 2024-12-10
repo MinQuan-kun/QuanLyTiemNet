@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnInds = new System.Windows.Forms.Button();
             this.btnBlock = new System.Windows.Forms.Button();
             this.lbtype = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.lbluserID = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblTrangThai = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtBalance = new System.Windows.Forms.TextBox();
             this.lblSodu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbType = new System.Windows.Forms.ComboBox();
@@ -43,103 +40,76 @@
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvCards = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMothe = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnTim);
-            this.panel4.Controls.Add(this.btnInds);
-            this.panel4.Controls.Add(this.btnBlock);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(569, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(235, 93);
-            this.panel4.TabIndex = 27;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(20, 3);
+            this.btnTim.Location = new System.Drawing.Point(96, 6);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 41);
             this.btnTim.TabIndex = 15;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // btnInds
             // 
-            this.btnInds.Location = new System.Drawing.Point(20, 49);
+            this.btnInds.Location = new System.Drawing.Point(96, 53);
             this.btnInds.Name = "btnInds";
             this.btnInds.Size = new System.Drawing.Size(75, 41);
             this.btnInds.TabIndex = 13;
             this.btnInds.Text = "Inds";
             this.btnInds.UseVisualStyleBackColor = true;
+            this.btnInds.Click += new System.EventHandler(this.btnInds_Click);
             // 
             // btnBlock
             // 
-            this.btnBlock.Location = new System.Drawing.Point(113, 3);
+            this.btnBlock.Location = new System.Drawing.Point(15, 53);
             this.btnBlock.Name = "btnBlock";
             this.btnBlock.Size = new System.Drawing.Size(75, 41);
             this.btnBlock.TabIndex = 14;
             this.btnBlock.Text = "Khóa thẻ";
             this.btnBlock.UseVisualStyleBackColor = true;
+            this.btnBlock.Click += new System.EventHandler(this.btnBlock_Click);
             // 
             // lbtype
             // 
             this.lbtype.BackColor = System.Drawing.Color.Transparent;
             this.lbtype.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtype.Location = new System.Drawing.Point(213, 57);
+            this.lbtype.Location = new System.Drawing.Point(229, 13);
             this.lbtype.Name = "lbtype";
             this.lbtype.Size = new System.Drawing.Size(56, 22);
             this.lbtype.TabIndex = 25;
             this.lbtype.Text = "Loại thẻ";
             // 
-            // cbStatus
-            // 
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "Đang hoạt động",
-            "Đã khóa"});
-            this.cbStatus.Location = new System.Drawing.Point(293, 14);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(92, 24);
-            this.cbStatus.TabIndex = 23;
-            // 
             // lbluserID
             // 
             this.lbluserID.BackColor = System.Drawing.Color.Transparent;
             this.lbluserID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbluserID.Location = new System.Drawing.Point(29, 13);
+            this.lbluserID.Location = new System.Drawing.Point(25, 15);
             this.lbluserID.Name = "lbluserID";
             this.lbluserID.Size = new System.Drawing.Size(42, 19);
             this.lbluserID.TabIndex = 22;
             this.lbluserID.Text = "UserID";
             // 
-            // lblTrangThai
-            // 
-            this.lblTrangThai.BackColor = System.Drawing.Color.Transparent;
-            this.lblTrangThai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrangThai.Location = new System.Drawing.Point(213, 13);
-            this.lblTrangThai.Name = "lblTrangThai";
-            this.lblTrangThai.Size = new System.Drawing.Size(70, 22);
-            this.lblTrangThai.TabIndex = 21;
-            this.lblTrangThai.Text = "Trạng thái";
-            // 
             // txtBalance
             // 
             this.txtBalance.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBalance.Location = new System.Drawing.Point(101, 51);
+            this.txtBalance.Location = new System.Drawing.Point(124, 40);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.Size = new System.Drawing.Size(75, 25);
             this.txtBalance.TabIndex = 18;
@@ -148,7 +118,7 @@
             // 
             this.lblSodu.BackColor = System.Drawing.Color.Transparent;
             this.lblSodu.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSodu.Location = new System.Drawing.Point(29, 58);
+            this.lblSodu.Location = new System.Drawing.Point(124, 16);
             this.lblSodu.Name = "lblSodu";
             this.lblSodu.Size = new System.Drawing.Size(38, 19);
             this.lblSodu.TabIndex = 17;
@@ -160,9 +130,9 @@
             this.cbType.Items.AddRange(new object[] {
             "VIP",
             "Thành viên"});
-            this.cbType.Location = new System.Drawing.Point(293, 53);
+            this.cbType.Location = new System.Drawing.Point(229, 40);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(92, 24);
+            this.cbType.Size = new System.Drawing.Size(132, 24);
             this.cbType.TabIndex = 26;
             // 
             // lblDk
@@ -178,7 +148,7 @@
             // txtUserID
             // 
             this.txtUserID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserID.Location = new System.Drawing.Point(101, 13);
+            this.txtUserID.Location = new System.Drawing.Point(25, 40);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(75, 25);
             this.txtUserID.TabIndex = 12;
@@ -212,32 +182,6 @@
             this.dgvCards.Size = new System.Drawing.Size(804, 525);
             this.dgvCards.TabIndex = 8;
             this.dgvCards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCards_CellClick);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.cbType);
-            this.panel2.Controls.Add(this.lbtype);
-            this.panel2.Controls.Add(this.cbStatus);
-            this.panel2.Controls.Add(this.lbluserID);
-            this.panel2.Controls.Add(this.lblTrangThai);
-            this.panel2.Controls.Add(this.txtBalance);
-            this.panel2.Controls.Add(this.lblSodu);
-            this.panel2.Controls.Add(this.txtUserID);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 571);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(804, 93);
-            this.panel2.TabIndex = 16;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblDk);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 46);
-            this.panel1.TabIndex = 15;
             // 
             // UserID
             // 
@@ -286,6 +230,52 @@
             this.Stas.Name = "Stas";
             this.Stas.ReadOnly = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.cbType);
+            this.panel2.Controls.Add(this.lbtype);
+            this.panel2.Controls.Add(this.lbluserID);
+            this.panel2.Controls.Add(this.txtBalance);
+            this.panel2.Controls.Add(this.lblSodu);
+            this.panel2.Controls.Add(this.txtUserID);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 571);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(804, 93);
+            this.panel2.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblDk);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(804, 46);
+            this.panel1.TabIndex = 15;
+            // 
+            // btnMothe
+            // 
+            this.btnMothe.Location = new System.Drawing.Point(15, 6);
+            this.btnMothe.Name = "btnMothe";
+            this.btnMothe.Size = new System.Drawing.Size(75, 41);
+            this.btnMothe.TabIndex = 27;
+            this.btnMothe.Text = "Mở thẻ";
+            this.btnMothe.UseVisualStyleBackColor = true;
+            this.btnMothe.Click += new System.EventHandler(this.btnMothe_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnInds);
+            this.panel4.Controls.Add(this.btnMothe);
+            this.panel4.Controls.Add(this.btnTim);
+            this.panel4.Controls.Add(this.btnBlock);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(583, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(221, 93);
+            this.panel4.TabIndex = 28;
+            // 
             // Cards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -296,27 +286,23 @@
             this.Name = "Cards";
             this.Size = new System.Drawing.Size(804, 664);
             this.Load += new System.EventHandler(this.frmCard_Load);
-            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnInds;
         private System.Windows.Forms.Button btnBlock;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbtype;
-        private System.Windows.Forms.ComboBox cbStatus;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbluserID;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblTrangThai;
         private System.Windows.Forms.TextBox txtBalance;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSodu;
         private System.Windows.Forms.ComboBox cbType;
@@ -331,5 +317,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CardType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stas;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnMothe;
     }
 }
