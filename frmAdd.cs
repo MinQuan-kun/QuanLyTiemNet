@@ -57,6 +57,7 @@ namespace Do_anLaptrinhWinCK
         }
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
+            databaseDataContext db = new databaseDataContext();
 
         }
 
@@ -157,6 +158,5 @@ namespace Do_anLaptrinhWinCK
 
             }
         }
-
     }
 }

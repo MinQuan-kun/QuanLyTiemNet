@@ -33,6 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.dgvNhap = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SumPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelChitiet = new Guna.UI2.WinForms.Guna2Panel();
             this.PanelChucnang = new Guna.UI2.WinForms.Guna2Panel();
             this.btnIn = new Guna.UI2.WinForms.Guna2Button();
@@ -55,11 +60,6 @@
             this.cbName = new System.Windows.Forms.ComboBox();
             this.lblCategory = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblTenmon = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SumPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhap)).BeginInit();
             this.panelChitiet.SuspendLayout();
@@ -138,6 +138,41 @@
             this.dgvNhap.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvNhap.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhap_CellClick);
+            // 
+            // FoodName
+            // 
+            this.FoodName.DataPropertyName = "FoodName";
+            this.FoodName.HeaderText = "Tên món";
+            this.FoodName.MinimumWidth = 6;
+            this.FoodName.Name = "FoodName";
+            // 
+            // SumPrice
+            // 
+            this.SumPrice.DataPropertyName = "SumPrice";
+            this.SumPrice.HeaderText = "Giá nhập";
+            this.SumPrice.MinimumWidth = 6;
+            this.SumPrice.Name = "SumPrice";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Tồn kho";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            // 
+            // Quantum
+            // 
+            this.Quantum.DataPropertyName = "Quantum";
+            this.Quantum.HeaderText = "Số lượng nhập";
+            this.Quantum.MinimumWidth = 6;
+            this.Quantum.Name = "Quantum";
+            // 
+            // CustomerID
+            // 
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "Mã người nhập";
+            this.CustomerID.MinimumWidth = 6;
+            this.CustomerID.Name = "CustomerID";
             // 
             // panelChitiet
             // 
@@ -443,41 +478,6 @@
             this.lblTenmon.Size = new System.Drawing.Size(65, 22);
             this.lblTenmon.TabIndex = 10;
             this.lblTenmon.Text = "Tên món";
-            // 
-            // FoodName
-            // 
-            this.FoodName.DataPropertyName = "FoodName";
-            this.FoodName.HeaderText = "Tên món";
-            this.FoodName.MinimumWidth = 6;
-            this.FoodName.Name = "FoodName";
-            // 
-            // SumPrice
-            // 
-            this.SumPrice.DataPropertyName = "SumPrice";
-            this.SumPrice.HeaderText = "Giá nhập";
-            this.SumPrice.MinimumWidth = 6;
-            this.SumPrice.Name = "SumPrice";
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Tồn kho";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            // 
-            // Quantum
-            // 
-            this.Quantum.DataPropertyName = "Quantum";
-            this.Quantum.HeaderText = "Số lượng nhập";
-            this.Quantum.MinimumWidth = 6;
-            this.Quantum.Name = "Quantum";
-            // 
-            // CustomerID
-            // 
-            this.CustomerID.DataPropertyName = "CustomerID";
-            this.CustomerID.HeaderText = "Mã người nhập";
-            this.CustomerID.MinimumWidth = 6;
-            this.CustomerID.Name = "CustomerID";
             // 
             // frmAdd
             // 

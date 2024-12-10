@@ -175,29 +175,6 @@ BEGIN
 END;
 -- DROP TRIGGER trg_UpdateCardID;
 
---1
--- INSERT INTO Users(FullName, username, Pass,	Point)
--- VALUES
--- (N'LmaoLmaoLmao', N'Nhonnn', '1234567', '0'),
--- (N'Bình 2 hòn', N'binhdz', '1234567', '1000'),
--- (N'Tín succc', N'tingay', '1234567', '1000'),
--- (N'Phương zũ', N'Cuctavang', '1234567', '1000'),
--- (N'Tỷ Phú', N'ITBOY', '1234567', '1000'),
--- (N'Nhờn', N'Lmao', '1234567', '0'),
--- (N'Dương404', N'Duongg', '1234567', '0'),
--- (N'Quản lý', N'Admin', '123','10000')
-
---2
--- INSERT INTO Cards(UserID, CardType, Stas, Balance)
--- VALUES
--- ('2', N'VIP', N'Đang hoạt động', '200.000'),
--- ('1', N'Thành viên', N'Đã khóa', '0'),
--- ('4', N'VIP', N'Đã khóa', '0'),
--- ('3', N'VIP', N'Đang hoạt động', '200.000'),
--- ('6', N'Thành viên', N'Đang hoạt động', '200.000'),
--- ('5', N'VIP',  N'Đã khóa', '0'),
--- ('7', N'Thành viên', N'Đang hoạt động', '200.000');
-
 --Truy xuất tài khoản
 GO
 CREATE PROC GetAccoount

@@ -46,6 +46,7 @@
             this.btnTaikhoan = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.subpanelChucnang = new System.Windows.Forms.Panel();
+            this.btnDangky = new System.Windows.Forms.Button();
             this.btnNhaphang = new System.Windows.Forms.Button();
             this.btnDangkythe = new System.Windows.Forms.Button();
             this.btnDatmay = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.The = new Do_anLaptrinhWinCK.All_Cards.Cards();
             this.Taikhoan = new Do_anLaptrinhWinCK.All_Customer.Taikhoan();
             this.ThucDon = new Do_anLaptrinhWinCK.All_Computer.ThucDon();
-            this.btnDangky = new System.Windows.Forms.Button();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.subpanelHethong.SuspendLayout();
@@ -301,6 +301,23 @@
             this.subpanelChucnang.Name = "subpanelChucnang";
             this.subpanelChucnang.Size = new System.Drawing.Size(225, 182);
             this.subpanelChucnang.TabIndex = 8;
+            // 
+            // btnDangky
+            // 
+            this.btnDangky.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDangky.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDangky.FlatAppearance.BorderSize = 0;
+            this.btnDangky.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangky.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDangky.Location = new System.Drawing.Point(0, 129);
+            this.btnDangky.Name = "btnDangky";
+            this.btnDangky.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnDangky.Size = new System.Drawing.Size(225, 43);
+            this.btnDangky.TabIndex = 14;
+            this.btnDangky.Text = "Đăng ký tài khoản";
+            this.btnDangky.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangky.UseVisualStyleBackColor = false;
+            this.btnDangky.Click += new System.EventHandler(this.btnDangky_Click);
             // 
             // btnNhaphang
             // 
@@ -569,22 +586,6 @@
             this.ThucDon.Name = "ThucDon";
             this.ThucDon.Size = new System.Drawing.Size(804, 664);
             this.ThucDon.TabIndex = 0;
-            // 
-            // btnDangky
-            // 
-            this.btnDangky.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDangky.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDangky.FlatAppearance.BorderSize = 0;
-            this.btnDangky.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangky.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDangky.Location = new System.Drawing.Point(0, 129);
-            this.btnDangky.Name = "btnDangky";
-            this.btnDangky.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDangky.Size = new System.Drawing.Size(225, 43);
-            this.btnDangky.TabIndex = 14;
-            this.btnDangky.Text = "Đăng ký tài khoản";
-            this.btnDangky.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangky.UseVisualStyleBackColor = false;
             // 
             // frmMain
             // 
