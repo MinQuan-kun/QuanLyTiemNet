@@ -51,7 +51,7 @@ CREATE TABLE Menu (
     CategoryID INT,
     FoodName NVARCHAR(100) NOT NULL,
     Price DECIMAL(10, 2) NOT NULL,
-    Quantity INT NOT NULL,
+    Quantity INT NOT NULL DEFAULT 0,
     Image Image,
     Notes TEXT
 );
@@ -86,8 +86,8 @@ CREATE TABLE ImportTable (
     CustomerID INT NOT NULL,
     FoodID INT NOT NULL,
     CategoryID INT NOT NULL,
-    Quantity INT NOT NULL,
-    UnitPrice DECIMAL(10, 2) NOT NULL,
+    Quantum INT NOT NULL DEFAULT 0,
+    SumPrice DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     ImportDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (CustomerID) REFERENCES Admin(ID),
     FOREIGN KEY (FoodID) REFERENCES Menu(FoodID),

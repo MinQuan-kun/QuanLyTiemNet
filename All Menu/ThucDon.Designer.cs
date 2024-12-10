@@ -51,22 +51,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelChucnang = new System.Windows.Forms.Panel();
-            this.txtMaloai = new System.Windows.Forms.TextBox();
-            this.txtTenmon = new System.Windows.Forms.TextBox();
-            this.txtMamon = new System.Windows.Forms.TextBox();
-            this.txtDongia = new System.Windows.Forms.TextBox();
-            this.lblMaloai = new System.Windows.Forms.Label();
-            this.lblTenmon = new System.Windows.Forms.Label();
-            this.lbldongia = new System.Windows.Forms.Label();
-            this.lblSoluong = new System.Windows.Forms.Label();
-            this.txtSoluong = new System.Windows.Forms.TextBox();
-            this.pbFoodImage = new System.Windows.Forms.PictureBox();
-            this.lblanh = new System.Windows.Forms.Label();
             this.btnOK = new Guna.UI2.WinForms.Guna2Button();
+            this.lblanh = new System.Windows.Forms.Label();
+            this.pbFoodImage = new System.Windows.Forms.PictureBox();
+            this.lbldongia = new System.Windows.Forms.Label();
+            this.lblTenmon = new System.Windows.Forms.Label();
+            this.lblMamon = new System.Windows.Forms.Label();
+            this.lblMaloai = new System.Windows.Forms.Label();
+            this.txtDongia = new System.Windows.Forms.TextBox();
+            this.txtMamon = new System.Windows.Forms.TextBox();
+            this.txtTenmon = new System.Windows.Forms.TextBox();
+            this.txtMaloai = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dvgMenu = new System.Windows.Forms.DataGridView();
             this.paneldata = new System.Windows.Forms.Panel();
-            this.lblMamon = new System.Windows.Forms.Label();
             btnKem = new Guna.UI2.WinForms.Guna2Button();
             btnAll = new Guna.UI2.WinForms.Guna2Button();
             btnTim = new Guna.UI2.WinForms.Guna2Button();
@@ -85,6 +83,150 @@
             ((System.ComponentModel.ISupportInitialize)(this.dvgMenu)).BeginInit();
             this.paneldata.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnKem
+            // 
+            btnKem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnKem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnKem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnKem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnKem.Dock = System.Windows.Forms.DockStyle.Left;
+            btnKem.FillColor = System.Drawing.Color.Black;
+            btnKem.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnKem.ForeColor = System.Drawing.Color.White;
+            btnKem.HoverState.BorderColor = System.Drawing.Color.White;
+            btnKem.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            btnKem.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Kawaii_Ice_Cream;
+            btnKem.ImageOffset = new System.Drawing.Point(7, -10);
+            btnKem.Location = new System.Drawing.Point(272, 0);
+            btnKem.Name = "btnKem";
+            btnKem.Size = new System.Drawing.Size(68, 58);
+            btnKem.TabIndex = 19;
+            btnKem.Text = "Kem";
+            btnKem.TextOffset = new System.Drawing.Point(-5, 10);
+            btnKem.Click += new System.EventHandler(this.btnKem_Click);
+            // 
+            // btnAll
+            // 
+            btnAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnAll.Dock = System.Windows.Forms.DockStyle.Left;
+            btnAll.FillColor = System.Drawing.Color.Black;
+            btnAll.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnAll.ForeColor = System.Drawing.Color.White;
+            btnAll.HoverState.BorderColor = System.Drawing.Color.White;
+            btnAll.HoverState.CustomBorderColor = System.Drawing.Color.White;
+            btnAll.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Select_All;
+            btnAll.ImageOffset = new System.Drawing.Point(10, -10);
+            btnAll.Location = new System.Drawing.Point(340, 0);
+            btnAll.Name = "btnAll";
+            btnAll.Size = new System.Drawing.Size(78, 58);
+            btnAll.TabIndex = 24;
+            btnAll.Text = "Tất cả";
+            btnAll.TextOffset = new System.Drawing.Point(-5, 10);
+            btnAll.Click += new System.EventHandler(this.btnAll_Click);
+            // 
+            // btnTim
+            // 
+            btnTim.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnTim.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnTim.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnTim.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnTim.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnTim.FillColor = System.Drawing.Color.Black;
+            btnTim.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnTim.ForeColor = System.Drawing.Color.White;
+            btnTim.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Search;
+            btnTim.ImageOffset = new System.Drawing.Point(7, -10);
+            btnTim.Location = new System.Drawing.Point(0, 0);
+            btnTim.Name = "btnTim";
+            btnTim.Size = new System.Drawing.Size(66, 58);
+            btnTim.TabIndex = 23;
+            btnTim.Text = "Tìm";
+            btnTim.TextOffset = new System.Drawing.Point(-5, 10);
+            btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // btnInDS
+            // 
+            btnInDS.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnInDS.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnInDS.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnInDS.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnInDS.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnInDS.FillColor = System.Drawing.Color.Black;
+            btnInDS.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnInDS.ForeColor = System.Drawing.Color.White;
+            btnInDS.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Print;
+            btnInDS.ImageOffset = new System.Drawing.Point(10, -10);
+            btnInDS.Location = new System.Drawing.Point(0, 0);
+            btnInDS.Name = "btnInDS";
+            btnInDS.Size = new System.Drawing.Size(66, 58);
+            btnInDS.TabIndex = 20;
+            btnInDS.Text = "In ds";
+            btnInDS.TextOffset = new System.Drawing.Point(-5, 10);
+            btnInDS.Click += new System.EventHandler(this.btnInds_Click);
+            // 
+            // btnThem
+            // 
+            btnThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnThem.Dock = System.Windows.Forms.DockStyle.Right;
+            btnThem.FillColor = System.Drawing.Color.Black;
+            btnThem.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnThem.ForeColor = System.Drawing.Color.White;
+            btnThem.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Add;
+            btnThem.ImageOffset = new System.Drawing.Point(10, -10);
+            btnThem.Location = new System.Drawing.Point(134, 0);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new System.Drawing.Size(66, 58);
+            btnThem.TabIndex = 24;
+            btnThem.Text = "Thêm";
+            btnThem.TextOffset = new System.Drawing.Point(-5, 10);
+            btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnSua
+            // 
+            btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnSua.Dock = System.Windows.Forms.DockStyle.Right;
+            btnSua.FillColor = System.Drawing.Color.Black;
+            btnSua.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnSua.ForeColor = System.Drawing.Color.White;
+            btnSua.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Change;
+            btnSua.ImageOffset = new System.Drawing.Point(8, -10);
+            btnSua.Location = new System.Drawing.Point(68, 0);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new System.Drawing.Size(66, 58);
+            btnSua.TabIndex = 25;
+            btnSua.Text = "Sửa";
+            btnSua.TextOffset = new System.Drawing.Point(-5, 10);
+            btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnXoa
+            // 
+            btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            btnXoa.Dock = System.Windows.Forms.DockStyle.Right;
+            btnXoa.FillColor = System.Drawing.Color.Black;
+            btnXoa.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnXoa.ForeColor = System.Drawing.Color.White;
+            btnXoa.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Remove;
+            btnXoa.ImageOffset = new System.Drawing.Point(8, -10);
+            btnXoa.Location = new System.Drawing.Point(2, 0);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new System.Drawing.Size(66, 58);
+            btnXoa.TabIndex = 26;
+            btnXoa.Text = "Xóa";
+            btnXoa.TextOffset = new System.Drawing.Point(-5, 10);
+            btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // Quantity
             // 
@@ -223,50 +365,6 @@
             this.btnNuoc.TextOffset = new System.Drawing.Point(-5, 10);
             this.btnNuoc.Click += new System.EventHandler(this.btnNuoc_Click);
             // 
-            // btnKem
-            // 
-            btnKem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnKem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnKem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnKem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnKem.Dock = System.Windows.Forms.DockStyle.Left;
-            btnKem.FillColor = System.Drawing.Color.Black;
-            btnKem.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnKem.ForeColor = System.Drawing.Color.White;
-            btnKem.HoverState.BorderColor = System.Drawing.Color.White;
-            btnKem.HoverState.CustomBorderColor = System.Drawing.Color.White;
-            btnKem.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Kawaii_Ice_Cream;
-            btnKem.ImageOffset = new System.Drawing.Point(7, -10);
-            btnKem.Location = new System.Drawing.Point(272, 0);
-            btnKem.Name = "btnKem";
-            btnKem.Size = new System.Drawing.Size(68, 58);
-            btnKem.TabIndex = 19;
-            btnKem.Text = "Kem";
-            btnKem.TextOffset = new System.Drawing.Point(-5, 10);
-            btnKem.Click += new System.EventHandler(this.btnKem_Click);
-            // 
-            // btnAll
-            // 
-            btnAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnAll.Dock = System.Windows.Forms.DockStyle.Left;
-            btnAll.FillColor = System.Drawing.Color.Black;
-            btnAll.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnAll.ForeColor = System.Drawing.Color.White;
-            btnAll.HoverState.BorderColor = System.Drawing.Color.White;
-            btnAll.HoverState.CustomBorderColor = System.Drawing.Color.White;
-            btnAll.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Select_All;
-            btnAll.ImageOffset = new System.Drawing.Point(10, -10);
-            btnAll.Location = new System.Drawing.Point(340, 0);
-            btnAll.Name = "btnAll";
-            btnAll.Size = new System.Drawing.Size(78, 58);
-            btnAll.TabIndex = 24;
-            btnAll.Text = "Tất cả";
-            btnAll.TextOffset = new System.Drawing.Point(-5, 10);
-            btnAll.Click += new System.EventHandler(this.btnAll_Click);
-            // 
             // panleNguoidung
             // 
             this.panleNguoidung.Controls.Add(btnTim);
@@ -276,26 +374,6 @@
             this.panleNguoidung.Size = new System.Drawing.Size(66, 58);
             this.panleNguoidung.TabIndex = 25;
             // 
-            // btnTim
-            // 
-            btnTim.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnTim.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnTim.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnTim.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnTim.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnTim.FillColor = System.Drawing.Color.Black;
-            btnTim.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnTim.ForeColor = System.Drawing.Color.White;
-            btnTim.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Search;
-            btnTim.ImageOffset = new System.Drawing.Point(7, -10);
-            btnTim.Location = new System.Drawing.Point(0, 0);
-            btnTim.Name = "btnTim";
-            btnTim.Size = new System.Drawing.Size(66, 58);
-            btnTim.TabIndex = 23;
-            btnTim.Text = "Tìm";
-            btnTim.TextOffset = new System.Drawing.Point(-5, 10);
-            btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
             // PanelNV
             // 
             this.PanelNV.Controls.Add(btnInDS);
@@ -304,26 +382,6 @@
             this.PanelNV.Name = "PanelNV";
             this.PanelNV.Size = new System.Drawing.Size(66, 58);
             this.PanelNV.TabIndex = 26;
-            // 
-            // btnInDS
-            // 
-            btnInDS.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnInDS.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnInDS.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnInDS.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnInDS.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnInDS.FillColor = System.Drawing.Color.Black;
-            btnInDS.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnInDS.ForeColor = System.Drawing.Color.White;
-            btnInDS.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Print;
-            btnInDS.ImageOffset = new System.Drawing.Point(10, -10);
-            btnInDS.Location = new System.Drawing.Point(0, 0);
-            btnInDS.Name = "btnInDS";
-            btnInDS.Size = new System.Drawing.Size(66, 58);
-            btnInDS.TabIndex = 20;
-            btnInDS.Text = "In ds";
-            btnInDS.TextOffset = new System.Drawing.Point(-5, 10);
-            btnInDS.Click += new System.EventHandler(this.btnInds_Click);
             // 
             // PanelAdmin
             // 
@@ -335,66 +393,6 @@
             this.PanelAdmin.Name = "PanelAdmin";
             this.PanelAdmin.Size = new System.Drawing.Size(200, 58);
             this.PanelAdmin.TabIndex = 27;
-            // 
-            // btnThem
-            // 
-            btnThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnThem.Dock = System.Windows.Forms.DockStyle.Right;
-            btnThem.FillColor = System.Drawing.Color.Black;
-            btnThem.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnThem.ForeColor = System.Drawing.Color.White;
-            btnThem.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Add;
-            btnThem.ImageOffset = new System.Drawing.Point(10, -10);
-            btnThem.Location = new System.Drawing.Point(134, 0);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new System.Drawing.Size(66, 58);
-            btnThem.TabIndex = 24;
-            btnThem.Text = "Thêm";
-            btnThem.TextOffset = new System.Drawing.Point(-5, 10);
-            btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnSua
-            // 
-            btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnSua.Dock = System.Windows.Forms.DockStyle.Right;
-            btnSua.FillColor = System.Drawing.Color.Black;
-            btnSua.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnSua.ForeColor = System.Drawing.Color.White;
-            btnSua.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Change;
-            btnSua.ImageOffset = new System.Drawing.Point(8, -10);
-            btnSua.Location = new System.Drawing.Point(68, 0);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new System.Drawing.Size(66, 58);
-            btnSua.TabIndex = 25;
-            btnSua.Text = "Sửa";
-            btnSua.TextOffset = new System.Drawing.Point(-5, 10);
-            btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnXoa
-            // 
-            btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            btnXoa.Dock = System.Windows.Forms.DockStyle.Right;
-            btnXoa.FillColor = System.Drawing.Color.Black;
-            btnXoa.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnXoa.ForeColor = System.Drawing.Color.White;
-            btnXoa.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Remove;
-            btnXoa.ImageOffset = new System.Drawing.Point(8, -10);
-            btnXoa.Location = new System.Drawing.Point(2, 0);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new System.Drawing.Size(66, 58);
-            btnXoa.TabIndex = 26;
-            btnXoa.Text = "Xóa";
-            btnXoa.TextOffset = new System.Drawing.Point(-5, 10);
-            btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // panel1
             // 
@@ -429,8 +427,6 @@
             this.panelChucnang.Controls.Add(this.btnOK);
             this.panelChucnang.Controls.Add(this.lblanh);
             this.panelChucnang.Controls.Add(this.pbFoodImage);
-            this.panelChucnang.Controls.Add(this.txtSoluong);
-            this.panelChucnang.Controls.Add(this.lblSoluong);
             this.panelChucnang.Controls.Add(this.lbldongia);
             this.panelChucnang.Controls.Add(this.lblTenmon);
             this.panelChucnang.Controls.Add(this.lblMamon);
@@ -444,97 +440,6 @@
             this.panelChucnang.Name = "panelChucnang";
             this.panelChucnang.Size = new System.Drawing.Size(313, 226);
             this.panelChucnang.TabIndex = 22;
-            // 
-            // txtMaloai
-            // 
-            this.txtMaloai.Location = new System.Drawing.Point(17, 33);
-            this.txtMaloai.Name = "txtMaloai";
-            this.txtMaloai.Size = new System.Drawing.Size(48, 25);
-            this.txtMaloai.TabIndex = 0;
-            // 
-            // txtTenmon
-            // 
-            this.txtTenmon.Location = new System.Drawing.Point(6, 106);
-            this.txtTenmon.Name = "txtTenmon";
-            this.txtTenmon.Size = new System.Drawing.Size(78, 25);
-            this.txtTenmon.TabIndex = 1;
-            // 
-            // txtMamon
-            // 
-            this.txtMamon.Location = new System.Drawing.Point(95, 33);
-            this.txtMamon.Name = "txtMamon";
-            this.txtMamon.Size = new System.Drawing.Size(48, 25);
-            this.txtMamon.TabIndex = 0;
-            // 
-            // txtDongia
-            // 
-            this.txtDongia.Location = new System.Drawing.Point(168, 33);
-            this.txtDongia.Name = "txtDongia";
-            this.txtDongia.Size = new System.Drawing.Size(48, 25);
-            this.txtDongia.TabIndex = 2;
-            // 
-            // lblMaloai
-            // 
-            this.lblMaloai.AutoSize = true;
-            this.lblMaloai.Location = new System.Drawing.Point(13, 13);
-            this.lblMaloai.Name = "lblMaloai";
-            this.lblMaloai.Size = new System.Drawing.Size(52, 17);
-            this.lblMaloai.TabIndex = 3;
-            this.lblMaloai.Text = "Mã loại";
-            // 
-            // lblTenmon
-            // 
-            this.lblTenmon.AutoSize = true;
-            this.lblTenmon.Location = new System.Drawing.Point(13, 86);
-            this.lblTenmon.Name = "lblTenmon";
-            this.lblTenmon.Size = new System.Drawing.Size(58, 17);
-            this.lblTenmon.TabIndex = 4;
-            this.lblTenmon.Text = "Tên món";
-            // 
-            // lbldongia
-            // 
-            this.lbldongia.AutoSize = true;
-            this.lbldongia.Location = new System.Drawing.Point(163, 13);
-            this.lbldongia.Name = "lbldongia";
-            this.lbldongia.Size = new System.Drawing.Size(54, 17);
-            this.lbldongia.TabIndex = 5;
-            this.lbldongia.Text = "Đơn giá";
-            // 
-            // lblSoluong
-            // 
-            this.lblSoluong.AutoSize = true;
-            this.lblSoluong.Location = new System.Drawing.Point(244, 13);
-            this.lblSoluong.Name = "lblSoluong";
-            this.lblSoluong.Size = new System.Drawing.Size(61, 17);
-            this.lblSoluong.TabIndex = 6;
-            this.lblSoluong.Text = "Số lượng";
-            // 
-            // txtSoluong
-            // 
-            this.txtSoluong.Location = new System.Drawing.Point(247, 33);
-            this.txtSoluong.Name = "txtSoluong";
-            this.txtSoluong.Size = new System.Drawing.Size(48, 25);
-            this.txtSoluong.TabIndex = 7;
-            // 
-            // pbFoodImage
-            // 
-            this.pbFoodImage.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pbFoodImage.Location = new System.Drawing.Point(106, 86);
-            this.pbFoodImage.Name = "pbFoodImage";
-            this.pbFoodImage.Size = new System.Drawing.Size(204, 124);
-            this.pbFoodImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbFoodImage.TabIndex = 9;
-            this.pbFoodImage.TabStop = false;
-            this.pbFoodImage.Click += new System.EventHandler(this.pbFoodImage_Click);
-            // 
-            // lblanh
-            // 
-            this.lblanh.AutoSize = true;
-            this.lblanh.Location = new System.Drawing.Point(188, 66);
-            this.lblanh.Name = "lblanh";
-            this.lblanh.Size = new System.Drawing.Size(29, 17);
-            this.lblanh.TabIndex = 10;
-            this.lblanh.Text = "ảnh";
             // 
             // btnOK
             // 
@@ -553,6 +458,90 @@
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // lblanh
+            // 
+            this.lblanh.AutoSize = true;
+            this.lblanh.Location = new System.Drawing.Point(188, 66);
+            this.lblanh.Name = "lblanh";
+            this.lblanh.Size = new System.Drawing.Size(29, 17);
+            this.lblanh.TabIndex = 10;
+            this.lblanh.Text = "ảnh";
+            // 
+            // pbFoodImage
+            // 
+            this.pbFoodImage.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pbFoodImage.Location = new System.Drawing.Point(106, 86);
+            this.pbFoodImage.Name = "pbFoodImage";
+            this.pbFoodImage.Size = new System.Drawing.Size(204, 124);
+            this.pbFoodImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFoodImage.TabIndex = 9;
+            this.pbFoodImage.TabStop = false;
+            this.pbFoodImage.Click += new System.EventHandler(this.pbFoodImage_Click);
+            // 
+            // lbldongia
+            // 
+            this.lbldongia.AutoSize = true;
+            this.lbldongia.Location = new System.Drawing.Point(163, 13);
+            this.lbldongia.Name = "lbldongia";
+            this.lbldongia.Size = new System.Drawing.Size(54, 17);
+            this.lbldongia.TabIndex = 5;
+            this.lbldongia.Text = "Đơn giá";
+            // 
+            // lblTenmon
+            // 
+            this.lblTenmon.AutoSize = true;
+            this.lblTenmon.Location = new System.Drawing.Point(233, 13);
+            this.lblTenmon.Name = "lblTenmon";
+            this.lblTenmon.Size = new System.Drawing.Size(58, 17);
+            this.lblTenmon.TabIndex = 4;
+            this.lblTenmon.Text = "Tên món";
+            // 
+            // lblMamon
+            // 
+            this.lblMamon.AutoSize = true;
+            this.lblMamon.Location = new System.Drawing.Point(91, 13);
+            this.lblMamon.Name = "lblMamon";
+            this.lblMamon.Size = new System.Drawing.Size(57, 17);
+            this.lblMamon.TabIndex = 3;
+            this.lblMamon.Text = "Mã món";
+            // 
+            // lblMaloai
+            // 
+            this.lblMaloai.AutoSize = true;
+            this.lblMaloai.Location = new System.Drawing.Point(13, 13);
+            this.lblMaloai.Name = "lblMaloai";
+            this.lblMaloai.Size = new System.Drawing.Size(52, 17);
+            this.lblMaloai.TabIndex = 3;
+            this.lblMaloai.Text = "Mã loại";
+            // 
+            // txtDongia
+            // 
+            this.txtDongia.Location = new System.Drawing.Point(168, 33);
+            this.txtDongia.Name = "txtDongia";
+            this.txtDongia.Size = new System.Drawing.Size(48, 25);
+            this.txtDongia.TabIndex = 2;
+            // 
+            // txtMamon
+            // 
+            this.txtMamon.Location = new System.Drawing.Point(95, 33);
+            this.txtMamon.Name = "txtMamon";
+            this.txtMamon.Size = new System.Drawing.Size(48, 25);
+            this.txtMamon.TabIndex = 0;
+            // 
+            // txtTenmon
+            // 
+            this.txtTenmon.Location = new System.Drawing.Point(232, 33);
+            this.txtTenmon.Name = "txtTenmon";
+            this.txtTenmon.Size = new System.Drawing.Size(78, 25);
+            this.txtTenmon.TabIndex = 1;
+            // 
+            // txtMaloai
+            // 
+            this.txtMaloai.Location = new System.Drawing.Point(17, 33);
+            this.txtMaloai.Name = "txtMaloai";
+            this.txtMaloai.Size = new System.Drawing.Size(48, 25);
+            this.txtMaloai.TabIndex = 0;
             // 
             // panel3
             // 
@@ -588,15 +577,6 @@
             this.paneldata.Name = "paneldata";
             this.paneldata.Size = new System.Drawing.Size(313, 506);
             this.paneldata.TabIndex = 21;
-            // 
-            // lblMamon
-            // 
-            this.lblMamon.AutoSize = true;
-            this.lblMamon.Location = new System.Drawing.Point(91, 13);
-            this.lblMamon.Name = "lblMamon";
-            this.lblMamon.Size = new System.Drawing.Size(57, 17);
-            this.lblMamon.TabIndex = 3;
-            this.lblMamon.Text = "Mã món";
             // 
             // ThucDon
             // 
@@ -646,8 +626,6 @@
         private Guna.UI2.WinForms.Guna2Button btnOK;
         private System.Windows.Forms.Label lblanh;
         private System.Windows.Forms.PictureBox pbFoodImage;
-        private System.Windows.Forms.TextBox txtSoluong;
-        private System.Windows.Forms.Label lblSoluong;
         private System.Windows.Forms.Label lbldongia;
         private System.Windows.Forms.Label lblTenmon;
         private System.Windows.Forms.Label lblMamon;

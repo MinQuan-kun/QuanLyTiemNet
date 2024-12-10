@@ -263,7 +263,7 @@ namespace Do_anLaptrinhWinCK
         {
             PanelMain.Controls.Clear();
 
-           frmCard cardForm = new frmCard
+            frmCard cardForm = new frmCard
             {
                 TopLevel = false, 
                 FormBorderStyle = FormBorderStyle.None,
@@ -297,10 +297,17 @@ namespace Do_anLaptrinhWinCK
         private void btnNhaphang_Click(object sender, EventArgs e)
         {
             PanelMain.Controls.Clear();
-            var CardControl = new Cards();
-            CardControl.Dock = DockStyle.Fill;
-            PanelMain.Controls.Add(CardControl);
-            CardControl.BringToFront();
+
+            frmAdd Nhap = new frmAdd
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill,
+            };
+            PanelMain.Controls.Add(Nhap);
+            Nhap.Show();
+            CenterFormInPanel(Nhap);
+
         }
 
         private void btnCard_Click(object sender, EventArgs e)

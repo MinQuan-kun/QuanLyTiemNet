@@ -1893,11 +1893,11 @@ namespace Do_anLaptrinhWinCK
 		
 		private int _CategoryID;
 		
-		private int _Quantity;
-		
-		private decimal _UnitPrice;
-		
 		private System.Nullable<System.DateTime> _ImportDate;
+		
+		private System.Nullable<int> _Quantum;
+		
+		private decimal _SumPrice;
 		
 		private EntityRef<Category> _Category;
 		
@@ -1917,12 +1917,12 @@ namespace Do_anLaptrinhWinCK
     partial void OnFoodIDChanged();
     partial void OnCategoryIDChanging(int value);
     partial void OnCategoryIDChanged();
-    partial void OnQuantityChanging(int value);
-    partial void OnQuantityChanged();
-    partial void OnUnitPriceChanging(decimal value);
-    partial void OnUnitPriceChanged();
     partial void OnImportDateChanging(System.Nullable<System.DateTime> value);
     partial void OnImportDateChanged();
+    partial void OnQuantumChanging(System.Nullable<int> value);
+    partial void OnQuantumChanged();
+    partial void OnSumPriceChanging(decimal value);
+    partial void OnSumPriceChanged();
     #endregion
 		
 		public ImportTable()
@@ -2025,46 +2025,6 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(10,2) NOT NULL")]
-		public decimal UnitPrice
-		{
-			get
-			{
-				return this._UnitPrice;
-			}
-			set
-			{
-				if ((this._UnitPrice != value))
-				{
-					this.OnUnitPriceChanging(value);
-					this.SendPropertyChanging();
-					this._UnitPrice = value;
-					this.SendPropertyChanged("UnitPrice");
-					this.OnUnitPriceChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImportDate", DbType="DateTime")]
 		public System.Nullable<System.DateTime> ImportDate
 		{
@@ -2081,6 +2041,46 @@ namespace Do_anLaptrinhWinCK
 					this._ImportDate = value;
 					this.SendPropertyChanged("ImportDate");
 					this.OnImportDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantum", DbType="Int")]
+		public System.Nullable<int> Quantum
+		{
+			get
+			{
+				return this._Quantum;
+			}
+			set
+			{
+				if ((this._Quantum != value))
+				{
+					this.OnQuantumChanging(value);
+					this.SendPropertyChanging();
+					this._Quantum = value;
+					this.SendPropertyChanged("Quantum");
+					this.OnQuantumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SumPrice", DbType="Decimal(10,2) NOT NULL")]
+		public decimal SumPrice
+		{
+			get
+			{
+				return this._SumPrice;
+			}
+			set
+			{
+				if ((this._SumPrice != value))
+				{
+					this.OnSumPriceChanging(value);
+					this.SendPropertyChanging();
+					this._SumPrice = value;
+					this.SendPropertyChanged("SumPrice");
+					this.OnSumPriceChanged();
 				}
 			}
 		}

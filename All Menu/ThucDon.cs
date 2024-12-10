@@ -87,7 +87,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 txtMaloai.Text = m.CategoryID.ToString();
                 txtDongia.Text = m.Price.ToString();
                 txtTenmon.Text = m.FoodName;
-                txtSoluong.Text = m.Quantity.ToString();
                 txtMamon.Text = m.FoodID.ToString();
                 if (m.Image != null && m.Image.Length > 0)
                 {
@@ -118,12 +117,10 @@ namespace Do_anLaptrinhWinCK.All_Computer
             txtDongia.Enabled = false;
             txtMaloai.Enabled = false;
             txtMamon.Enabled = false;
-            txtSoluong.Enabled = false;
             txtTenmon.Enabled = false;
             pbFoodImage.Enabled = false;
             // reset các dữ liệu đang có trên textbox
             txtMamon.Text = null;
-            txtSoluong.Text = null;
             txtDongia.Text = null;
             txtTenmon.Text = null;
             txtMaloai.Text = null;
@@ -404,7 +401,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
             txtDongia.Enabled = true;
             txtMaloai.Enabled = true;
             txtMamon.Enabled = true;
-            txtSoluong.Enabled = true;
             txtTenmon.Enabled = true;
             pbFoodImage.Enabled = true;
             btnOK.FillColor = System.Drawing.Color.LightGray;
@@ -418,7 +414,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
             txtDongia.Enabled = true;
             txtMaloai.Enabled = true;
             txtMamon.Enabled = true;
-            txtSoluong.Enabled = true;
             txtTenmon.Enabled = true;
             btnOK.FillColor = System.Drawing.Color.Purple;
             tim = true;
@@ -428,7 +423,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
         {
             Default();
             txtDongia.Enabled = true;
-            txtSoluong.Enabled = true;
             txtDongia.Enabled = true;
             txtTenmon.Enabled = true;
             txtMaloai.Enabled = true;
@@ -472,7 +466,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     return;
                 }
                 decimal dongia = decimal.Parse(txtDongia.Text);
-                int soluong = int.Parse(txtSoluong.Text);
                 int maxFoodID = db.Menus.Any() ? db.Menus.Max(m => m.FoodID) : 0;
                 int newFoodID = maxFoodID + 1;
                 Menu newMenu = new Menu
@@ -481,7 +474,7 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     CategoryID = maloai,
                     FoodName = tenmon,
                     Price = dongia,
-                    Quantity = soluong,
+                    Quantity = 0,
                     Image = pbFoodImage.Image != null ? ConvertImageToByteArray(pbFoodImage.Image) : null
                 };
                 db.Menus.InsertOnSubmit(newMenu);
@@ -519,7 +512,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 int? maloai = string.IsNullOrWhiteSpace(txtMaloai.Text) ? (int?)null : int.Parse(txtMaloai.Text);
                 int? mamon = string.IsNullOrWhiteSpace(txtMamon.Text) ? (int?)null : int.Parse(txtMamon.Text);
                 string tenmon = string.IsNullOrWhiteSpace(txtTenmon.Text) ? null : txtTenmon.Text;
-                int? soluong = string.IsNullOrWhiteSpace(txtSoluong.Text) ? (int?)null : int.Parse(txtSoluong.Text);
                 decimal? dongia = string.IsNullOrWhiteSpace(txtDongia.Text) ? (decimal?)null : decimal.Parse(txtDongia.Text);
                 databaseDataContext db = new databaseDataContext();
                 var query = db.Menus.AsQueryable();
@@ -535,10 +527,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 if (!string.IsNullOrEmpty(tenmon))
                 {
                     query = query.Where(m => m.FoodName.Contains(tenmon));
-                }
-                if (soluong.HasValue)
-                {
-                    query = query.Where(m => m.Quantity == soluong.Value);
                 }
                 if (dongia.HasValue)
                 {
@@ -594,13 +582,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     txtDongia.Focus();
                     return;
                 }
-                int soluong;
-                if (!int.TryParse(txtSoluong.Text, out soluong))
-                {
-                    MessageBox.Show("Số lượng không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtSoluong.Focus();
-                    return;
-                }
                 string tenmon = txtTenmon.Text.Trim();
                 if (string.IsNullOrEmpty(tenmon))
                 {
@@ -626,7 +607,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 existingMenu.CategoryID = maloai;
                 existingMenu.FoodName = tenmon;
                 existingMenu.Price = dongia;
-                existingMenu.Quantity = soluong;
                 if (pbFoodImage.Image != null)
                 {
                     existingMenu.Image = ConvertImageToByteArray(pbFoodImage.Image);

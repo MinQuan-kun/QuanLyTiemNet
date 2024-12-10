@@ -46,14 +46,14 @@
             this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMothe = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnMothe = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTim
@@ -90,6 +90,7 @@
             // 
             this.lbtype.BackColor = System.Drawing.Color.Transparent;
             this.lbtype.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtype.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbtype.Location = new System.Drawing.Point(229, 13);
             this.lbtype.Name = "lbtype";
             this.lbtype.Size = new System.Drawing.Size(56, 22);
@@ -100,6 +101,7 @@
             // 
             this.lbluserID.BackColor = System.Drawing.Color.Transparent;
             this.lbluserID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbluserID.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbluserID.Location = new System.Drawing.Point(25, 15);
             this.lbluserID.Name = "lbluserID";
             this.lbluserID.Size = new System.Drawing.Size(42, 19);
@@ -109,6 +111,7 @@
             // txtBalance
             // 
             this.txtBalance.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBalance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtBalance.Location = new System.Drawing.Point(124, 40);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.Size = new System.Drawing.Size(75, 25);
@@ -118,6 +121,7 @@
             // 
             this.lblSodu.BackColor = System.Drawing.Color.Transparent;
             this.lblSodu.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSodu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblSodu.Location = new System.Drawing.Point(124, 16);
             this.lblSodu.Name = "lblSodu";
             this.lblSodu.Size = new System.Drawing.Size(38, 19);
@@ -126,6 +130,7 @@
             // 
             // cbType
             // 
+            this.cbType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbType.FormattingEnabled = true;
             this.cbType.Items.AddRange(new object[] {
             "VIP",
@@ -139,6 +144,7 @@
             // 
             this.lblDk.BackColor = System.Drawing.Color.Transparent;
             this.lblDk.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblDk.Location = new System.Drawing.Point(314, 3);
             this.lblDk.Name = "lblDk";
             this.lblDk.Size = new System.Drawing.Size(154, 33);
@@ -148,6 +154,7 @@
             // txtUserID
             // 
             this.txtUserID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtUserID.Location = new System.Drawing.Point(25, 40);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(75, 25);
@@ -232,6 +239,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.cbType);
             this.panel2.Controls.Add(this.lbtype);
@@ -240,29 +248,11 @@
             this.panel2.Controls.Add(this.lblSodu);
             this.panel2.Controls.Add(this.txtUserID);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Location = new System.Drawing.Point(0, 571);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(804, 93);
             this.panel2.TabIndex = 16;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblDk);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 46);
-            this.panel1.TabIndex = 15;
-            // 
-            // btnMothe
-            // 
-            this.btnMothe.Location = new System.Drawing.Point(15, 6);
-            this.btnMothe.Name = "btnMothe";
-            this.btnMothe.Size = new System.Drawing.Size(75, 41);
-            this.btnMothe.TabIndex = 27;
-            this.btnMothe.Text = "Mở thẻ";
-            this.btnMothe.UseVisualStyleBackColor = true;
-            this.btnMothe.Click += new System.EventHandler(this.btnMothe_Click);
             // 
             // panel4
             // 
@@ -275,6 +265,26 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(221, 93);
             this.panel4.TabIndex = 28;
+            // 
+            // btnMothe
+            // 
+            this.btnMothe.Location = new System.Drawing.Point(15, 6);
+            this.btnMothe.Name = "btnMothe";
+            this.btnMothe.Size = new System.Drawing.Size(75, 41);
+            this.btnMothe.TabIndex = 27;
+            this.btnMothe.Text = "Mở thẻ";
+            this.btnMothe.UseVisualStyleBackColor = true;
+            this.btnMothe.Click += new System.EventHandler(this.btnMothe_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Controls.Add(this.lblDk);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(804, 46);
+            this.panel1.TabIndex = 15;
             // 
             // Cards
             // 
@@ -290,9 +300,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

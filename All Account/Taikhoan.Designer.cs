@@ -132,6 +132,7 @@
             // 
             this.lblHi.BackColor = System.Drawing.Color.Transparent;
             this.lblHi.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblHi.Location = new System.Drawing.Point(314, 3);
             this.lblHi.Name = "lblHi";
             this.lblHi.Size = new System.Drawing.Size(192, 33);
@@ -140,6 +141,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Controls.Add(this.lblHi);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -149,6 +151,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Controls.Add(this.cbReset);
             this.panel2.Controls.Add(this.cbStatus);
             this.panel2.Controls.Add(this.lblResetMk);
@@ -190,6 +193,7 @@
             // 
             this.lblResetMk.BackColor = System.Drawing.Color.Transparent;
             this.lblResetMk.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResetMk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblResetMk.Location = new System.Drawing.Point(227, 53);
             this.lblResetMk.Name = "lblResetMk";
             this.lblResetMk.Size = new System.Drawing.Size(55, 19);
@@ -200,6 +204,7 @@
             // 
             this.lblTrangThai.BackColor = System.Drawing.Color.Transparent;
             this.lblTrangThai.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrangThai.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTrangThai.Location = new System.Drawing.Point(227, 13);
             this.lblTrangThai.Name = "lblTrangThai";
             this.lblTrangThai.Size = new System.Drawing.Size(67, 19);
@@ -218,6 +223,7 @@
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(29, 58);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(44, 19);
@@ -288,6 +294,7 @@
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(29, 13);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(64, 19);

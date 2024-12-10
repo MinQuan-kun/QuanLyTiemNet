@@ -92,9 +92,9 @@
       <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="FoodID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="ImportDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Quantum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SumPrice" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Association Name="Category_ImportTable" Member="Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
       <Association Name="Admin_ImportTable" Member="Admin" ThisKey="CustomerID" OtherKey="ID" Type="Admin" IsForeignKey="true" />
       <Association Name="Menu_ImportTable" Member="Menu" ThisKey="FoodID" OtherKey="FoodID" Type="Menu" IsForeignKey="true" />
