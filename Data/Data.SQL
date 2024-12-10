@@ -122,25 +122,25 @@ VALUES
 INSERT INTO Menu (CategoryID, FoodName, Price, Quantity)
 VALUES 
 (1, N'Cơm gà', 25.000, 50),
-(1, N'Cơm sườn', 25000, 50),
+(1, N'Cơm sườn', 25.000, 50),
 (1, N'Cơm trộn hàn quốc', 25.000, 50),
 (1, N'Cơm chiên trứng ốp la', 25.000, 50),
-(2, N'Sting', 15000, 70),
-(2, N'Pepsi', 15000, 70),
-(2, N'Sprite', 15000, 70),
-(2, N'Coca cola', 15000, 70),
+(2, N'Sting', 15.000, 70),
+(2, N'Pepsi', 15.000, 70),
+(2, N'Sprite', 15.000, 70),
+(2, N'Coca cola', 15.000, 70),
 (3, N'Snack khoai tây', 10.000, 60),
-(3, N'Snack ngô', 10000, 60),
-(3, N'Snack bí đỏ', 10000, 60),
-(3, N'Snack cua', 10000, 60),
-(4, N'Mì tương đen', 25000, 50),
-(4, N'Mì ý', 25000, 50),
-(4, N'Mì ly', 10000, 50),
-(4, N'Mì trộn', 25000, 50),
-(5, N'Kem vani', 20000, 40),
-(5, N'Kem socola', 20000, 40),
-(5, N'Kem matcha', 20000, 40),
-(5, N'Kem dâu', 20000, 40);
+(3, N'Snack ngô', 10.000, 60),
+(3, N'Snack bí đỏ', 10.000, 60),
+(3, N'Snack cua', 10.000, 60),
+(4, N'Mì tương đen', 25.000, 50),
+(4, N'Mì ý', 25.000, 50),
+(4, N'Mì ly', 10.000, 50),
+(4, N'Mì trộn', 25.000, 50),
+(5, N'Kem vani', 20.000, 40),
+(5, N'Kem socola', 20.000, 40),
+(5, N'Kem matcha', 20.000, 40),
+(5, N'Kem dâu', 20.000, 40);
 
 -- Dữ liệu cho bảng Computers
 -- INSERT INTO Computers (ComputerName, Phankhuc, Stas)
@@ -160,6 +160,41 @@ VALUES
 ('Tín', 123, 1),
 ('Quân',123, 1)
 
+-- Dữ liệu cho bảng ImportTable
+INSERT INTO ImportTable (CustomerID, FoodID, CategoryID, Quantum, SumPrice ,ImportDate)
+VALUES
+(1,	5,	2 ,2, 30000.00, '2024-12-10 22:40:34.407'),
+(2,	6,	2, 4, 30000.00, '2020-12-10 20:46:34.300'),
+(2,	7,	2, 6, 30000.00,	'2020-12-10 20:44:34.300'),
+(1, 1, 1, 2, 50.00, '2024-12-10 23:03:13.620'),
+(1, 1, 1, 1, 25.00, '2024-12-10 23:03:19.823'),
+(1, 4, 1, 2, 50.00, '2024-12-10 23:05:04.053'),
+(1, 3, 1, 2, 50.00, '2024-12-10 23:07:37.453'),
+(1, 5, 2, 1, 15.00, '2024-12-10 23:10:57.467'),
+(1, 5, 2, 1, 15.00, '2024-12-10 23:11:07.733'),
+(1, 3, 1, 1, 25.00, '2024-12-10 23:11:20.520'),
+(1, 6, 2, 1, 15.00, '2024-12-10 23:12:07.193'),
+(1, 17, 5, 0, 0.00, '2024-12-10 23:12:17.797'),
+(1, 18, 5, 0, 0.00, '2024-12-10 23:12:17.797'),
+(1, 19, 5, 0, 0.00, '2024-12-10 23:12:17.800'),
+(1, 20, 5, 0, 0.00, '2024-12-10 23:12:17.803'),
+(1, 12, 3, 12, 120.00, '2024-12-10 23:12:36.097')
+
+-- Dữ liệu cho bảng Users
+INSERT INTO Users (Username, Password, RandomKey,  Status, ResetMk )
+VALUES
+(N'Phuongzu', 0xD1890A6CF51695D9A45BA43FDCD10A0D, 1644, 1, 0),
+(N'Kiet', 0x5EB5B769B9DF4A8E3FAEC8E90DEB2205, 9078, 1, 0),
+(N'Minhtin', 0xADCF328C18AC264CFDEF4424F53F0F6A, 7385, 1, 0)
+
+-- Dữ liệu cho bảng Cards
+INSERT INTO Cards (UserID, CardType, Stas,  Balance)
+VALUES
+(1, N'Thành viên' , N'Đang hoạt động', 0.00),
+(2, N'VIP' , N'Đã khóa', 0.00),
+(3, N'Thành viên' , N'Đang hoạt động', 0.00)
+
+
 -- Trigger cập nhật CardID
 GO
 CREATE TRIGGER trg_UpdateCardID
@@ -174,6 +209,19 @@ BEGIN
     INNER JOIN inserted ON Users.UserID = inserted.UserID;
 END;
 -- DROP TRIGGER trg_UpdateCardID;
+
+-- Trigger xóa Card
+GO
+CREATE TRIGGER trg_DeleteUserAndCard
+ON Users
+AFTER DELETE
+AS
+BEGIN
+    -- Xóa thẻ (Card) liên quan đến tài khoản bị xóa
+    DELETE FROM Cards
+    WHERE UserID IN (SELECT UserID FROM deleted);
+END;
+-- DROP TRIGGER trg_DeleteUserAndCard
 
 --Truy xuất tài khoản
 GO
@@ -284,6 +332,27 @@ BEGIN
     WHERE UserID = @UserID;
 END;
 -- DROP TRIGGER trg_UpdatePoints
+
+-- Trigeer cập nhật số lượng tồn kho
+CREATE TRIGGER trg_UpdateMenuQuantity
+ON ImportTable
+AFTER INSERT
+AS
+BEGIN
+    -- Bắt đầu transaction
+    BEGIN TRANSACTION;
+
+    -- Cập nhật số lượng tồn kho trong bảng Menu
+    UPDATE Menu
+    SET Quantity = Quantity + i.Quantum
+    FROM Menu m
+    INNER JOIN Inserted i ON m.FoodID = i.FoodID;
+
+    -- Kết thúc transaction
+    COMMIT TRANSACTION;
+END;
+-- DROP TRIGGER trg_UpdateMenuQuantity
+
 
 DECLARE @ImageData VARBINARY(MAX);
 --Ảnh lấy từ Resources thế vào chỗ C:user

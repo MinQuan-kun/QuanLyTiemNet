@@ -30,21 +30,24 @@ namespace Do_anLaptrinhWinCK
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAdmin(Admin instance);
-    partial void UpdateAdmin(Admin instance);
-    partial void DeleteAdmin(Admin instance);
-    partial void InsertBill(Bill instance);
-    partial void UpdateBill(Bill instance);
-    partial void DeleteBill(Bill instance);
     partial void InsertCard(Card instance);
     partial void UpdateCard(Card instance);
     partial void DeleteCard(Card instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
+    partial void InsertAdmin(Admin instance);
+    partial void UpdateAdmin(Admin instance);
+    partial void DeleteAdmin(Admin instance);
+    partial void InsertBill(Bill instance);
+    partial void UpdateBill(Bill instance);
+    partial void DeleteBill(Bill instance);
     partial void InsertComputer(Computer instance);
     partial void UpdateComputer(Computer instance);
     partial void DeleteComputer(Computer instance);
+    partial void InsertImportTable(ImportTable instance);
+    partial void UpdateImportTable(ImportTable instance);
+    partial void DeleteImportTable(ImportTable instance);
     partial void InsertMenu(Menu instance);
     partial void UpdateMenu(Menu instance);
     partial void DeleteMenu(Menu instance);
@@ -54,9 +57,6 @@ namespace Do_anLaptrinhWinCK
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InsertImportTable(ImportTable instance);
-    partial void UpdateImportTable(ImportTable instance);
-    partial void DeleteImportTable(ImportTable instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -89,22 +89,6 @@ namespace Do_anLaptrinhWinCK
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Admin> Admins
-		{
-			get
-			{
-				return this.GetTable<Admin>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Bill> Bills
-		{
-			get
-			{
-				return this.GetTable<Bill>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Card> Cards
 		{
 			get
@@ -121,11 +105,35 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
+		public System.Data.Linq.Table<Admin> Admins
+		{
+			get
+			{
+				return this.GetTable<Admin>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Bill> Bills
+		{
+			get
+			{
+				return this.GetTable<Bill>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Computer> Computers
 		{
 			get
 			{
 				return this.GetTable<Computer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ImportTable> ImportTables
+		{
+			get
+			{
+				return this.GetTable<ImportTable>();
 			}
 		}
 		
@@ -152,13 +160,333 @@ namespace Do_anLaptrinhWinCK
 				return this.GetTable<User>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cards")]
+	public partial class Card : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<ImportTable> ImportTables
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CardID;
+		
+		private System.Nullable<int> _UserID;
+		
+		private string _CardType;
+		
+		private string _Stas;
+		
+		private System.Nullable<decimal> _Balance;
+		
+		private EntitySet<User> _Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCardIDChanging(int value);
+    partial void OnCardIDChanged();
+    partial void OnUserIDChanging(System.Nullable<int> value);
+    partial void OnUserIDChanged();
+    partial void OnCardTypeChanging(string value);
+    partial void OnCardTypeChanged();
+    partial void OnStasChanging(string value);
+    partial void OnStasChanged();
+    partial void OnBalanceChanging(System.Nullable<decimal> value);
+    partial void OnBalanceChanged();
+    #endregion
+		
+		public Card()
+		{
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CardID
 		{
 			get
 			{
-				return this.GetTable<ImportTable>();
+				return this._CardID;
 			}
+			set
+			{
+				if ((this._CardID != value))
+				{
+					this.OnCardIDChanging(value);
+					this.SendPropertyChanging();
+					this._CardID = value;
+					this.SendPropertyChanged("CardID");
+					this.OnCardIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
+		public System.Nullable<int> UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardType", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string CardType
+		{
+			get
+			{
+				return this._CardType;
+			}
+			set
+			{
+				if ((this._CardType != value))
+				{
+					this.OnCardTypeChanging(value);
+					this.SendPropertyChanging();
+					this._CardType = value;
+					this.SendPropertyChanged("CardType");
+					this.OnCardTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stas", DbType="NVarChar(500)")]
+		public string Stas
+		{
+			get
+			{
+				return this._Stas;
+			}
+			set
+			{
+				if ((this._Stas != value))
+				{
+					this.OnStasChanging(value);
+					this.SendPropertyChanging();
+					this._Stas = value;
+					this.SendPropertyChanged("Stas");
+					this.OnStasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Balance
+		{
+			get
+			{
+				return this._Balance;
+			}
+			set
+			{
+				if ((this._Balance != value))
+				{
+					this.OnBalanceChanging(value);
+					this.SendPropertyChanging();
+					this._Balance = value;
+					this.SendPropertyChanged("Balance");
+					this.OnBalanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Card_User", Storage="_Users", ThisKey="CardID", OtherKey="CardID")]
+		public EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Card = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Card = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Category")]
+	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CategoryID;
+		
+		private string _CategoryName;
+		
+		private EntitySet<ImportTable> _ImportTables;
+		
+		private EntitySet<Menu> _Menus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCategoryIDChanging(int value);
+    partial void OnCategoryIDChanged();
+    partial void OnCategoryNameChanging(string value);
+    partial void OnCategoryNameChanged();
+    #endregion
+		
+		public Category()
+		{
+			this._ImportTables = new EntitySet<ImportTable>(new Action<ImportTable>(this.attach_ImportTables), new Action<ImportTable>(this.detach_ImportTables));
+			this._Menus = new EntitySet<Menu>(new Action<Menu>(this.attach_Menus), new Action<Menu>(this.detach_Menus));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					this.OnCategoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryID = value;
+					this.SendPropertyChanged("CategoryID");
+					this.OnCategoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryName", DbType="NVarChar(500)")]
+		public string CategoryName
+		{
+			get
+			{
+				return this._CategoryName;
+			}
+			set
+			{
+				if ((this._CategoryName != value))
+				{
+					this.OnCategoryNameChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryName = value;
+					this.SendPropertyChanged("CategoryName");
+					this.OnCategoryNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ImportTable", Storage="_ImportTables", ThisKey="CategoryID", OtherKey="CategoryID")]
+		public EntitySet<ImportTable> ImportTables
+		{
+			get
+			{
+				return this._ImportTables;
+			}
+			set
+			{
+				this._ImportTables.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Menu", Storage="_Menus", ThisKey="CategoryID", OtherKey="CategoryID")]
+		public EntitySet<Menu> Menus
+		{
+			get
+			{
+				return this._Menus;
+			}
+			set
+			{
+				this._Menus.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ImportTables(ImportTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = this;
+		}
+		
+		private void detach_ImportTables(ImportTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = null;
+		}
+		
+		private void attach_Menus(Menu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = this;
+		}
+		
+		private void detach_Menus(Menu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = null;
 		}
 	}
 	
@@ -499,334 +827,6 @@ namespace Do_anLaptrinhWinCK
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cards")]
-	public partial class Card : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CardID;
-		
-		private System.Nullable<int> _UserID;
-		
-		private string _CardType;
-		
-		private string _Stas;
-		
-		private System.Nullable<decimal> _Balance;
-		
-		private EntitySet<User> _Users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCardIDChanging(int value);
-    partial void OnCardIDChanged();
-    partial void OnUserIDChanging(System.Nullable<int> value);
-    partial void OnUserIDChanged();
-    partial void OnCardTypeChanging(string value);
-    partial void OnCardTypeChanged();
-    partial void OnStasChanging(string value);
-    partial void OnStasChanged();
-    partial void OnBalanceChanging(System.Nullable<decimal> value);
-    partial void OnBalanceChanged();
-    #endregion
-		
-		public Card()
-		{
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int CardID
-		{
-			get
-			{
-				return this._CardID;
-			}
-			set
-			{
-				if ((this._CardID != value))
-				{
-					this.OnCardIDChanging(value);
-					this.SendPropertyChanging();
-					this._CardID = value;
-					this.SendPropertyChanged("CardID");
-					this.OnCardIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
-		public System.Nullable<int> UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardType", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
-		public string CardType
-		{
-			get
-			{
-				return this._CardType;
-			}
-			set
-			{
-				if ((this._CardType != value))
-				{
-					this.OnCardTypeChanging(value);
-					this.SendPropertyChanging();
-					this._CardType = value;
-					this.SendPropertyChanged("CardType");
-					this.OnCardTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stas", DbType="NVarChar(500)")]
-		public string Stas
-		{
-			get
-			{
-				return this._Stas;
-			}
-			set
-			{
-				if ((this._Stas != value))
-				{
-					this.OnStasChanging(value);
-					this.SendPropertyChanging();
-					this._Stas = value;
-					this.SendPropertyChanged("Stas");
-					this.OnStasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Decimal(10,2)")]
-		public System.Nullable<decimal> Balance
-		{
-			get
-			{
-				return this._Balance;
-			}
-			set
-			{
-				if ((this._Balance != value))
-				{
-					this.OnBalanceChanging(value);
-					this.SendPropertyChanging();
-					this._Balance = value;
-					this.SendPropertyChanged("Balance");
-					this.OnBalanceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Card_User", Storage="_Users", ThisKey="CardID", OtherKey="CardID")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Card = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Card = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Category")]
-	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CategoryID;
-		
-		private string _CategoryName;
-		
-		private EntitySet<Menu> _Menus;
-		
-		private EntitySet<ImportTable> _ImportTables;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCategoryIDChanging(int value);
-    partial void OnCategoryIDChanged();
-    partial void OnCategoryNameChanging(string value);
-    partial void OnCategoryNameChanged();
-    #endregion
-		
-		public Category()
-		{
-			this._Menus = new EntitySet<Menu>(new Action<Menu>(this.attach_Menus), new Action<Menu>(this.detach_Menus));
-			this._ImportTables = new EntitySet<ImportTable>(new Action<ImportTable>(this.attach_ImportTables), new Action<ImportTable>(this.detach_ImportTables));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int CategoryID
-		{
-			get
-			{
-				return this._CategoryID;
-			}
-			set
-			{
-				if ((this._CategoryID != value))
-				{
-					this.OnCategoryIDChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryID = value;
-					this.SendPropertyChanged("CategoryID");
-					this.OnCategoryIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryName", DbType="NVarChar(500)")]
-		public string CategoryName
-		{
-			get
-			{
-				return this._CategoryName;
-			}
-			set
-			{
-				if ((this._CategoryName != value))
-				{
-					this.OnCategoryNameChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryName = value;
-					this.SendPropertyChanged("CategoryName");
-					this.OnCategoryNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Menu", Storage="_Menus", ThisKey="CategoryID", OtherKey="CategoryID")]
-		public EntitySet<Menu> Menus
-		{
-			get
-			{
-				return this._Menus;
-			}
-			set
-			{
-				this._Menus.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ImportTable", Storage="_ImportTables", ThisKey="CategoryID", OtherKey="CategoryID")]
-		public EntitySet<ImportTable> ImportTables
-		{
-			get
-			{
-				return this._ImportTables;
-			}
-			set
-			{
-				this._ImportTables.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Menus(Menu entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = this;
-		}
-		
-		private void detach_Menus(Menu entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = null;
-		}
-		
-		private void attach_ImportTables(ImportTable entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = this;
-		}
-		
-		private void detach_ImportTables(ImportTable entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Computers")]
 	public partial class Computer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -986,6 +986,335 @@ namespace Do_anLaptrinhWinCK
 		{
 			this.SendPropertyChanging();
 			entity.Computer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ImportTable")]
+	public partial class ImportTable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ImportID;
+		
+		private int _CustomerID;
+		
+		private int _FoodID;
+		
+		private int _CategoryID;
+		
+		private int _Quantum;
+		
+		private decimal _SumPrice;
+		
+		private System.Nullable<System.DateTime> _ImportDate;
+		
+		private EntityRef<Category> _Category;
+		
+		private EntityRef<Admin> _Admin;
+		
+		private EntityRef<Menu> _Menu;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnImportIDChanging(int value);
+    partial void OnImportIDChanged();
+    partial void OnCustomerIDChanging(int value);
+    partial void OnCustomerIDChanged();
+    partial void OnFoodIDChanging(int value);
+    partial void OnFoodIDChanged();
+    partial void OnCategoryIDChanging(int value);
+    partial void OnCategoryIDChanged();
+    partial void OnQuantumChanging(int value);
+    partial void OnQuantumChanged();
+    partial void OnSumPriceChanging(decimal value);
+    partial void OnSumPriceChanged();
+    partial void OnImportDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnImportDateChanged();
+    #endregion
+		
+		public ImportTable()
+		{
+			this._Category = default(EntityRef<Category>);
+			this._Admin = default(EntityRef<Admin>);
+			this._Menu = default(EntityRef<Menu>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImportID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ImportID
+		{
+			get
+			{
+				return this._ImportID;
+			}
+			set
+			{
+				if ((this._ImportID != value))
+				{
+					this.OnImportIDChanging(value);
+					this.SendPropertyChanging();
+					this._ImportID = value;
+					this.SendPropertyChanged("ImportID");
+					this.OnImportIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="Int NOT NULL")]
+		public int CustomerID
+		{
+			get
+			{
+				return this._CustomerID;
+			}
+			set
+			{
+				if ((this._CustomerID != value))
+				{
+					if (this._Admin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCustomerIDChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerID = value;
+					this.SendPropertyChanged("CustomerID");
+					this.OnCustomerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FoodID", DbType="Int NOT NULL")]
+		public int FoodID
+		{
+			get
+			{
+				return this._FoodID;
+			}
+			set
+			{
+				if ((this._FoodID != value))
+				{
+					if (this._Menu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFoodIDChanging(value);
+					this.SendPropertyChanging();
+					this._FoodID = value;
+					this.SendPropertyChanged("FoodID");
+					this.OnFoodIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					if (this._Category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCategoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryID = value;
+					this.SendPropertyChanged("CategoryID");
+					this.OnCategoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantum", DbType="Int NOT NULL")]
+		public int Quantum
+		{
+			get
+			{
+				return this._Quantum;
+			}
+			set
+			{
+				if ((this._Quantum != value))
+				{
+					this.OnQuantumChanging(value);
+					this.SendPropertyChanging();
+					this._Quantum = value;
+					this.SendPropertyChanged("Quantum");
+					this.OnQuantumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SumPrice", DbType="Decimal(10,2) NOT NULL")]
+		public decimal SumPrice
+		{
+			get
+			{
+				return this._SumPrice;
+			}
+			set
+			{
+				if ((this._SumPrice != value))
+				{
+					this.OnSumPriceChanging(value);
+					this.SendPropertyChanging();
+					this._SumPrice = value;
+					this.SendPropertyChanged("SumPrice");
+					this.OnSumPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImportDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ImportDate
+		{
+			get
+			{
+				return this._ImportDate;
+			}
+			set
+			{
+				if ((this._ImportDate != value))
+				{
+					this.OnImportDateChanging(value);
+					this.SendPropertyChanging();
+					this._ImportDate = value;
+					this.SendPropertyChanged("ImportDate");
+					this.OnImportDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ImportTable", Storage="_Category", ThisKey="CategoryID", OtherKey="CategoryID", IsForeignKey=true)]
+		public Category Category
+		{
+			get
+			{
+				return this._Category.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category.Entity;
+				if (((previousValue != value) 
+							|| (this._Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category.Entity = null;
+						previousValue.ImportTables.Remove(this);
+					}
+					this._Category.Entity = value;
+					if ((value != null))
+					{
+						value.ImportTables.Add(this);
+						this._CategoryID = value.CategoryID;
+					}
+					else
+					{
+						this._CategoryID = default(int);
+					}
+					this.SendPropertyChanged("Category");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Admin_ImportTable", Storage="_Admin", ThisKey="CustomerID", OtherKey="ID", IsForeignKey=true)]
+		public Admin Admin
+		{
+			get
+			{
+				return this._Admin.Entity;
+			}
+			set
+			{
+				Admin previousValue = this._Admin.Entity;
+				if (((previousValue != value) 
+							|| (this._Admin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Admin.Entity = null;
+						previousValue.ImportTables.Remove(this);
+					}
+					this._Admin.Entity = value;
+					if ((value != null))
+					{
+						value.ImportTables.Add(this);
+						this._CustomerID = value.ID;
+					}
+					else
+					{
+						this._CustomerID = default(int);
+					}
+					this.SendPropertyChanged("Admin");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menu_ImportTable", Storage="_Menu", ThisKey="FoodID", OtherKey="FoodID", IsForeignKey=true)]
+		public Menu Menu
+		{
+			get
+			{
+				return this._Menu.Entity;
+			}
+			set
+			{
+				Menu previousValue = this._Menu.Entity;
+				if (((previousValue != value) 
+							|| (this._Menu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Menu.Entity = null;
+						previousValue.ImportTables.Remove(this);
+					}
+					this._Menu.Entity = value;
+					if ((value != null))
+					{
+						value.ImportTables.Add(this);
+						this._FoodID = value.FoodID;
+					}
+					else
+					{
+						this._FoodID = default(int);
+					}
+					this.SendPropertyChanged("Menu");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -1570,9 +1899,9 @@ namespace Do_anLaptrinhWinCK
 		
 		private System.Nullable<decimal> _Point;
 		
-		private System.Nullable<bool> _Status;
-		
 		private System.Nullable<bool> _ResetMk;
+		
+		private System.Nullable<bool> _Status;
 		
 		private EntitySet<Bill> _Bills;
 		
@@ -1596,10 +1925,10 @@ namespace Do_anLaptrinhWinCK
     partial void OnCardIDChanged();
     partial void OnPointChanging(System.Nullable<decimal> value);
     partial void OnPointChanged();
-    partial void OnStatusChanging(System.Nullable<bool> value);
-    partial void OnStatusChanged();
     partial void OnResetMkChanging(System.Nullable<bool> value);
     partial void OnResetMkChanged();
+    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanged();
     #endregion
 		
 		public User()
@@ -1734,26 +2063,6 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
-		public System.Nullable<bool> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResetMk", DbType="Bit")]
 		public System.Nullable<bool> ResetMk
 		{
@@ -1770,6 +2079,26 @@ namespace Do_anLaptrinhWinCK
 					this._ResetMk = value;
 					this.SendPropertyChanged("ResetMk");
 					this.OnResetMkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
 				}
 			}
 		}
@@ -1876,335 +2205,6 @@ namespace Do_anLaptrinhWinCK
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ImportTable")]
-	public partial class ImportTable : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ImportID;
-		
-		private int _CustomerID;
-		
-		private int _FoodID;
-		
-		private int _CategoryID;
-		
-		private System.Nullable<System.DateTime> _ImportDate;
-		
-		private System.Nullable<int> _Quantum;
-		
-		private decimal _SumPrice;
-		
-		private EntityRef<Category> _Category;
-		
-		private EntityRef<Admin> _Admin;
-		
-		private EntityRef<Menu> _Menu;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnImportIDChanging(int value);
-    partial void OnImportIDChanged();
-    partial void OnCustomerIDChanging(int value);
-    partial void OnCustomerIDChanged();
-    partial void OnFoodIDChanging(int value);
-    partial void OnFoodIDChanged();
-    partial void OnCategoryIDChanging(int value);
-    partial void OnCategoryIDChanged();
-    partial void OnImportDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnImportDateChanged();
-    partial void OnQuantumChanging(System.Nullable<int> value);
-    partial void OnQuantumChanged();
-    partial void OnSumPriceChanging(decimal value);
-    partial void OnSumPriceChanged();
-    #endregion
-		
-		public ImportTable()
-		{
-			this._Category = default(EntityRef<Category>);
-			this._Admin = default(EntityRef<Admin>);
-			this._Menu = default(EntityRef<Menu>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImportID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ImportID
-		{
-			get
-			{
-				return this._ImportID;
-			}
-			set
-			{
-				if ((this._ImportID != value))
-				{
-					this.OnImportIDChanging(value);
-					this.SendPropertyChanging();
-					this._ImportID = value;
-					this.SendPropertyChanged("ImportID");
-					this.OnImportIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="Int NOT NULL")]
-		public int CustomerID
-		{
-			get
-			{
-				return this._CustomerID;
-			}
-			set
-			{
-				if ((this._CustomerID != value))
-				{
-					if (this._Admin.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCustomerIDChanging(value);
-					this.SendPropertyChanging();
-					this._CustomerID = value;
-					this.SendPropertyChanged("CustomerID");
-					this.OnCustomerIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FoodID", DbType="Int NOT NULL")]
-		public int FoodID
-		{
-			get
-			{
-				return this._FoodID;
-			}
-			set
-			{
-				if ((this._FoodID != value))
-				{
-					if (this._Menu.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFoodIDChanging(value);
-					this.SendPropertyChanging();
-					this._FoodID = value;
-					this.SendPropertyChanged("FoodID");
-					this.OnFoodIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
-		public int CategoryID
-		{
-			get
-			{
-				return this._CategoryID;
-			}
-			set
-			{
-				if ((this._CategoryID != value))
-				{
-					if (this._Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryIDChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryID = value;
-					this.SendPropertyChanged("CategoryID");
-					this.OnCategoryIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImportDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ImportDate
-		{
-			get
-			{
-				return this._ImportDate;
-			}
-			set
-			{
-				if ((this._ImportDate != value))
-				{
-					this.OnImportDateChanging(value);
-					this.SendPropertyChanging();
-					this._ImportDate = value;
-					this.SendPropertyChanged("ImportDate");
-					this.OnImportDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantum", DbType="Int")]
-		public System.Nullable<int> Quantum
-		{
-			get
-			{
-				return this._Quantum;
-			}
-			set
-			{
-				if ((this._Quantum != value))
-				{
-					this.OnQuantumChanging(value);
-					this.SendPropertyChanging();
-					this._Quantum = value;
-					this.SendPropertyChanged("Quantum");
-					this.OnQuantumChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SumPrice", DbType="Decimal(10,2) NOT NULL")]
-		public decimal SumPrice
-		{
-			get
-			{
-				return this._SumPrice;
-			}
-			set
-			{
-				if ((this._SumPrice != value))
-				{
-					this.OnSumPriceChanging(value);
-					this.SendPropertyChanging();
-					this._SumPrice = value;
-					this.SendPropertyChanged("SumPrice");
-					this.OnSumPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ImportTable", Storage="_Category", ThisKey="CategoryID", OtherKey="CategoryID", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.ImportTables.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.ImportTables.Add(this);
-						this._CategoryID = value.CategoryID;
-					}
-					else
-					{
-						this._CategoryID = default(int);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Admin_ImportTable", Storage="_Admin", ThisKey="CustomerID", OtherKey="ID", IsForeignKey=true)]
-		public Admin Admin
-		{
-			get
-			{
-				return this._Admin.Entity;
-			}
-			set
-			{
-				Admin previousValue = this._Admin.Entity;
-				if (((previousValue != value) 
-							|| (this._Admin.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Admin.Entity = null;
-						previousValue.ImportTables.Remove(this);
-					}
-					this._Admin.Entity = value;
-					if ((value != null))
-					{
-						value.ImportTables.Add(this);
-						this._CustomerID = value.ID;
-					}
-					else
-					{
-						this._CustomerID = default(int);
-					}
-					this.SendPropertyChanged("Admin");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menu_ImportTable", Storage="_Menu", ThisKey="FoodID", OtherKey="FoodID", IsForeignKey=true)]
-		public Menu Menu
-		{
-			get
-			{
-				return this._Menu.Entity;
-			}
-			set
-			{
-				Menu previousValue = this._Menu.Entity;
-				if (((previousValue != value) 
-							|| (this._Menu.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Menu.Entity = null;
-						previousValue.ImportTables.Remove(this);
-					}
-					this._Menu.Entity = value;
-					if ((value != null))
-					{
-						value.ImportTables.Add(this);
-						this._FoodID = value.FoodID;
-					}
-					else
-					{
-						this._FoodID = default(int);
-					}
-					this.SendPropertyChanged("Menu");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }
