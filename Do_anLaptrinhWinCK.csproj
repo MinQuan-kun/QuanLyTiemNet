@@ -53,11 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="All Account\User.cs">
+    <Compile Include="All Account\Taikhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="All Account\User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
+    <Compile Include="All Account\Taikhoan.Designer.cs">
+      <DependentUpon>Taikhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="All Computer\Computer.cs">
       <SubType>UserControl</SubType>
@@ -121,8 +121,8 @@
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="SendMail.cs" />
-    <EmbeddedResource Include="All Account\User.resx">
-      <DependentUpon>User.cs</DependentUpon>
+    <EmbeddedResource Include="All Account\Taikhoan.resx">
+      <DependentUpon>Taikhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All Computer\Computer.resx">
       <DependentUpon>Computer.cs</DependentUpon>

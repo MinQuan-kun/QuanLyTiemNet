@@ -39,7 +39,6 @@ C:\Users\ASUS\Desktop\QuanLyTiemNet\bin\Debug\Do_anLaptrinhWinCK.exe
 C:\Users\ASUS\Desktop\QuanLyTiemNet\bin\Debug\Do_anLaptrinhWinCK.pdb
 C:\Users\ASUS\Desktop\QuanLyTiemNet\bin\Debug\Guna.UI2.dll
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.csproj.AssemblyReference.cache
-C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.All_Customer.User.resources
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.All_Computer.Computer.resources
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.All_Computer.ThucDon.resources
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.frmConfirm.resources
@@ -52,3 +51,4 @@ C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.csproj.CoreComp
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLap.057D1ED9.Up2Date
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.exe
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.pdb
+C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.All_Customer.Taikhoan.resources

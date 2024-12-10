@@ -1,5 +1,6 @@
 ﻿using Do_anLaptrinhWinCK;
 using Do_anLaptrinhWinCK.All_Computer;
+using Do_anLaptrinhWinCK.All_Customer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,9 +36,9 @@ namespace Do_anLaptrinhWinCK
             timer1.Enabled = true;
             UpdateLoginState();
             ThucDon.Visible = false;
-            User.Visible = false;
+            Taikhoan.Visible = false;
             btnMenu.PerformClick();
-            PanelMain.Resize += PanelMain_Resize;  // Đảm bảo đăng ký sự kiện Resize
+            PanelMain.Resize += PanelMain_Resize;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -164,10 +165,8 @@ namespace Do_anLaptrinhWinCK
                 };
 
                 loginForm.LoginSuccess += LoginForm_LoginSuccess;
-
                 PanelMain.Controls.Add(loginForm);
                 loginForm.Show();
-
                 CenterFormInPanel(loginForm);
             }
         }
@@ -177,12 +176,8 @@ namespace Do_anLaptrinhWinCK
         {
             infor = $"Đăng nhập thành công: {username}";
             UpdateLoginState();
-
-            // Quay lại giao diện chính
             PanelMain.Controls.Clear();
-            // Thêm các control chính hoặc giao diện tùy chỉnh
         }
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -257,27 +252,18 @@ namespace Do_anLaptrinhWinCK
         }
 
 
-        private void btnTaikhoan_Click(object sender, EventArgs e)
-        {
-            User.Visible = true;
-            User.BringToFront();
-        }
-
-        private void ShowFormInPanel(Form childForm)
-        {
-            PanelMain.Controls.Clear();
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            PanelMain.Controls.Add(childForm);
-            PanelMain.Tag = childForm;
-            childForm.Show();
-        }
-
         private void btnDangkythe_Click(object sender, EventArgs e)
         {
-            frmCard cardForm = new frmCard();
-            ShowFormInPanel(cardForm);
+            PanelMain.Controls.Clear();
+            frmCard cardForm = new frmCard
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            PanelMain.Controls.Add(cardForm);
+            cardForm.Show();
+
+            CenterFormInPanel(cardForm);
         }
         private void btnDatmay_Click(object sender, EventArgs e)
         {
@@ -286,8 +272,19 @@ namespace Do_anLaptrinhWinCK
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            ThucDon.Visible = true;
-            ThucDon.BringToFront();
+            PanelMain.Controls.Clear();
+            var menuControl = new ThucDon(); 
+            menuControl.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(menuControl);
+            menuControl.BringToFront();
+        }
+        private void btnTaikhoan_Click(object sender, EventArgs e)
+        {
+            PanelMain.Controls.Clear();
+            var taikhoan = new Taikhoan();
+            taikhoan.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(taikhoan);
+            taikhoan.BringToFront();
         }
     }
 }

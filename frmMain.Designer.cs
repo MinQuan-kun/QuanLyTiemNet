@@ -63,7 +63,7 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelMain = new System.Windows.Forms.Panel();
-            this.User = new Do_anLaptrinhWinCK.All_Customer.User();
+            this.Taikhoan = new Do_anLaptrinhWinCK.All_Customer.Taikhoan();
             this.ThucDon = new Do_anLaptrinhWinCK.All_Computer.ThucDon();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -377,7 +377,7 @@
             this.register});
             this.toolStrip2.Location = new System.Drawing.Point(6, 9);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(350, 31);
+            this.toolStrip2.Size = new System.Drawing.Size(350, 27);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "Bạn chưa đăng nhập";
             // 
@@ -385,14 +385,14 @@
             // 
             this.txtDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(111, 28);
+            this.txtDate.Size = new System.Drawing.Size(111, 24);
             this.txtDate.Text = "toolStripLabel1";
             // 
             // lblInfor
             // 
             this.lblInfor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfor.Name = "lblInfor";
-            this.lblInfor.Size = new System.Drawing.Size(149, 28);
+            this.lblInfor.Size = new System.Drawing.Size(149, 24);
             this.lblInfor.Text = "Bạn chưa đăng nhập!";
             // 
             // Logout
@@ -401,7 +401,7 @@
             this.Logout.Image = ((System.Drawing.Image)(resources.GetObject("Logout.Image")));
             this.Logout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(29, 28);
+            this.Logout.Size = new System.Drawing.Size(29, 24);
             this.Logout.Text = "Đăng xuất";
             this.Logout.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
@@ -411,7 +411,7 @@
             this.Login.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Import;
             this.Login.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(29, 28);
+            this.Login.Size = new System.Drawing.Size(29, 24);
             this.Login.Text = "Login";
             this.Login.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -421,7 +421,7 @@
             this.register.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Add_User_Male;
             this.register.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.register.Name = "register";
-            this.register.Size = new System.Drawing.Size(29, 28);
+            this.register.Size = new System.Drawing.Size(29, 24);
             this.register.Text = "register";
             this.register.Click += new System.EventHandler(this.btnDangky_Click);
             // 
@@ -510,7 +510,7 @@
             // 
             // PanelMain
             // 
-            this.PanelMain.Controls.Add(this.User);
+            this.PanelMain.Controls.Add(this.Taikhoan);
             this.PanelMain.Controls.Add(this.ThucDon);
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(246, 36);
@@ -519,14 +519,14 @@
             this.PanelMain.TabIndex = 14;
             this.PanelMain.Resize += new System.EventHandler(this.PanelMain_Resize);
             // 
-            // User
+            // Taikhoan
             // 
-            this.User.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.User.Location = new System.Drawing.Point(0, 0);
-            this.User.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(804, 664);
-            this.User.TabIndex = 1;
+            this.Taikhoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Taikhoan.Location = new System.Drawing.Point(0, 0);
+            this.Taikhoan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Taikhoan.Name = "Taikhoan";
+            this.Taikhoan.Size = new System.Drawing.Size(804, 664);
+            this.Taikhoan.TabIndex = 1;
             // 
             // ThucDon
             // 
@@ -609,7 +609,7 @@
         private System.Windows.Forms.ToolStripButton register;
         private System.Windows.Forms.Button btnDangkythe;
         private System.Windows.Forms.Panel PanelMain;
-        public All_Customer.User User;
+        public All_Customer.Taikhoan Taikhoan;
         public All_Computer.ThucDon ThucDon;
     }
 }
