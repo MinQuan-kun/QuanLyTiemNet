@@ -80,6 +80,21 @@ CREATE TABLE Status (
     FOREIGN KEY (CurrentUserID) REFERENCES Users(UserID) ON DELETE SET NULL
 );
 
+-- Bảng nhập hàng
+CREATE TABLE ImportTable (
+    ImportID INT PRIMARY KEY IDENTITY(1,1),
+    CustomerID INT NOT NULL,
+    FoodID INT NOT NULL,
+    CategoryID INT NOT NULL,
+    Quantity INT NOT NULL,
+    UnitPrice DECIMAL(10, 2) NOT NULL,
+    ImportDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (CustomerID) REFERENCES Admin(ID),
+    FOREIGN KEY (FoodID) REFERENCES Menu(FoodID),
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+);
+
+
 GO
 -- Xử lý khóa ngoại cho bảng `user`
 ALTER TABLE Users

@@ -54,6 +54,9 @@ namespace Do_anLaptrinhWinCK
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertImportTable(ImportTable instance);
+    partial void UpdateImportTable(ImportTable instance);
+    partial void DeleteImportTable(ImportTable instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -149,6 +152,14 @@ namespace Do_anLaptrinhWinCK
 				return this.GetTable<User>();
 			}
 		}
+		
+		public System.Data.Linq.Table<ImportTable> ImportTables
+		{
+			get
+			{
+				return this.GetTable<ImportTable>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]
@@ -164,6 +175,8 @@ namespace Do_anLaptrinhWinCK
 		private string _Password;
 		
 		private System.Nullable<bool> _Role;
+		
+		private EntitySet<ImportTable> _ImportTables;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -181,6 +194,7 @@ namespace Do_anLaptrinhWinCK
 		
 		public Admin()
 		{
+			this._ImportTables = new EntitySet<ImportTable>(new Action<ImportTable>(this.attach_ImportTables), new Action<ImportTable>(this.detach_ImportTables));
 			OnCreated();
 		}
 		
@@ -264,6 +278,19 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Admin_ImportTable", Storage="_ImportTables", ThisKey="ID", OtherKey="CustomerID")]
+		public EntitySet<ImportTable> ImportTables
+		{
+			get
+			{
+				return this._ImportTables;
+			}
+			set
+			{
+				this._ImportTables.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -282,6 +309,18 @@ namespace Do_anLaptrinhWinCK
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_ImportTables(ImportTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Admin = this;
+		}
+		
+		private void detach_ImportTables(ImportTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Admin = null;
 		}
 	}
 	
@@ -658,6 +697,8 @@ namespace Do_anLaptrinhWinCK
 		
 		private EntitySet<Menu> _Menus;
 		
+		private EntitySet<ImportTable> _ImportTables;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -671,6 +712,7 @@ namespace Do_anLaptrinhWinCK
 		public Category()
 		{
 			this._Menus = new EntitySet<Menu>(new Action<Menu>(this.attach_Menus), new Action<Menu>(this.detach_Menus));
+			this._ImportTables = new EntitySet<ImportTable>(new Action<ImportTable>(this.attach_ImportTables), new Action<ImportTable>(this.detach_ImportTables));
 			OnCreated();
 		}
 		
@@ -727,6 +769,19 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ImportTable", Storage="_ImportTables", ThisKey="CategoryID", OtherKey="CategoryID")]
+		public EntitySet<ImportTable> ImportTables
+		{
+			get
+			{
+				return this._ImportTables;
+			}
+			set
+			{
+				this._ImportTables.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -754,6 +809,18 @@ namespace Do_anLaptrinhWinCK
 		}
 		
 		private void detach_Menus(Menu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = null;
+		}
+		
+		private void attach_ImportTables(ImportTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = this;
+		}
+		
+		private void detach_ImportTables(ImportTable entity)
 		{
 			this.SendPropertyChanging();
 			entity.Category = null;
@@ -942,6 +1009,8 @@ namespace Do_anLaptrinhWinCK
 		
 		private string _Notes;
 		
+		private EntitySet<ImportTable> _ImportTables;
+		
 		private EntityRef<Category> _Category;
 		
     #region Extensibility Method Definitions
@@ -966,6 +1035,7 @@ namespace Do_anLaptrinhWinCK
 		
 		public Menu()
 		{
+			this._ImportTables = new EntitySet<ImportTable>(new Action<ImportTable>(this.attach_ImportTables), new Action<ImportTable>(this.detach_ImportTables));
 			this._Category = default(EntityRef<Category>);
 			OnCreated();
 		}
@@ -1114,6 +1184,19 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menu_ImportTable", Storage="_ImportTables", ThisKey="FoodID", OtherKey="FoodID")]
+		public EntitySet<ImportTable> ImportTables
+		{
+			get
+			{
+				return this._ImportTables;
+			}
+			set
+			{
+				this._ImportTables.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Menu", Storage="_Category", ThisKey="CategoryID", OtherKey="CategoryID", IsForeignKey=true)]
 		public Category Category
 		{
@@ -1166,6 +1249,18 @@ namespace Do_anLaptrinhWinCK
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_ImportTables(ImportTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Menu = this;
+		}
+		
+		private void detach_ImportTables(ImportTable entity)
+		{
+			this.SendPropertyChanging();
+			entity.Menu = null;
 		}
 	}
 	
@@ -1781,6 +1876,335 @@ namespace Do_anLaptrinhWinCK
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ImportTable")]
+	public partial class ImportTable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ImportID;
+		
+		private int _CustomerID;
+		
+		private int _FoodID;
+		
+		private int _CategoryID;
+		
+		private int _Quantity;
+		
+		private decimal _UnitPrice;
+		
+		private System.Nullable<System.DateTime> _ImportDate;
+		
+		private EntityRef<Category> _Category;
+		
+		private EntityRef<Admin> _Admin;
+		
+		private EntityRef<Menu> _Menu;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnImportIDChanging(int value);
+    partial void OnImportIDChanged();
+    partial void OnCustomerIDChanging(int value);
+    partial void OnCustomerIDChanged();
+    partial void OnFoodIDChanging(int value);
+    partial void OnFoodIDChanged();
+    partial void OnCategoryIDChanging(int value);
+    partial void OnCategoryIDChanged();
+    partial void OnQuantityChanging(int value);
+    partial void OnQuantityChanged();
+    partial void OnUnitPriceChanging(decimal value);
+    partial void OnUnitPriceChanged();
+    partial void OnImportDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnImportDateChanged();
+    #endregion
+		
+		public ImportTable()
+		{
+			this._Category = default(EntityRef<Category>);
+			this._Admin = default(EntityRef<Admin>);
+			this._Menu = default(EntityRef<Menu>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImportID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ImportID
+		{
+			get
+			{
+				return this._ImportID;
+			}
+			set
+			{
+				if ((this._ImportID != value))
+				{
+					this.OnImportIDChanging(value);
+					this.SendPropertyChanging();
+					this._ImportID = value;
+					this.SendPropertyChanged("ImportID");
+					this.OnImportIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="Int NOT NULL")]
+		public int CustomerID
+		{
+			get
+			{
+				return this._CustomerID;
+			}
+			set
+			{
+				if ((this._CustomerID != value))
+				{
+					if (this._Admin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCustomerIDChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerID = value;
+					this.SendPropertyChanged("CustomerID");
+					this.OnCustomerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FoodID", DbType="Int NOT NULL")]
+		public int FoodID
+		{
+			get
+			{
+				return this._FoodID;
+			}
+			set
+			{
+				if ((this._FoodID != value))
+				{
+					if (this._Menu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFoodIDChanging(value);
+					this.SendPropertyChanging();
+					this._FoodID = value;
+					this.SendPropertyChanged("FoodID");
+					this.OnFoodIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryID", DbType="Int NOT NULL")]
+		public int CategoryID
+		{
+			get
+			{
+				return this._CategoryID;
+			}
+			set
+			{
+				if ((this._CategoryID != value))
+				{
+					if (this._Category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCategoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryID = value;
+					this.SendPropertyChanged("CategoryID");
+					this.OnCategoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
+		public int Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(10,2) NOT NULL")]
+		public decimal UnitPrice
+		{
+			get
+			{
+				return this._UnitPrice;
+			}
+			set
+			{
+				if ((this._UnitPrice != value))
+				{
+					this.OnUnitPriceChanging(value);
+					this.SendPropertyChanging();
+					this._UnitPrice = value;
+					this.SendPropertyChanged("UnitPrice");
+					this.OnUnitPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImportDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ImportDate
+		{
+			get
+			{
+				return this._ImportDate;
+			}
+			set
+			{
+				if ((this._ImportDate != value))
+				{
+					this.OnImportDateChanging(value);
+					this.SendPropertyChanging();
+					this._ImportDate = value;
+					this.SendPropertyChanged("ImportDate");
+					this.OnImportDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_ImportTable", Storage="_Category", ThisKey="CategoryID", OtherKey="CategoryID", IsForeignKey=true)]
+		public Category Category
+		{
+			get
+			{
+				return this._Category.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category.Entity;
+				if (((previousValue != value) 
+							|| (this._Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category.Entity = null;
+						previousValue.ImportTables.Remove(this);
+					}
+					this._Category.Entity = value;
+					if ((value != null))
+					{
+						value.ImportTables.Add(this);
+						this._CategoryID = value.CategoryID;
+					}
+					else
+					{
+						this._CategoryID = default(int);
+					}
+					this.SendPropertyChanged("Category");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Admin_ImportTable", Storage="_Admin", ThisKey="CustomerID", OtherKey="ID", IsForeignKey=true)]
+		public Admin Admin
+		{
+			get
+			{
+				return this._Admin.Entity;
+			}
+			set
+			{
+				Admin previousValue = this._Admin.Entity;
+				if (((previousValue != value) 
+							|| (this._Admin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Admin.Entity = null;
+						previousValue.ImportTables.Remove(this);
+					}
+					this._Admin.Entity = value;
+					if ((value != null))
+					{
+						value.ImportTables.Add(this);
+						this._CustomerID = value.ID;
+					}
+					else
+					{
+						this._CustomerID = default(int);
+					}
+					this.SendPropertyChanged("Admin");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menu_ImportTable", Storage="_Menu", ThisKey="FoodID", OtherKey="FoodID", IsForeignKey=true)]
+		public Menu Menu
+		{
+			get
+			{
+				return this._Menu.Entity;
+			}
+			set
+			{
+				Menu previousValue = this._Menu.Entity;
+				if (((previousValue != value) 
+							|| (this._Menu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Menu.Entity = null;
+						previousValue.ImportTables.Remove(this);
+					}
+					this._Menu.Entity = value;
+					if ((value != null))
+					{
+						value.ImportTables.Add(this);
+						this._FoodID = value.FoodID;
+					}
+					else
+					{
+						this._FoodID = default(int);
+					}
+					this.SendPropertyChanged("Menu");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
