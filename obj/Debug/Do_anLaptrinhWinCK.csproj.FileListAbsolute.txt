@@ -54,3 +54,4 @@ C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.pdb
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.All_Customer.Taikhoan.resources
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.frmCard.resources
 C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.All_Cards.Cards.resources
+C:\Users\ASUS\Desktop\QuanLyTiemNet\obj\Debug\Do_anLaptrinhWinCK.frmUser.resources

@@ -62,6 +62,7 @@ namespace Do_anLaptrinhWinCK
                 User Us = new User();
                 Us.Username = taikhoan;
                 Us.Password = hashBytes;
+                Us.RandomKey = key;
                 Us.ResetMk = false;
                 Us.Status = true;
                 db.Users.InsertOnSubmit(Us);

@@ -3,60 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmchangepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmchangepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all computer\\computer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all computer\\computer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|c:\\users\\asus\\desktop\\quanlytiemnet\\all cards\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all cards\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all cards\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all cards\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|c:\\users\\asus\\desktop\\quanlytiemnet\\frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|c:\\users\\asus\\desktop\\quanlytiemnet\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|c:\\users\\asus\\desktop\\quanlytiemnet\\frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all menu\\thucdon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmchangepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmchangepass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,24 +46,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "frmLogin.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmLogin.cs",
               "RelativeDocumentMoniker": "frmLogin.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmLogin.cs",
               "RelativeToolTip": "frmLogin.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAUwG4AAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAADwv3oAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T09:57:33.659Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "frmLogin.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmLogin.cs",
               "RelativeDocumentMoniker": "frmLogin.cs",
@@ -91,11 +72,12 @@
               "RelativeToolTip": "frmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T10:10:49.057Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "frmMain.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmMain.cs",
               "RelativeDocumentMoniker": "frmMain.cs",
@@ -103,49 +85,8 @@
               "RelativeToolTip": "frmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T09:51:20.439Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T16:25:19.918Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Cards.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Cards\\Cards.cs",
-              "RelativeDocumentMoniker": "All Cards\\Cards.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Cards\\Cards.cs",
-              "RelativeToolTip": "All Cards\\Cards.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAADwv10AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:49:54.31Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ThucDon.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Menu\\ThucDon.cs",
-              "RelativeDocumentMoniker": "All Menu\\ThucDon.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Menu\\ThucDon.cs",
-              "RelativeToolTip": "All Menu\\ThucDon.cs",
-              "ViewState": "AgIAAB4CAAAAAAAAAAAAADICAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T07:19:56.907Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -169,68 +110,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Cards.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Cards\\Cards.cs",
-              "RelativeDocumentMoniker": "All Cards\\Cards.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Cards\\Cards.cs [Design]",
-              "RelativeToolTip": "All Cards\\Cards.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:48:50.715Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Taikhoan.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Account\\Taikhoan.cs",
-              "RelativeDocumentMoniker": "All Account\\Taikhoan.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Account\\Taikhoan.cs",
-              "RelativeToolTip": "All Account\\Taikhoan.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAArwIEAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T10:59:07.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Computer.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Computer\\Computer.cs",
-              "RelativeDocumentMoniker": "All Computer\\Computer.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Computer\\Computer.cs",
-              "RelativeToolTip": "All Computer\\Computer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T01:45:45.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmMain.cs",
-              "RelativeDocumentMoniker": "frmMain.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmMain.cs",
-              "RelativeToolTip": "frmMain.cs",
-              "ViewState": "AgIAACMBAAAAAAAAAAAYwDIBAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T06:41:22.978Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "frmUser.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmUser.cs",
               "RelativeDocumentMoniker": "frmUser.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmUser.cs [Design]",
               "RelativeToolTip": "frmUser.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T15:55:26.849Z"
+              "WhenOpened": "2024-12-09T15:55:26.849Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
+              "Title": "frmUser.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmUser.cs",
+              "RelativeDocumentMoniker": "frmUser.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmUser.cs",
+              "RelativeToolTip": "frmUser.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAAgwNQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:02:56.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmMain.cs",
+              "RelativeToolTip": "frmMain.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAswGEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:00:04.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ThucDon.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Menu\\ThucDon.cs",
               "RelativeDocumentMoniker": "All Menu\\ThucDon.cs",
@@ -242,25 +160,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Taikhoan.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Account\\Taikhoan.cs",
               "RelativeDocumentMoniker": "All Account\\Taikhoan.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\All Account\\Taikhoan.cs [Design]",
               "RelativeToolTip": "All Account\\Taikhoan.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T10:57:23.291Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-09T10:57:23.291Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "frmChangePass.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmChangePass.cs",
               "RelativeDocumentMoniker": "frmChangePass.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet\\frmChangePass.cs",
               "RelativeToolTip": "frmChangePass.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwCEAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T09:53:56.245Z",
               "EditorCaption": ""

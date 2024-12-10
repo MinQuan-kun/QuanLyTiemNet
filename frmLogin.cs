@@ -17,6 +17,7 @@ namespace Do_anLaptrinhWinCK
     public partial class frmLogin : Form
     {
         public event EventHandler<string> LoginSuccess;
+        public string UserRole { get; private set; }
         public static string UserInfo { get; private set; } = "Bạn chưa đăng nhập!";
         public frmLogin()
         {
@@ -55,6 +56,7 @@ namespace Do_anLaptrinhWinCK
                 isMouseDown = true;
             }
         }
+
         private void frmLogin_MouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseDown)
@@ -98,13 +100,23 @@ namespace Do_anLaptrinhWinCK
 
                 if (ad != null)
                 {
-                    // Xử lý đăng nhập với Admin
-                    MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
-                    frmMain.infor = $"Admin: {ad.Username}";
+                    // Xử lý đăng nhập với Adminư
+                    if(ad.Role == false)
+                    {
+                        MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
+                        frmMain.infor = $"Admin: {ad.Username}";
+                        UserRole = "Admin";
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xin chào {ad.Username}!", "Thông báo", MessageBoxButtons.OK);
+                        frmMain.infor = $"Nhân viên: {ad.Username}";
+                        UserRole = "Nhân viên";
+                    }    
                     this.DialogResult = DialogResult.OK; 
                     this.Close();
                 }
-                else if (user != null)
+                if (user != null)
                 {
                     // Kiểm tra mật khẩu cho User
                     MD5 md5 = MD5.Create();
@@ -114,7 +126,8 @@ namespace Do_anLaptrinhWinCK
                     if (user.Password == hashBytes)
                     {
                         MessageBox.Show($"Xin chào {user.Username}!", "Thông báo", MessageBoxButtons.OK);
-                        frmMain.infor = $"Người dùng: {user.Username}";
+                        frmUser.infor = $"Người dùng: {user.Username}";
+                        UserRole = "Người dùng";
                         this.DialogResult = DialogResult.OK; 
                         this.Close();
                     }

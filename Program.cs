@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Do_anLaptrinhWinCK
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -18,14 +14,14 @@ namespace Do_anLaptrinhWinCK
             frmLogin loginForm = new frmLogin();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                if (frmMain.infor.StartsWith("Admin"))
+                string userRole = loginForm.UserRole;
+
+                if (userRole == "Admin" || userRole == "Nhân viên")
                 {
-                    // Nếu là Admin, mở frmMain
                     Application.Run(new frmMain());
                 }
-                else if (frmMain.infor.StartsWith("Người dùng"))
+                else if (userRole == "Người dùng")
                 {
-                    // Nếu là User, mở frmUser
                     Application.Run(new frmUser());
                 }
             }

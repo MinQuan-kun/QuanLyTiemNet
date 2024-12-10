@@ -104,7 +104,7 @@ namespace Do_anLaptrinhWinCK
             Logout.Enabled = isLoggedIn;
             btnDangNhap.Enabled = !isLoggedIn;
             Login.Enabled = !isLoggedIn;
-            register.Enabled = !isLoggedIn;
+            register.Enabled = isLoggedIn;
 
             if (isLoggedIn)
             {
@@ -296,7 +296,11 @@ namespace Do_anLaptrinhWinCK
 
         private void btnNhaphang_Click(object sender, EventArgs e)
         {
-
+            PanelMain.Controls.Clear();
+            var CardControl = new Cards();
+            CardControl.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(CardControl);
+            CardControl.BringToFront();
         }
 
         private void btnCard_Click(object sender, EventArgs e)

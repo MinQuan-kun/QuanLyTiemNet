@@ -142,7 +142,8 @@ VALUES
 INSERT INTO Admin (Username, Password, Role)
 VALUES
 ('Admin', 123, 0),
-('NhanVien', 123, 1)
+('Tín', 123, 1),
+('Quân',123, 1)
 
 -- Trigger cập nhật CardID
 GO
