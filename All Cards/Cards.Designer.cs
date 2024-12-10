@@ -31,7 +31,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnInds = new System.Windows.Forms.Button();
-            this.btnDk = new System.Windows.Forms.Button();
             this.btnBlock = new System.Windows.Forms.Button();
             this.lbtype = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -39,18 +38,18 @@
             this.lblTrangThai = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtBalance = new System.Windows.Forms.TextBox();
             this.lblSodu = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.Stats = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDk = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvCards = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).BeginInit();
@@ -62,17 +61,16 @@
             // 
             this.panel4.Controls.Add(this.btnTim);
             this.panel4.Controls.Add(this.btnInds);
-            this.panel4.Controls.Add(this.btnDk);
             this.panel4.Controls.Add(this.btnBlock);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(588, 0);
+            this.panel4.Location = new System.Drawing.Point(569, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(216, 93);
+            this.panel4.Size = new System.Drawing.Size(235, 93);
             this.panel4.TabIndex = 27;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(113, 6);
+            this.btnTim.Location = new System.Drawing.Point(20, 3);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 41);
             this.btnTim.TabIndex = 15;
@@ -81,25 +79,16 @@
             // 
             // btnInds
             // 
-            this.btnInds.Location = new System.Drawing.Point(113, 52);
+            this.btnInds.Location = new System.Drawing.Point(20, 49);
             this.btnInds.Name = "btnInds";
             this.btnInds.Size = new System.Drawing.Size(75, 41);
             this.btnInds.TabIndex = 13;
             this.btnInds.Text = "Inds";
             this.btnInds.UseVisualStyleBackColor = true;
             // 
-            // btnDk
-            // 
-            this.btnDk.Location = new System.Drawing.Point(18, 6);
-            this.btnDk.Name = "btnDk";
-            this.btnDk.Size = new System.Drawing.Size(75, 41);
-            this.btnDk.TabIndex = 16;
-            this.btnDk.Text = "Đăng ký";
-            this.btnDk.UseVisualStyleBackColor = true;
-            // 
             // btnBlock
             // 
-            this.btnBlock.Location = new System.Drawing.Point(18, 53);
+            this.btnBlock.Location = new System.Drawing.Point(113, 3);
             this.btnBlock.Name = "btnBlock";
             this.btnBlock.Size = new System.Drawing.Size(75, 41);
             this.btnBlock.TabIndex = 14;
@@ -109,10 +98,10 @@
             // lbtype
             // 
             this.lbtype.BackColor = System.Drawing.Color.Transparent;
-            this.lbtype.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtype.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtype.Location = new System.Drawing.Point(213, 57);
             this.lbtype.Name = "lbtype";
-            this.lbtype.Size = new System.Drawing.Size(49, 19);
+            this.lbtype.Size = new System.Drawing.Size(56, 22);
             this.lbtype.TabIndex = 25;
             this.lbtype.Text = "Loại thẻ";
             // 
@@ -121,11 +110,10 @@
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Đang hoạt động",
-            "Đã khóa",
-            "None"});
-            this.cbStatus.Location = new System.Drawing.Point(310, 14);
+            "Đã khóa"});
+            this.cbStatus.Location = new System.Drawing.Point(293, 14);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(75, 24);
+            this.cbStatus.Size = new System.Drawing.Size(92, 24);
             this.cbStatus.TabIndex = 23;
             // 
             // lbluserID
@@ -141,10 +129,10 @@
             // lblTrangThai
             // 
             this.lblTrangThai.BackColor = System.Drawing.Color.Transparent;
-            this.lblTrangThai.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrangThai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTrangThai.Location = new System.Drawing.Point(213, 13);
             this.lblTrangThai.Name = "lblTrangThai";
-            this.lblTrangThai.Size = new System.Drawing.Size(62, 19);
+            this.lblTrangThai.Size = new System.Drawing.Size(70, 22);
             this.lblTrangThai.TabIndex = 21;
             this.lblTrangThai.Text = "Trạng thái";
             // 
@@ -166,64 +154,16 @@
             this.lblSodu.TabIndex = 17;
             this.lblSodu.Text = "Số dư";
             // 
-            // Stats
-            // 
-            this.Stats.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Stats.DataPropertyName = "Stats";
-            this.Stats.HeaderText = "Trạng thái";
-            this.Stats.MinimumWidth = 6;
-            this.Stats.Name = "Stats";
-            this.Stats.ReadOnly = true;
-            // 
-            // Balance
-            // 
-            this.Balance.DataPropertyName = "Balance";
-            this.Balance.HeaderText = "Số dư";
-            this.Balance.MinimumWidth = 6;
-            this.Balance.Name = "Balance";
-            this.Balance.ReadOnly = true;
-            this.Balance.Width = 125;
-            // 
-            // CardType
-            // 
-            this.CardType.DataPropertyName = "CardType";
-            this.CardType.HeaderText = "Loại thẻ";
-            this.CardType.MinimumWidth = 6;
-            this.CardType.Name = "CardType";
-            this.CardType.ReadOnly = true;
-            this.CardType.Width = 125;
-            // 
-            // CardID
-            // 
-            this.CardID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CardID.DataPropertyName = "CardID";
-            this.CardID.HeaderText = "CardID";
-            this.CardID.MinimumWidth = 6;
-            this.CardID.Name = "CardID";
-            this.CardID.ReadOnly = true;
-            this.CardID.Width = 70;
-            // 
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
             this.cbType.Items.AddRange(new object[] {
             "VIP",
-            "Thành viên",
-            "None"});
-            this.cbType.Location = new System.Drawing.Point(310, 53);
+            "Thành viên"});
+            this.cbType.Location = new System.Drawing.Point(293, 53);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(75, 24);
+            this.cbType.Size = new System.Drawing.Size(92, 24);
             this.cbType.TabIndex = 26;
-            // 
-            // UserID
-            // 
-            this.UserID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.UserID.DataPropertyName = "UserID";
-            this.UserID.HeaderText = "UserID";
-            this.UserID.MinimumWidth = 6;
-            this.UserID.Name = "UserID";
-            this.UserID.ReadOnly = true;
-            this.UserID.Width = 60;
             // 
             // lblDk
             // 
@@ -231,9 +171,9 @@
             this.lblDk.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDk.Location = new System.Drawing.Point(314, 3);
             this.lblDk.Name = "lblDk";
-            this.lblDk.Size = new System.Drawing.Size(132, 33);
+            this.lblDk.Size = new System.Drawing.Size(154, 33);
             this.lblDk.TabIndex = 7;
-            this.lblDk.Text = "Đăng ký thẻ";
+            this.lblDk.Text = "Danh sách thẻ";
             // 
             // txtUserID
             // 
@@ -262,7 +202,7 @@
             this.CardID,
             this.CardType,
             this.Balance,
-            this.Stats});
+            this.Stas});
             this.dgvCards.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCards.Location = new System.Drawing.Point(0, 0);
             this.dgvCards.Name = "dgvCards";
@@ -271,6 +211,7 @@
             this.dgvCards.RowTemplate.Height = 24;
             this.dgvCards.Size = new System.Drawing.Size(804, 525);
             this.dgvCards.TabIndex = 8;
+            this.dgvCards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCards_CellClick);
             // 
             // panel2
             // 
@@ -298,6 +239,53 @@
             this.panel1.Size = new System.Drawing.Size(804, 46);
             this.panel1.TabIndex = 15;
             // 
+            // UserID
+            // 
+            this.UserID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "UserID";
+            this.UserID.MinimumWidth = 6;
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Width = 60;
+            // 
+            // CardID
+            // 
+            this.CardID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CardID.DataPropertyName = "CardID";
+            this.CardID.HeaderText = "CardID";
+            this.CardID.MinimumWidth = 6;
+            this.CardID.Name = "CardID";
+            this.CardID.ReadOnly = true;
+            this.CardID.Width = 70;
+            // 
+            // CardType
+            // 
+            this.CardType.DataPropertyName = "CardType";
+            this.CardType.HeaderText = "Loại thẻ";
+            this.CardType.MinimumWidth = 6;
+            this.CardType.Name = "CardType";
+            this.CardType.ReadOnly = true;
+            this.CardType.Width = 125;
+            // 
+            // Balance
+            // 
+            this.Balance.DataPropertyName = "Balance";
+            this.Balance.HeaderText = "Số dư";
+            this.Balance.MinimumWidth = 6;
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            this.Balance.Width = 125;
+            // 
+            // Stas
+            // 
+            this.Stas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Stas.DataPropertyName = "Stas";
+            this.Stas.HeaderText = "Trạng thái";
+            this.Stas.MinimumWidth = 6;
+            this.Stas.Name = "Stas";
+            this.Stas.ReadOnly = true;
+            // 
             // Cards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -307,6 +295,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Cards";
             this.Size = new System.Drawing.Size(804, 664);
+            this.Load += new System.EventHandler(this.frmCard_Load);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).EndInit();
@@ -323,7 +312,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnInds;
-        private System.Windows.Forms.Button btnDk;
         private System.Windows.Forms.Button btnBlock;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbtype;
         private System.Windows.Forms.ComboBox cbStatus;
@@ -331,17 +319,17 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTrangThai;
         private System.Windows.Forms.TextBox txtBalance;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSodu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stats;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CardType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CardID;
         private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblDk;
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.DataGridView dgvCards;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stas;
     }
 }

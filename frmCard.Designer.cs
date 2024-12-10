@@ -86,7 +86,7 @@
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
             this.txtID.SelectedText = "";
-            this.txtID.Size = new System.Drawing.Size(135, 27);
+            this.txtID.Size = new System.Drawing.Size(102, 25);
             this.txtID.TabIndex = 6;
             // 
             // btnDangky
@@ -98,9 +98,9 @@
             this.btnDangky.FillColor = System.Drawing.Color.DimGray;
             this.btnDangky.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnDangky.ForeColor = System.Drawing.Color.White;
-            this.btnDangky.Location = new System.Drawing.Point(374, 302);
+            this.btnDangky.Location = new System.Drawing.Point(374, 299);
             this.btnDangky.Name = "btnDangky";
-            this.btnDangky.Size = new System.Drawing.Size(122, 31);
+            this.btnDangky.Size = new System.Drawing.Size(102, 31);
             this.btnDangky.TabIndex = 7;
             this.btnDangky.Text = "Đăng ký";
             this.btnDangky.Click += new System.EventHandler(this.btnDangky_Click);
@@ -120,7 +120,7 @@
             "VIP"});
             this.cbType.Location = new System.Drawing.Point(394, 229);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(135, 36);
+            this.cbType.Size = new System.Drawing.Size(102, 36);
             this.cbType.TabIndex = 8;
             // 
             // frmCard

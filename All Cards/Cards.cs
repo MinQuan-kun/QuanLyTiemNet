@@ -25,12 +25,15 @@ namespace Do_anLaptrinhWinCK.All_Cards
         {
             using (databaseDataContext db = new databaseDataContext())
             {
-                dgvCards.DataSource = db.Users
+                dgvCards.DataSource = db.Cards
                     .OrderBy(m => m.UserID)
                     .Select(m => new
                     {
                         m.UserID,
                         m.CardID,
+                        m.CardType,
+                        m.Balance,
+                        m.Stas
                     }).ToList();
             }
         }
@@ -47,11 +50,14 @@ namespace Do_anLaptrinhWinCK.All_Cards
             using (databaseDataContext db = new databaseDataContext())
             {
                 int userID = int.Parse(dgvCards.Rows[idrow].Cells[0].Value.ToString());
-                var user = db.Users.SingleOrDefault(p => p.UserID == userID);
+                var card = db.Cards.SingleOrDefault(p => p.UserID == userID);
 
-                if (user != null)
+                if (card != null)
                 {
-                    txtUserID.Text = user.UserID.ToString();
+                    txtUserID.Text = card.UserID.ToString();
+                    txtBalance.Text = card.Balance.ToString();
+                    cbStatus.Text = card.Stas.ToString();
+                    cbType.Text = card.CardType.ToString();
                 }
             }
         }

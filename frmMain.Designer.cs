@@ -65,6 +65,9 @@
             this.PanelMain = new System.Windows.Forms.Panel();
             this.Taikhoan = new Do_anLaptrinhWinCK.All_Customer.Taikhoan();
             this.ThucDon = new Do_anLaptrinhWinCK.All_Computer.ThucDon();
+            this.btnNhaphang = new System.Windows.Forms.Button();
+            this.btnCard = new System.Windows.Forms.Button();
+            this.The = new Do_anLaptrinhWinCK.All_Cards.Cards();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.subpanelHethong.SuspendLayout();
@@ -90,7 +93,7 @@
             this.btnHethong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnHethong.Location = new System.Drawing.Point(0, 100);
             this.btnHethong.Name = "btnHethong";
-            this.btnHethong.Size = new System.Drawing.Size(246, 52);
+            this.btnHethong.Size = new System.Drawing.Size(225, 52);
             this.btnHethong.TabIndex = 1;
             this.btnHethong.Text = "Hệ thống";
             this.btnHethong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -104,7 +107,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(246, 100);
+            this.panelLogo.Size = new System.Drawing.Size(225, 100);
             this.panelLogo.TabIndex = 0;
             // 
             // label2
@@ -124,7 +127,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(225, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -138,7 +141,7 @@
             this.subpanelHethong.Dock = System.Windows.Forms.DockStyle.Top;
             this.subpanelHethong.Location = new System.Drawing.Point(0, 152);
             this.subpanelHethong.Name = "subpanelHethong";
-            this.subpanelHethong.Size = new System.Drawing.Size(246, 162);
+            this.subpanelHethong.Size = new System.Drawing.Size(225, 162);
             this.subpanelHethong.TabIndex = 2;
             // 
             // btnThoat
@@ -151,7 +154,7 @@
             this.btnThoat.Location = new System.Drawing.Point(0, 123);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnThoat.Size = new System.Drawing.Size(246, 39);
+            this.btnThoat.Size = new System.Drawing.Size(225, 39);
             this.btnThoat.TabIndex = 10;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -168,7 +171,7 @@
             this.btnDangxuat.Location = new System.Drawing.Point(0, 86);
             this.btnDangxuat.Name = "btnDangxuat";
             this.btnDangxuat.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDangxuat.Size = new System.Drawing.Size(246, 37);
+            this.btnDangxuat.Size = new System.Drawing.Size(225, 37);
             this.btnDangxuat.TabIndex = 8;
             this.btnDangxuat.Text = "Đăng xuất";
             this.btnDangxuat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -185,7 +188,7 @@
             this.btnDangNhap.Location = new System.Drawing.Point(0, 43);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDangNhap.Size = new System.Drawing.Size(246, 43);
+            this.btnDangNhap.Size = new System.Drawing.Size(225, 43);
             this.btnDangNhap.TabIndex = 7;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -202,7 +205,7 @@
             this.btnDangky.Location = new System.Drawing.Point(0, 0);
             this.btnDangky.Name = "btnDangky";
             this.btnDangky.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDangky.Size = new System.Drawing.Size(246, 43);
+            this.btnDangky.Size = new System.Drawing.Size(225, 43);
             this.btnDangky.TabIndex = 6;
             this.btnDangky.Text = "Đăng ký tài khoản";
             this.btnDangky.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,13 +214,14 @@
             // 
             // subpanelDanhmuc
             // 
+            this.subpanelDanhmuc.Controls.Add(this.btnCard);
             this.subpanelDanhmuc.Controls.Add(this.btnMenu);
             this.subpanelDanhmuc.Controls.Add(this.btnHoadon);
             this.subpanelDanhmuc.Controls.Add(this.btnTaikhoan);
             this.subpanelDanhmuc.Dock = System.Windows.Forms.DockStyle.Top;
             this.subpanelDanhmuc.Location = new System.Drawing.Point(0, 362);
             this.subpanelDanhmuc.Name = "subpanelDanhmuc";
-            this.subpanelDanhmuc.Size = new System.Drawing.Size(246, 119);
+            this.subpanelDanhmuc.Size = new System.Drawing.Size(225, 167);
             this.subpanelDanhmuc.TabIndex = 4;
             // 
             // btnMenu
@@ -230,7 +234,7 @@
             this.btnMenu.Location = new System.Drawing.Point(0, 81);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnMenu.Size = new System.Drawing.Size(246, 40);
+            this.btnMenu.Size = new System.Drawing.Size(225, 40);
             this.btnMenu.TabIndex = 5;
             this.btnMenu.Text = "Menu";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,7 +251,7 @@
             this.btnHoadon.Location = new System.Drawing.Point(0, 40);
             this.btnHoadon.Name = "btnHoadon";
             this.btnHoadon.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnHoadon.Size = new System.Drawing.Size(246, 41);
+            this.btnHoadon.Size = new System.Drawing.Size(225, 41);
             this.btnHoadon.TabIndex = 3;
             this.btnHoadon.Text = "Hóa đơn";
             this.btnHoadon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -263,7 +267,7 @@
             this.btnTaikhoan.Location = new System.Drawing.Point(0, 0);
             this.btnTaikhoan.Name = "btnTaikhoan";
             this.btnTaikhoan.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnTaikhoan.Size = new System.Drawing.Size(246, 40);
+            this.btnTaikhoan.Size = new System.Drawing.Size(225, 40);
             this.btnTaikhoan.TabIndex = 0;
             this.btnTaikhoan.Text = "Tài khoản";
             this.btnTaikhoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -289,12 +293,13 @@
             // 
             // subpanelChucnang
             // 
+            this.subpanelChucnang.Controls.Add(this.btnNhaphang);
             this.subpanelChucnang.Controls.Add(this.btnDangkythe);
             this.subpanelChucnang.Controls.Add(this.btnDatmay);
             this.subpanelChucnang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subpanelChucnang.Location = new System.Drawing.Point(0, 529);
+            this.subpanelChucnang.Location = new System.Drawing.Point(0, 577);
             this.subpanelChucnang.Name = "subpanelChucnang";
-            this.subpanelChucnang.Size = new System.Drawing.Size(246, 85);
+            this.subpanelChucnang.Size = new System.Drawing.Size(225, 142);
             this.subpanelChucnang.TabIndex = 8;
             // 
             // btnDangkythe
@@ -307,7 +312,7 @@
             this.btnDangkythe.Location = new System.Drawing.Point(0, 43);
             this.btnDangkythe.Name = "btnDangkythe";
             this.btnDangkythe.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDangkythe.Size = new System.Drawing.Size(246, 43);
+            this.btnDangkythe.Size = new System.Drawing.Size(225, 43);
             this.btnDangkythe.TabIndex = 12;
             this.btnDangkythe.Text = "Đăng ký thẻ";
             this.btnDangkythe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -324,7 +329,7 @@
             this.btnDatmay.Location = new System.Drawing.Point(0, 0);
             this.btnDatmay.Name = "btnDatmay";
             this.btnDatmay.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDatmay.Size = new System.Drawing.Size(246, 43);
+            this.btnDatmay.Size = new System.Drawing.Size(225, 43);
             this.btnDatmay.TabIndex = 11;
             this.btnDatmay.Text = "Đặt máy ";
             this.btnDatmay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -338,9 +343,9 @@
             this.btnChucnang.FlatAppearance.BorderSize = 0;
             this.btnChucnang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucnang.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnChucnang.Location = new System.Drawing.Point(0, 481);
+            this.btnChucnang.Location = new System.Drawing.Point(0, 529);
             this.btnChucnang.Name = "btnChucnang";
-            this.btnChucnang.Size = new System.Drawing.Size(246, 48);
+            this.btnChucnang.Size = new System.Drawing.Size(225, 48);
             this.btnChucnang.TabIndex = 6;
             this.btnChucnang.Text = "Chức năng";
             this.btnChucnang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -356,7 +361,7 @@
             this.btnDanhmuc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDanhmuc.Location = new System.Drawing.Point(0, 314);
             this.btnDanhmuc.Name = "btnDanhmuc";
-            this.btnDanhmuc.Size = new System.Drawing.Size(246, 48);
+            this.btnDanhmuc.Size = new System.Drawing.Size(225, 48);
             this.btnDanhmuc.TabIndex = 3;
             this.btnDanhmuc.Text = "Danh mục";
             this.btnDanhmuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -510,6 +515,7 @@
             // 
             // PanelMain
             // 
+            this.PanelMain.Controls.Add(this.The);
             this.PanelMain.Controls.Add(this.Taikhoan);
             this.PanelMain.Controls.Add(this.ThucDon);
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -537,6 +543,49 @@
             this.ThucDon.Name = "ThucDon";
             this.ThucDon.Size = new System.Drawing.Size(804, 664);
             this.ThucDon.TabIndex = 0;
+            // 
+            // btnNhaphang
+            // 
+            this.btnNhaphang.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnNhaphang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNhaphang.FlatAppearance.BorderSize = 0;
+            this.btnNhaphang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhaphang.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNhaphang.Location = new System.Drawing.Point(0, 86);
+            this.btnNhaphang.Name = "btnNhaphang";
+            this.btnNhaphang.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnNhaphang.Size = new System.Drawing.Size(225, 43);
+            this.btnNhaphang.TabIndex = 13;
+            this.btnNhaphang.Text = "Nhập hàng";
+            this.btnNhaphang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhaphang.UseVisualStyleBackColor = false;
+            this.btnNhaphang.Click += new System.EventHandler(this.btnNhaphang_Click);
+            // 
+            // btnCard
+            // 
+            this.btnCard.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCard.FlatAppearance.BorderSize = 0;
+            this.btnCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCard.Location = new System.Drawing.Point(0, 121);
+            this.btnCard.Name = "btnCard";
+            this.btnCard.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnCard.Size = new System.Drawing.Size(225, 40);
+            this.btnCard.TabIndex = 6;
+            this.btnCard.Text = "Thẻ";
+            this.btnCard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCard.UseVisualStyleBackColor = false;
+            this.btnCard.Click += new System.EventHandler(this.btnCard_Click);
+            // 
+            // The
+            // 
+            this.The.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.The.Location = new System.Drawing.Point(0, 0);
+            this.The.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.The.Name = "The";
+            this.The.Size = new System.Drawing.Size(804, 664);
+            this.The.TabIndex = 2;
             // 
             // frmMain
             // 
@@ -611,5 +660,8 @@
         private System.Windows.Forms.Panel PanelMain;
         public All_Customer.Taikhoan Taikhoan;
         public All_Computer.ThucDon ThucDon;
+        private System.Windows.Forms.Button btnNhaphang;
+        private System.Windows.Forms.Button btnCard;
+        public All_Cards.Cards The;
     }
 }

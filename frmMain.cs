@@ -1,4 +1,5 @@
 ﻿using Do_anLaptrinhWinCK;
+using Do_anLaptrinhWinCK.All_Cards;
 using Do_anLaptrinhWinCK.All_Computer;
 using Do_anLaptrinhWinCK.All_Customer;
 using System;
@@ -37,6 +38,7 @@ namespace Do_anLaptrinhWinCK
             UpdateLoginState();
             ThucDon.Visible = false;
             Taikhoan.Visible = false;
+            The.Visible = false;
             btnMenu.PerformClick();
             PanelMain.Resize += PanelMain_Resize;
         }
@@ -69,6 +71,8 @@ namespace Do_anLaptrinhWinCK
             subpanelDanhmuc.Visible = false;
             subpanelChucnang.Visible = false;
             ThucDon.Visible = false;
+            Taikhoan.Visible = false;
+            The.Visible = false;
         }
 
         private void hideSubMenu()
@@ -288,6 +292,20 @@ namespace Do_anLaptrinhWinCK
             taikhoan.Dock = DockStyle.Fill;
             PanelMain.Controls.Add(taikhoan);
             taikhoan.BringToFront();
+        }
+
+        private void btnNhaphang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCard_Click(object sender, EventArgs e)
+        {
+            PanelMain.Controls.Clear();
+            var CardControl = new Cards();
+            CardControl.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(CardControl);
+            CardControl.BringToFront();
         }
     }
 }
