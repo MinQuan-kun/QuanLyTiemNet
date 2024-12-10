@@ -209,6 +209,10 @@ namespace Do_anLaptrinhWinCK
                 {
                     CenterFormInPanel((Form)control);
                 }
+                else if (control is frmCard)
+                {
+                    CenterFormInPanel((Form)control);
+                }
             }
         }
         private void btnDangky_Click(object sender, EventArgs e)
@@ -241,13 +245,12 @@ namespace Do_anLaptrinhWinCK
 
             frmLogin loginForm = new frmLogin
             {
-                TopLevel = false,
+                TopLevel = false,               // Cho phép nhúng form này vào một control khác
                 FormBorderStyle = FormBorderStyle.None,
             };
 
             PanelMain.Controls.Add(loginForm);
             loginForm.Show();
-
             CenterFormInPanel(loginForm);
         }
 
@@ -255,14 +258,14 @@ namespace Do_anLaptrinhWinCK
         private void btnDangkythe_Click(object sender, EventArgs e)
         {
             PanelMain.Controls.Clear();
-            frmCard cardForm = new frmCard
+
+           frmCard cardForm = new frmCard
             {
-                TopLevel = false,
+                TopLevel = false, 
                 FormBorderStyle = FormBorderStyle.None,
             };
             PanelMain.Controls.Add(cardForm);
             cardForm.Show();
-
             CenterFormInPanel(cardForm);
         }
         private void btnDatmay_Click(object sender, EventArgs e)

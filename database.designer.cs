@@ -1419,12 +1419,12 @@ namespace Do_anLaptrinhWinCK
 					if ((previousValue != null))
 					{
 						this._User.Entity = null;
-						previousValue.Status.Remove(this);
+						previousValue.Status1.Remove(this);
 					}
 					this._User.Entity = value;
 					if ((value != null))
 					{
-						value.Status.Add(this);
+						value.Status1.Add(this);
 						this._CurrentUserID = value.UserID;
 					}
 					else
@@ -1475,9 +1475,13 @@ namespace Do_anLaptrinhWinCK
 		
 		private System.Nullable<decimal> _Point;
 		
+		private System.Nullable<bool> _Status;
+		
+		private System.Nullable<bool> _ResetMk;
+		
 		private EntitySet<Bill> _Bills;
 		
-		private EntitySet<Status> _Status;
+		private EntitySet<Status> _Status1;
 		
 		private EntityRef<Card> _Card;
 		
@@ -1497,12 +1501,16 @@ namespace Do_anLaptrinhWinCK
     partial void OnCardIDChanged();
     partial void OnPointChanging(System.Nullable<decimal> value);
     partial void OnPointChanged();
+    partial void OnStatusChanging(System.Nullable<bool> value);
+    partial void OnStatusChanged();
+    partial void OnResetMkChanging(System.Nullable<bool> value);
+    partial void OnResetMkChanged();
     #endregion
 		
 		public User()
 		{
 			this._Bills = new EntitySet<Bill>(new Action<Bill>(this.attach_Bills), new Action<Bill>(this.detach_Bills));
-			this._Status = new EntitySet<Status>(new Action<Status>(this.attach_Status), new Action<Status>(this.detach_Status));
+			this._Status1 = new EntitySet<Status>(new Action<Status>(this.attach_Status1), new Action<Status>(this.detach_Status1));
 			this._Card = default(EntityRef<Card>);
 			OnCreated();
 		}
@@ -1631,6 +1639,46 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResetMk", DbType="Bit")]
+		public System.Nullable<bool> ResetMk
+		{
+			get
+			{
+				return this._ResetMk;
+			}
+			set
+			{
+				if ((this._ResetMk != value))
+				{
+					this.OnResetMkChanging(value);
+					this.SendPropertyChanging();
+					this._ResetMk = value;
+					this.SendPropertyChanged("ResetMk");
+					this.OnResetMkChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Bill", Storage="_Bills", ThisKey="UserID", OtherKey="UserID")]
 		public EntitySet<Bill> Bills
 		{
@@ -1644,16 +1692,16 @@ namespace Do_anLaptrinhWinCK
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Status", Storage="_Status", ThisKey="UserID", OtherKey="CurrentUserID")]
-		public EntitySet<Status> Status
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Status", Storage="_Status1", ThisKey="UserID", OtherKey="CurrentUserID")]
+		public EntitySet<Status> Status1
 		{
 			get
 			{
-				return this._Status;
+				return this._Status1;
 			}
 			set
 			{
-				this._Status.Assign(value);
+				this._Status1.Assign(value);
 			}
 		}
 		
@@ -1723,13 +1771,13 @@ namespace Do_anLaptrinhWinCK
 			entity.User = null;
 		}
 		
-		private void attach_Status(Status entity)
+		private void attach_Status1(Status entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = this;
 		}
 		
-		private void detach_Status(Status entity)
+		private void detach_Status1(Status entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;

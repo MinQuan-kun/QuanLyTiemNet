@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Point = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblHi = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -47,6 +42,15 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTrangThai = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblResetMk = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.cbReset = new System.Windows.Forms.ComboBox();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Point = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,55 +79,6 @@
             this.dgvUsers.TabIndex = 8;
             this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
             // 
-            // UserID
-            // 
-            this.UserID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.UserID.DataPropertyName = "UserID";
-            this.UserID.HeaderText = "UserID";
-            this.UserID.MinimumWidth = 6;
-            this.UserID.Name = "UserID";
-            this.UserID.ReadOnly = true;
-            this.UserID.Width = 60;
-            // 
-            // Username
-            // 
-            this.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Pass";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            this.Password.Width = 125;
-            // 
-            // CardID
-            // 
-            this.CardID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CardID.DataPropertyName = "CardID";
-            this.CardID.HeaderText = "CardID";
-            this.CardID.MinimumWidth = 6;
-            this.CardID.Name = "CardID";
-            this.CardID.ReadOnly = true;
-            this.CardID.Width = 70;
-            // 
-            // Point
-            // 
-            this.Point.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Point.DataPropertyName = "Point";
-            this.Point.HeaderText = "Point";
-            this.Point.MinimumWidth = 6;
-            this.Point.Name = "Point";
-            this.Point.ReadOnly = true;
-            this.Point.Width = 60;
-            // 
             // lblHi
             // 
             this.lblHi.BackColor = System.Drawing.Color.Transparent;
@@ -145,6 +100,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbReset);
+            this.panel2.Controls.Add(this.cbStatus);
+            this.panel2.Controls.Add(this.lblResetMk);
+            this.panel2.Controls.Add(this.lblTrangThai);
             this.panel2.Controls.Add(this.txtID);
             this.panel2.Controls.Add(this.guna2HtmlLabel4);
             this.panel2.Controls.Add(this.panel4);
@@ -167,9 +126,10 @@
             // guna2HtmlLabel4
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(29, 58);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(45, 18);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(42, 19);
             this.guna2HtmlLabel4.TabIndex = 17;
             this.guna2HtmlLabel4.Text = "UserID";
             // 
@@ -236,9 +196,10 @@
             // guna2HtmlLabel3
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(29, 13);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(66, 18);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(62, 19);
             this.guna2HtmlLabel3.TabIndex = 9;
             this.guna2HtmlLabel3.Text = "Username";
             // 
@@ -250,6 +211,97 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(808, 401);
             this.panel3.TabIndex = 11;
+            // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.BackColor = System.Drawing.Color.Transparent;
+            this.lblTrangThai.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrangThai.Location = new System.Drawing.Point(274, 13);
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(62, 19);
+            this.lblTrangThai.TabIndex = 21;
+            this.lblTrangThai.Text = "Trạng thái";
+            // 
+            // lblResetMk
+            // 
+            this.lblResetMk.BackColor = System.Drawing.Color.Transparent;
+            this.lblResetMk.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResetMk.Location = new System.Drawing.Point(274, 58);
+            this.lblResetMk.Name = "lblResetMk";
+            this.lblResetMk.Size = new System.Drawing.Size(53, 19);
+            this.lblResetMk.TabIndex = 22;
+            this.lblResetMk.Text = "ResetMk";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "false",
+            "true"});
+            this.cbStatus.Location = new System.Drawing.Point(371, 14);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(75, 24);
+            this.cbStatus.TabIndex = 23;
+            // 
+            // cbReset
+            // 
+            this.cbReset.FormattingEnabled = true;
+            this.cbReset.Items.AddRange(new object[] {
+            "false",
+            "true"});
+            this.cbReset.Location = new System.Drawing.Point(371, 55);
+            this.cbReset.Name = "cbReset";
+            this.cbReset.Size = new System.Drawing.Size(75, 24);
+            this.cbReset.TabIndex = 24;
+            // 
+            // UserID
+            // 
+            this.UserID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "UserID";
+            this.UserID.MinimumWidth = 6;
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Width = 60;
+            // 
+            // Username
+            // 
+            this.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Pass";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            this.Password.Width = 125;
+            // 
+            // CardID
+            // 
+            this.CardID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CardID.DataPropertyName = "CardID";
+            this.CardID.HeaderText = "CardID";
+            this.CardID.MinimumWidth = 6;
+            this.CardID.Name = "CardID";
+            this.CardID.ReadOnly = true;
+            this.CardID.Width = 70;
+            // 
+            // Point
+            // 
+            this.Point.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Point.DataPropertyName = "Point";
+            this.Point.HeaderText = "Point";
+            this.Point.MinimumWidth = 6;
+            this.Point.Name = "Point";
+            this.Point.ReadOnly = true;
+            this.Point.Width = 60;
             // 
             // Taikhoan
             // 
@@ -286,11 +338,15 @@
         private System.Windows.Forms.TextBox txtID;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private System.Windows.Forms.Button btnXoa;
+        public System.Windows.Forms.DataGridView dgvUsers;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblResetMk;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTrangThai;
+        private System.Windows.Forms.ComboBox cbReset;
+        private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Point;
-        public System.Windows.Forms.DataGridView dgvUsers;
     }
 }

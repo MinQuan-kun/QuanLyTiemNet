@@ -47,23 +47,24 @@ namespace Do_anLaptrinhWinCK.All_Customer
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int idrow = e.RowIndex;
-            if (idrow < 0 || idrow >= dgvUsers.Rows.Count)
+            if (idrow < 0 || idrow >= dgvUsers.Rows.Count - (dgvUsers.AllowUserToAddRows ? 1 : 0))
                 return;
+
             HienthiDuLieuDong(idrow);
         }
         private void HienthiDuLieuDong(int idrow)
         {
             databaseDataContext db = new databaseDataContext();
-            // Lấy UserID từ dòng được chọn (Cells[0])
-            int userID = int.Parse(dgvUsers.Rows[idrow].Cells[0].Value.ToString());
-            var user = db.Users.SingleOrDefault(p => p.UserID == userID);
+            int UserID = int.Parse(dgvUsers.Rows[idrow].Cells[0].Value.ToString());
+            var user = db.Users.SingleOrDefault(p => p.UserID == UserID);
             if (user != null)
             {
                 txtID.Text = user.UserID.ToString();
                 txtUsername.Text = user.Username;
+                cbStatus.Text = user.Status.ToString();
+                cbReset.Text = user.ResetMk.ToString();
             }
         }
-
 
         private void btnSua_Click(object sender, EventArgs e)
         {

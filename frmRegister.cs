@@ -62,6 +62,8 @@ namespace Do_anLaptrinhWinCK
                 User Us = new User();
                 Us.Username = taikhoan;
                 Us.Password = hashBytes;
+                Us.ResetMk = false;
+                Us.Status = true;
                 db.Users.InsertOnSubmit(Us);
                 db.SubmitChanges();
                 MessageBox.Show("Đăng ký thành công!", "Thông báo");

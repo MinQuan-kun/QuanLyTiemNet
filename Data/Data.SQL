@@ -24,7 +24,9 @@ CREATE TABLE Users (
     Password VARBINARY(MAX) NOT NULL,
     RandomKey VARCHAR(50),
     CardID INT,
-    Point DECIMAL(10, 2) DEFAULT 0.00, 
+    Point DECIMAL(10, 2) DEFAULT 0.00,
+    ResetMk BIT,
+    Status BIT
 );
 
 -- Bảng thẻ

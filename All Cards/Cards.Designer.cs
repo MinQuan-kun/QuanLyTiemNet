@@ -1,0 +1,347 @@
+﻿namespace Do_anLaptrinhWinCK.All_Cards
+{
+    partial class Cards
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.btnInds = new System.Windows.Forms.Button();
+            this.btnDk = new System.Windows.Forms.Button();
+            this.btnBlock = new System.Windows.Forms.Button();
+            this.lbtype = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.lbluserID = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblTrangThai = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtBalance = new System.Windows.Forms.TextBox();
+            this.lblSodu = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Stats = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbType = new System.Windows.Forms.ComboBox();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblDk = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtUserID = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvCards = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnTim);
+            this.panel4.Controls.Add(this.btnInds);
+            this.panel4.Controls.Add(this.btnDk);
+            this.panel4.Controls.Add(this.btnBlock);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(588, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(216, 93);
+            this.panel4.TabIndex = 27;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(113, 6);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 41);
+            this.btnTim.TabIndex = 15;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            // 
+            // btnInds
+            // 
+            this.btnInds.Location = new System.Drawing.Point(113, 52);
+            this.btnInds.Name = "btnInds";
+            this.btnInds.Size = new System.Drawing.Size(75, 41);
+            this.btnInds.TabIndex = 13;
+            this.btnInds.Text = "Inds";
+            this.btnInds.UseVisualStyleBackColor = true;
+            // 
+            // btnDk
+            // 
+            this.btnDk.Location = new System.Drawing.Point(18, 6);
+            this.btnDk.Name = "btnDk";
+            this.btnDk.Size = new System.Drawing.Size(75, 41);
+            this.btnDk.TabIndex = 16;
+            this.btnDk.Text = "Đăng ký";
+            this.btnDk.UseVisualStyleBackColor = true;
+            // 
+            // btnBlock
+            // 
+            this.btnBlock.Location = new System.Drawing.Point(18, 53);
+            this.btnBlock.Name = "btnBlock";
+            this.btnBlock.Size = new System.Drawing.Size(75, 41);
+            this.btnBlock.TabIndex = 14;
+            this.btnBlock.Text = "Khóa thẻ";
+            this.btnBlock.UseVisualStyleBackColor = true;
+            // 
+            // lbtype
+            // 
+            this.lbtype.BackColor = System.Drawing.Color.Transparent;
+            this.lbtype.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtype.Location = new System.Drawing.Point(213, 57);
+            this.lbtype.Name = "lbtype";
+            this.lbtype.Size = new System.Drawing.Size(49, 19);
+            this.lbtype.TabIndex = 25;
+            this.lbtype.Text = "Loại thẻ";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Đang hoạt động",
+            "Đã khóa",
+            "None"});
+            this.cbStatus.Location = new System.Drawing.Point(310, 14);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(75, 24);
+            this.cbStatus.TabIndex = 23;
+            // 
+            // lbluserID
+            // 
+            this.lbluserID.BackColor = System.Drawing.Color.Transparent;
+            this.lbluserID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbluserID.Location = new System.Drawing.Point(29, 13);
+            this.lbluserID.Name = "lbluserID";
+            this.lbluserID.Size = new System.Drawing.Size(42, 19);
+            this.lbluserID.TabIndex = 22;
+            this.lbluserID.Text = "UserID";
+            // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.BackColor = System.Drawing.Color.Transparent;
+            this.lblTrangThai.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrangThai.Location = new System.Drawing.Point(213, 13);
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(62, 19);
+            this.lblTrangThai.TabIndex = 21;
+            this.lblTrangThai.Text = "Trạng thái";
+            // 
+            // txtBalance
+            // 
+            this.txtBalance.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBalance.Location = new System.Drawing.Point(101, 51);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.Size = new System.Drawing.Size(75, 25);
+            this.txtBalance.TabIndex = 18;
+            // 
+            // lblSodu
+            // 
+            this.lblSodu.BackColor = System.Drawing.Color.Transparent;
+            this.lblSodu.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSodu.Location = new System.Drawing.Point(29, 58);
+            this.lblSodu.Name = "lblSodu";
+            this.lblSodu.Size = new System.Drawing.Size(38, 19);
+            this.lblSodu.TabIndex = 17;
+            this.lblSodu.Text = "Số dư";
+            // 
+            // Stats
+            // 
+            this.Stats.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Stats.DataPropertyName = "Stats";
+            this.Stats.HeaderText = "Trạng thái";
+            this.Stats.MinimumWidth = 6;
+            this.Stats.Name = "Stats";
+            this.Stats.ReadOnly = true;
+            // 
+            // Balance
+            // 
+            this.Balance.DataPropertyName = "Balance";
+            this.Balance.HeaderText = "Số dư";
+            this.Balance.MinimumWidth = 6;
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            this.Balance.Width = 125;
+            // 
+            // CardType
+            // 
+            this.CardType.DataPropertyName = "CardType";
+            this.CardType.HeaderText = "Loại thẻ";
+            this.CardType.MinimumWidth = 6;
+            this.CardType.Name = "CardType";
+            this.CardType.ReadOnly = true;
+            this.CardType.Width = 125;
+            // 
+            // CardID
+            // 
+            this.CardID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CardID.DataPropertyName = "CardID";
+            this.CardID.HeaderText = "CardID";
+            this.CardID.MinimumWidth = 6;
+            this.CardID.Name = "CardID";
+            this.CardID.ReadOnly = true;
+            this.CardID.Width = 70;
+            // 
+            // cbType
+            // 
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Items.AddRange(new object[] {
+            "VIP",
+            "Thành viên",
+            "None"});
+            this.cbType.Location = new System.Drawing.Point(310, 53);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(75, 24);
+            this.cbType.TabIndex = 26;
+            // 
+            // UserID
+            // 
+            this.UserID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "UserID";
+            this.UserID.MinimumWidth = 6;
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Width = 60;
+            // 
+            // lblDk
+            // 
+            this.lblDk.BackColor = System.Drawing.Color.Transparent;
+            this.lblDk.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDk.Location = new System.Drawing.Point(314, 3);
+            this.lblDk.Name = "lblDk";
+            this.lblDk.Size = new System.Drawing.Size(132, 33);
+            this.lblDk.TabIndex = 7;
+            this.lblDk.Text = "Đăng ký thẻ";
+            // 
+            // txtUserID
+            // 
+            this.txtUserID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserID.Location = new System.Drawing.Point(101, 13);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.Size = new System.Drawing.Size(75, 25);
+            this.txtUserID.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvCards);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 46);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(804, 525);
+            this.panel3.TabIndex = 17;
+            // 
+            // dgvCards
+            // 
+            this.dgvCards.AllowUserToAddRows = false;
+            this.dgvCards.AllowUserToDeleteRows = false;
+            this.dgvCards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UserID,
+            this.CardID,
+            this.CardType,
+            this.Balance,
+            this.Stats});
+            this.dgvCards.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCards.Location = new System.Drawing.Point(0, 0);
+            this.dgvCards.Name = "dgvCards";
+            this.dgvCards.ReadOnly = true;
+            this.dgvCards.RowHeadersWidth = 51;
+            this.dgvCards.RowTemplate.Height = 24;
+            this.dgvCards.Size = new System.Drawing.Size(804, 525);
+            this.dgvCards.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.cbType);
+            this.panel2.Controls.Add(this.lbtype);
+            this.panel2.Controls.Add(this.cbStatus);
+            this.panel2.Controls.Add(this.lbluserID);
+            this.panel2.Controls.Add(this.lblTrangThai);
+            this.panel2.Controls.Add(this.txtBalance);
+            this.panel2.Controls.Add(this.lblSodu);
+            this.panel2.Controls.Add(this.txtUserID);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 571);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(804, 93);
+            this.panel2.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblDk);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(804, 46);
+            this.panel1.TabIndex = 15;
+            // 
+            // Cards
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Name = "Cards";
+            this.Size = new System.Drawing.Size(804, 664);
+            this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCards)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.Button btnInds;
+        private System.Windows.Forms.Button btnDk;
+        private System.Windows.Forms.Button btnBlock;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbtype;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbluserID;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTrangThai;
+        private System.Windows.Forms.TextBox txtBalance;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stats;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardID;
+        private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDk;
+        private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.DataGridView dgvCards;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+    }
+}

@@ -76,8 +76,10 @@
       <Column Name="RandomKey" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="CardID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Point" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ResetMk" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="User_Bill" Member="Bills" ThisKey="UserID" OtherKey="UserID" Type="Bill" />
-      <Association Name="User_Status" Member="Status" ThisKey="UserID" OtherKey="CurrentUserID" Type="Status" />
+      <Association Name="User_Status" Member="Status1" ThisKey="UserID" OtherKey="CurrentUserID" Type="Status" />
       <Association Name="Card_User" Member="Card" ThisKey="CardID" OtherKey="CardID" Type="Card" IsForeignKey="true" />
     </Type>
   </Table>

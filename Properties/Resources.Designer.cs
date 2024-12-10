@@ -113,6 +113,17 @@ namespace Do_anLaptrinhWinCK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap desktop_wallpaper_computer_circuit_abstract_pattern_background_y3pjg_black_circuit {
+            get {
+                object obj = ResourceManager.GetObject("desktop-wallpaper-computer-circuit-abstract-pattern-background-y3pjg-black-circui" +
+                        "t", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ff5c3321a863db98821f6045453aac9b {
             get {
                 object obj = ResourceManager.GetObject("ff5c3321a863db98821f6045453aac9b", resourceCulture);
@@ -226,6 +237,16 @@ namespace Do_anLaptrinhWinCK.Properties {
         internal static System.Drawing.Bitmap Screenshot_2024_11_29_133411 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2024-11-29 133411", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2024_12_10_135612 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2024-12-10 135612", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

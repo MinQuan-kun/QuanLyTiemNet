@@ -59,6 +59,12 @@
     <Compile Include="All Account\Taikhoan.Designer.cs">
       <DependentUpon>Taikhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="All Cards\Cards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Cards\Cards.Designer.cs">
+      <DependentUpon>Cards.cs</DependentUpon>
+    </Compile>
     <Compile Include="All Computer\Computer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,11 +130,17 @@
     <EmbeddedResource Include="All Account\Taikhoan.resx">
       <DependentUpon>Taikhoan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="All Cards\Cards.resx">
+      <DependentUpon>Cards.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="All Computer\Computer.resx">
       <DependentUpon>Computer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All Menu\ThucDon.resx">
       <DependentUpon>ThucDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCard.resx">
+      <DependentUpon>frmCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangePass.resx">
       <DependentUpon>frmChangePass.cs</DependentUpon>
@@ -239,6 +251,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add User Male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktop-wallpaper-computer-circuit-abstract-pattern-background-y3pjg-black-circuit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2024-12-10 135612.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
