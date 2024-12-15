@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLTiemNet" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-6MUPO0FT\MSSQLSERVER01;Initial Catalog=QLTiemNet;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Do_anLaptrinhWinCK.Properties.Settings" SettingsPropertyName="QLTiemNetConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Admin" Member="Admins">
+    <Type Name="Admin">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Admin_ImportTable" Member="ImportTables" ThisKey="ID" OtherKey="CustomerID" Type="ImportTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bill" Member="Bills">
+    <Type Name="Bill">
+      <Column Name="BillID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Bill_BillDetail" Member="BillDetails" ThisKey="BillID" OtherKey="BillID" Type="BillDetail" />
+      <Association Name="User_Bill" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BillDetails" Member="BillDetails">
+    <Type Name="BillDetail">
+      <Column Name="DetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BillID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FoodID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(21,2)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Bill_BillDetail" Member="Bill" ThisKey="BillID" OtherKey="BillID" Type="Bill" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Menu_BillDetail" Member="Menu" ThisKey="FoodID" OtherKey="FoodID" Type="Menu" IsForeignKey="true" />
+      <Association Name="User_BillDetail" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cards" Member="Cards">
+    <Type Name="Card">
+      <Column Name="CardID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CardType" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Stas" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="Card_User" Member="Users" ThisKey="CardID" OtherKey="CardID" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Category_ImportTable" Member="ImportTables" ThisKey="CategoryID" OtherKey="CategoryID" Type="ImportTable" />
+      <Association Name="Category_Menu" Member="Menus" ThisKey="CategoryID" OtherKey="CategoryID" Type="Menu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Computers" Member="Computers">
+    <Type Name="Computer">
+      <Column Name="ComputerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ComputerName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Phankhuc" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Stas" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Computer_Status" Member="Status" ThisKey="ComputerID" OtherKey="ComputerID" Type="Status" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImportTable" Member="ImportTables">
+    <Type Name="ImportTable">
+      <Column Name="ImportID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FoodID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SumPrice" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ImportDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Category_ImportTable" Member="Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
+      <Association Name="Admin_ImportTable" Member="Admin" ThisKey="CustomerID" OtherKey="ID" Type="Admin" IsForeignKey="true" />
+      <Association Name="Menu_ImportTable" Member="Menu" ThisKey="FoodID" OtherKey="FoodID" Type="Menu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menu" Member="Menus">
+    <Type Name="Menu">
+      <Column Name="FoodID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FoodName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Menu_BillDetail" Member="BillDetails" ThisKey="FoodID" OtherKey="FoodID" Type="BillDetail" />
+      <Association Name="Menu_ImportTable" Member="ImportTables" ThisKey="FoodID" OtherKey="FoodID" Type="ImportTable" />
+      <Association Name="Category_Menu" Member="Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ComputerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stas" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RemainingTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Computer_Status" Member="Computer" ThisKey="ComputerID" OtherKey="ComputerID" Type="Computer" IsForeignKey="true" />
+      <Association Name="User_Status" Member="User" ThisKey="CurrentUserID" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RandomKey" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CardID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Point" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="User_Bill" Member="Bills" ThisKey="UserID" OtherKey="UserID" Type="Bill" />
+      <Association Name="User_BillDetail" Member="BillDetails" ThisKey="UserID" OtherKey="UserID" Type="BillDetail" />
+      <Association Name="User_Status" Member="Status" ThisKey="UserID" OtherKey="CurrentUserID" Type="Status" />
+      <Association Name="Card_User" Member="Card" ThisKey="CardID" OtherKey="CardID" Type="Card" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

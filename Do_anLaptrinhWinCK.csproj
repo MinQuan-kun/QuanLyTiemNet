@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Do_anLaptrinhWinCK</RootNamespace>
+    <AssemblyName>Do_anLaptrinhWinCK</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="All Account\Taikhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Account\Taikhoan.Designer.cs">
+      <DependentUpon>Taikhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="All Bill\Bills.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Bill\Bills.Designer.cs">
+      <DependentUpon>Bills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="All Cards\Cards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Cards\Cards.Designer.cs">
+      <DependentUpon>Cards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="All Computer\Computer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Computer\Computer.Designer.cs">
+      <DependentUpon>Computer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="All Menu\ThucDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="All Menu\ThucDon.Designer.cs">
+      <DependentUpon>ThucDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="database.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>database.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonHang.Designer.cs">
+      <DependentUpon>DonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdd.Designer.cs">
+      <DependentUpon>frmAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCard.Designer.cs">
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePass.Designer.cs">
+      <DependentUpon>frmChangePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGioithieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGioithieu.Designer.cs">
+      <DependentUpon>frmGioithieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InHoaDon.Designer.cs">
+      <DependentUpon>InHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InMenu.Designer.cs">
+      <DependentUpon>InMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NapTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NapTien.Designer.cs">
+      <DependentUpon>NapTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QLTiemNetDataSet.cs">
+      <DependentUpon>QLTiemNetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLTiemNetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLTiemNetDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="All Account\Taikhoan.resx">
+      <DependentUpon>Taikhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All Bill\Bills.resx">
+      <DependentUpon>Bills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All Cards\Cards.resx">
+      <DependentUpon>Cards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All Computer\Computer.resx">
+      <DependentUpon>Computer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All Menu\ThucDon.resx">
+      <DependentUpon>ThucDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonHang.resx">
+      <DependentUpon>DonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdd.resx">
+      <DependentUpon>frmAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCard.resx">
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePass.resx">
+      <DependentUpon>frmChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGioithieu.resx">
+      <DependentUpon>frmGioithieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InHoaDon.resx">
+      <DependentUpon>InHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InMenu.resx">
+      <DependentUpon>InMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NapTien.resx">
+      <DependentUpon>NapTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegister.resx">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDonHang.rdlc" />
+    <EmbeddedResource Include="ReportHoaDon.rdlc" />
+    <EmbeddedResource Include="ReportMenu.rdlc" />
+    <None Include="database.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>database.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="database.dbml.layout">
+      <DependentUpon>database.dbml</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QLTiemNetDataSet.xsc">
+      <DependentUpon>QLTiemNetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLTiemNetDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLTiemNetDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLTiemNetDataSet.xss">
+      <DependentUpon>QLTiemNetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Asus ROG Wallpaper 2 [for wallpaper engine] - Roniz %281080p, h264, youtube%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize Window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toggle Full Screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kawaii Ice Cream.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kawaii Noodle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Potato Chips.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wine Bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rice Bowl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Select All.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\miku-hello.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ff5c3321a863db98821f6045453aac9b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\miku-hello-unscreen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2024-11-29 133411.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add User Male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktop-wallpaper-computer-circuit-abstract-pattern-background-y3pjg-black-circuit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2024-12-10 135612.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info Squared.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info221.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62394d753859943e6a1a36443ef78795.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6117523851279_ba10fe4d0ad6d670de3e8b54a3cda4f7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6117647284363_89a5f3d17e113bfbeafa7d628da9d2f5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6117557538711_d8b27b356163b9cac975515410113179.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6117584811822_54088989b9b80191a2d3f095a1f89291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6120182637069_566b9f7e3d16ce8dd31633fdb97c5e47.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6120182637069_566b9f7e3d16ce8dd31633fdb97c5e471.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6120276486478_9a4af179357a8e01a59dd5fead4fbaff.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z6120288768959_03e9517f2d05aa55de34f4e36e180290.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Shopping Cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bill1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hinh-nen-may-tinh-meme-22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

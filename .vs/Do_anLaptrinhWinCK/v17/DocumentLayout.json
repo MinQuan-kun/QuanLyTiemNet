@@ -1,0 +1,398 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|c:\\users\\asus\\desktop\\quanlytiemnet-60603a15f6a7fdae60970924baba340a9348de0e\\naptien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:naptien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\inhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:inhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\inhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:inhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\naptien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:naptien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\all cards\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all cards\\cards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:frmadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\reportdonhang.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:reportdonhang.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\all bill\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all bill\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\qltiemnetdataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:qltiemnetdataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\all bill\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:all bill\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\reportmenu.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{B4039B05-B063-4F3A-BEB9-D2BB0BD21486}|Do_anLaptrinhWinCK.csproj|solutionrelative:reportmenu.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 26,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InHoaDon.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\InHoaDon.cs",
+              "RelativeDocumentMoniker": "InHoaDon.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\InHoaDon.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\InHoaDon.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T17:47:18.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmUser.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmUser.cs",
+              "RelativeDocumentMoniker": "frmUser.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmUser.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmUser.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T16:58:56.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NapTien.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\NapTien.cs",
+              "RelativeDocumentMoniker": "NapTien.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\NapTien.cs",
+              "RelativeToolTip": "NapTien.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAwwBQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T16:32:14.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmUser.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmUser.cs",
+              "RelativeDocumentMoniker": "frmUser.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmUser.cs",
+              "RelativeToolTip": "frmUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:57:01.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DonHang.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\DonHang.cs",
+              "RelativeDocumentMoniker": "DonHang.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\DonHang.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\DonHang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T07:18:27.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InHoaDon.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\InHoaDon.cs",
+              "RelativeDocumentMoniker": "InHoaDon.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\InHoaDon.cs",
+              "RelativeToolTip": "InHoaDon.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T17:47:21.821Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DonHang.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\DonHang.cs",
+              "RelativeDocumentMoniker": "DonHang.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\DonHang.cs",
+              "RelativeToolTip": "DonHang.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwBgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T07:18:32.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmLogin.cs",
+              "RelativeToolTip": "frmLogin.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAUwHoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T15:14:07.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NapTien.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\NapTien.cs",
+              "RelativeDocumentMoniker": "NapTien.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\NapTien.cs [Design]",
+              "RelativeToolTip": "NapTien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T14:00:16.843Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Taikhoan.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\All Account\\Taikhoan.cs",
+              "RelativeDocumentMoniker": "All Account\\Taikhoan.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\All Account\\Taikhoan.cs",
+              "RelativeToolTip": "All Account\\Taikhoan.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA3wAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T17:39:04.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "frmOrder.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmOrder.cs",
+              "RelativeDocumentMoniker": "frmOrder.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmOrder.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmOrder.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T15:49:53.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Taikhoan.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\All Account\\Taikhoan.cs",
+              "RelativeDocumentMoniker": "All Account\\Taikhoan.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\All Account\\Taikhoan.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\All Account\\Taikhoan.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T12:51:56.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "frmUser.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmUser.Designer.cs",
+              "RelativeDocumentMoniker": "frmUser.Designer.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmUser.Designer.cs",
+              "RelativeToolTip": "frmUser.Designer.cs",
+              "ViewState": "AgIAANYAAAAAAAAAAAAowOcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T16:58:59.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmLogin.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T15:14:05.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "frmAdd.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmAdd.cs",
+              "RelativeDocumentMoniker": "frmAdd.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmAdd.cs",
+              "RelativeToolTip": "frmAdd.cs",
+              "ViewState": "AgIAAO4AAAAAAAAAAIAwwBMBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:29:49.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Cards.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\All Cards\\Cards.cs",
+              "RelativeDocumentMoniker": "All Cards\\Cards.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\All Cards\\Cards.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\All Cards\\Cards.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T07:05:16.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "frmAdd.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\frmAdd.cs",
+              "RelativeDocumentMoniker": "frmAdd.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmAdd.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\frmAdd.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T13:29:36.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ReportDonHang.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\ReportDonHang.rdlc",
+              "RelativeDocumentMoniker": "ReportDonHang.rdlc",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\ReportDonHang.rdlc [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\ReportDonHang.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-12-13T07:09:21.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Bills.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\All Bill\\Bills.cs",
+              "RelativeDocumentMoniker": "All Bill\\Bills.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\All Bill\\Bills.cs",
+              "RelativeToolTip": "All Bill\\Bills.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAUwFYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T12:29:25.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "QLTiemNetDataSet.xsd",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\QLTiemNetDataSet.xsd",
+              "RelativeDocumentMoniker": "QLTiemNetDataSet.xsd",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\QLTiemNetDataSet.xsd",
+              "RelativeToolTip": "QLTiemNetDataSet.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-12-13T07:01:38.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Bills.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\All Bill\\Bills.cs",
+              "RelativeDocumentMoniker": "All Bill\\Bills.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\All Bill\\Bills.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\All Bill\\Bills.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T12:33:06.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-13T12:27:17.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ReportMenu.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\QuanLyTiemNet-60603a15f6a7fdae60970924baba340a9348de0e\\ReportMenu.rdlc",
+              "RelativeDocumentMoniker": "ReportMenu.rdlc",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\QuanLyTiemNet\\ReportMenu.rdlc [Design]",
+              "RelativeToolTip": "..\\..\\..\\admin\\Documents\\GitHub\\QuanLyTiemNet\\ReportMenu.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2024-12-13T07:11:45.173Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

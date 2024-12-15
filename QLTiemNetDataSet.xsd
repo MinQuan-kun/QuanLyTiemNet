@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="QLTiemNetDataSet" targetNamespace="http://tempuri.org/QLTiemNetDataSet.xsd" xmlns:mstns="http://tempuri.org/QLTiemNetDataSet.xsd" xmlns="http://tempuri.org/QLTiemNetDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLTiemNetConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLTiemNetConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Do_anLaptrinhWinCK.Properties.Settings.GlobalReference.Default.QLTiemNetConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="QLTiemNetDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="QLTiemNetDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="QLTiemNetDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DonHang" msprop:Generator_RowEvHandlerName="DonHangRowChangeEventHandler" msprop:Generator_RowDeletedName="DonHangRowDeleted" msprop:Generator_RowDeletingName="DonHangRowDeleting" msprop:Generator_RowEvArgName="DonHangRowChangeEvent" msprop:Generator_TablePropName="DonHang" msprop:Generator_RowChangedName="DonHangRowChanged" msprop:Generator_UserTableName="DonHang" msprop:Generator_RowChangingName="DonHangRowChanging" msprop:Generator_RowClassName="DonHangRow" msprop:Generator_TableClassName="DonHangDataTable" msprop:Generator_TableVarName="tableDonHang">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ImportID" msprop:Generator_ColumnPropNameInTable="ImportIDColumn" msprop:Generator_ColumnPropNameInRow="ImportID" msprop:Generator_UserColumnName="ImportID" msprop:Generator_ColumnVarNameInTable="columnImportID" type="xs:string" minOccurs="0" />
+              <xs:element name="FoodID" msprop:Generator_ColumnPropNameInTable="FoodIDColumn" msprop:Generator_ColumnPropNameInRow="FoodID" msprop:Generator_UserColumnName="FoodID" msprop:Generator_ColumnVarNameInTable="columnFoodID" type="xs:string" minOccurs="0" />
+              <xs:element name="CategoryID" msprop:Generator_ColumnPropNameInTable="CategoryIDColumn" msprop:Generator_ColumnPropNameInRow="CategoryID" msprop:Generator_UserColumnName="CategoryID" msprop:Generator_ColumnVarNameInTable="columnCategoryID" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantum" msprop:Generator_ColumnPropNameInTable="QuantumColumn" msprop:Generator_ColumnPropNameInRow="Quantum" msprop:Generator_UserColumnName="Quantum" msprop:Generator_ColumnVarNameInTable="columnQuantum" type="xs:string" minOccurs="0" />
+              <xs:element name="SumPrice" msprop:Generator_ColumnPropNameInTable="SumPriceColumn" msprop:Generator_ColumnPropNameInRow="SumPrice" msprop:Generator_UserColumnName="SumPrice" msprop:Generator_ColumnVarNameInTable="columnSumPrice" type="xs:string" minOccurs="0" />
+              <xs:element name="ImportDate" msprop:Generator_ColumnPropNameInTable="ImportDateColumn" msprop:Generator_ColumnPropNameInRow="ImportDate" msprop:Generator_UserColumnName="ImportDate" msprop:Generator_ColumnVarNameInTable="columnImportDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Menu" msprop:Generator_RowEvHandlerName="MenuRowChangeEventHandler" msprop:Generator_RowDeletedName="MenuRowDeleted" msprop:Generator_RowDeletingName="MenuRowDeleting" msprop:Generator_RowEvArgName="MenuRowChangeEvent" msprop:Generator_TablePropName="Menu" msprop:Generator_RowChangedName="MenuRowChanged" msprop:Generator_UserTableName="Menu" msprop:Generator_RowChangingName="MenuRowChanging" msprop:Generator_RowClassName="MenuRow" msprop:Generator_TableClassName="MenuDataTable" msprop:Generator_TableVarName="tableMenu">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FoodID" msprop:Generator_ColumnPropNameInTable="FoodIDColumn" msprop:Generator_ColumnPropNameInRow="FoodID" msprop:Generator_UserColumnName="FoodID" msprop:Generator_ColumnVarNameInTable="columnFoodID" type="xs:string" minOccurs="0" />
+              <xs:element name="CategoryID" msprop:Generator_ColumnPropNameInTable="CategoryIDColumn" msprop:Generator_ColumnPropNameInRow="CategoryID" msprop:Generator_UserColumnName="CategoryID" msprop:Generator_ColumnVarNameInTable="columnCategoryID" type="xs:string" minOccurs="0" />
+              <xs:element name="FoodName" msprop:Generator_ColumnPropNameInTable="FoodNameColumn" msprop:Generator_ColumnPropNameInRow="FoodName" msprop:Generator_UserColumnName="FoodName" msprop:Generator_ColumnVarNameInTable="columnFoodName" type="xs:string" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_UserColumnName="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="HoaDon" msprop:Generator_RowClassName="HoaDonRow" msprop:Generator_RowEvHandlerName="HoaDonRowChangeEventHandler" msprop:Generator_RowDeletedName="HoaDonRowDeleted" msprop:Generator_RowDeletingName="HoaDonRowDeleting" msprop:Generator_RowEvArgName="HoaDonRowChangeEvent" msprop:Generator_TablePropName="HoaDon" msprop:Generator_RowChangedName="HoaDonRowChanged" msprop:Generator_UserTableName="HoaDon" msprop:Generator_RowChangingName="HoaDonRowChanging" msprop:Generator_TableClassName="HoaDonDataTable" msprop:Generator_TableVarName="tableHoaDon">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BillID" msprop:Generator_UserColumnName="BillID" msprop:Generator_ColumnPropNameInTable="BillIDColumn" msprop:Generator_ColumnPropNameInRow="BillID" msprop:Generator_ColumnVarNameInTable="columnBillID" type="xs:string" minOccurs="0" />
+              <xs:element name="UserID" msprop:Generator_UserColumnName="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnVarNameInTable="columnUserID" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalAmount" msprop:Generator_UserColumnName="TotalAmount" msprop:Generator_ColumnPropNameInTable="TotalAmountColumn" msprop:Generator_ColumnPropNameInRow="TotalAmount" msprop:Generator_ColumnVarNameInTable="columnTotalAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="CreatedAt" msprop:Generator_UserColumnName="CreatedAt" msprop:Generator_ColumnPropNameInTable="CreatedAtColumn" msprop:Generator_ColumnPropNameInRow="CreatedAt" msprop:Generator_ColumnVarNameInTable="columnCreatedAt" type="xs:string" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
