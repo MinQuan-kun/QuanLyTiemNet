@@ -13,23 +13,6 @@ namespace Do_anLaptrinhWinCK
             InitializeComponent();
         }
 
-        private void frmCard_Load(object sender, EventArgs e)
-        {
-            SetRoundedCorners(30);
-        }
-        private void SetRoundedCorners(int radius)
-        {
-            radius = Math.Min(radius, Math.Min(this.Width / 2, this.Height / 2));
-
-            var path = new GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(this.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(this.Width - radius, this.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, this.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            this.Region = new Region(path);
-        }
         private void btnDangky_Click(object sender, EventArgs e)
         {
             databaseDataContext db = new databaseDataContext();
@@ -40,6 +23,7 @@ namespace Do_anLaptrinhWinCK
                 Card c = db.Cards.SingleOrDefault(Card => Card.UserID == Id);
                 if (c == null)
                 {
+                    lblerror.Visible = false;
                     string Type = cbType.Text;
                     Card card = new Card
                     {
@@ -50,11 +34,11 @@ namespace Do_anLaptrinhWinCK
                     };
                     db.Cards.InsertOnSubmit(card);
                     db.SubmitChanges();
-                    MessageBox.Show("Đăng ký thẻ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblsucces.Visible = true;
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi! Người dùng này đã có thẻ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblerror.Visible = true;
                 }
             }
             else

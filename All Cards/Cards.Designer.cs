@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnTim = new System.Windows.Forms.Button();
-            this.btnInds = new System.Windows.Forms.Button();
             this.btnBlock = new System.Windows.Forms.Button();
             this.lbtype = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbluserID = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -58,7 +57,7 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(96, 6);
+            this.btnTim.Location = new System.Drawing.Point(12, 24);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 41);
             this.btnTim.TabIndex = 15;
@@ -66,19 +65,9 @@
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
-            // btnInds
-            // 
-            this.btnInds.Location = new System.Drawing.Point(96, 53);
-            this.btnInds.Name = "btnInds";
-            this.btnInds.Size = new System.Drawing.Size(75, 41);
-            this.btnInds.TabIndex = 13;
-            this.btnInds.Text = "Inds";
-            this.btnInds.UseVisualStyleBackColor = true;
-            this.btnInds.Click += new System.EventHandler(this.btnInds_Click);
-            // 
             // btnBlock
             // 
-            this.btnBlock.Location = new System.Drawing.Point(15, 53);
+            this.btnBlock.Location = new System.Drawing.Point(93, 49);
             this.btnBlock.Name = "btnBlock";
             this.btnBlock.Size = new System.Drawing.Size(75, 41);
             this.btnBlock.TabIndex = 14;
@@ -166,13 +155,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 46);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(804, 525);
+            this.panel3.Size = new System.Drawing.Size(804, 513);
             this.panel3.TabIndex = 17;
             // 
             // dgvCards
             // 
             this.dgvCards.AllowUserToAddRows = false;
             this.dgvCards.AllowUserToDeleteRows = false;
+            this.dgvCards.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvCards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserID,
@@ -186,7 +176,7 @@
             this.dgvCards.ReadOnly = true;
             this.dgvCards.RowHeadersWidth = 51;
             this.dgvCards.RowTemplate.Height = 24;
-            this.dgvCards.Size = new System.Drawing.Size(804, 525);
+            this.dgvCards.Size = new System.Drawing.Size(804, 513);
             this.dgvCards.TabIndex = 8;
             this.dgvCards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCards_CellClick);
             // 
@@ -249,26 +239,25 @@
             this.panel2.Controls.Add(this.txtUserID);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(0, 571);
+            this.panel2.Location = new System.Drawing.Point(0, 559);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(804, 93);
+            this.panel2.Size = new System.Drawing.Size(804, 105);
             this.panel2.TabIndex = 16;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btnInds);
             this.panel4.Controls.Add(this.btnMothe);
             this.panel4.Controls.Add(this.btnTim);
             this.panel4.Controls.Add(this.btnBlock);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(583, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(221, 93);
+            this.panel4.Size = new System.Drawing.Size(221, 105);
             this.panel4.TabIndex = 28;
             // 
             // btnMothe
             // 
-            this.btnMothe.Location = new System.Drawing.Point(15, 6);
+            this.btnMothe.Location = new System.Drawing.Point(93, 3);
             this.btnMothe.Name = "btnMothe";
             this.btnMothe.Size = new System.Drawing.Size(75, 41);
             this.btnMothe.TabIndex = 27;
@@ -309,7 +298,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.Button btnInds;
         private System.Windows.Forms.Button btnBlock;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbtype;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbluserID;

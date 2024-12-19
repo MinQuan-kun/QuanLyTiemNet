@@ -2,14 +2,13 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Do_anLaptrinhWinCK
 {
     public partial class InMenu : Form
     {
-        string strCon = @"Data Source=DESKTOP-O6VGHSO\SQLEXPRESS;Initial Catalog=QLTiemNet;Integrated Security=True;TrustServerCertificate=True";
-        SqlConnection sqlCon = null;
         public InMenu()
         {
             InitializeComponent();
@@ -17,40 +16,43 @@ namespace Do_anLaptrinhWinCK
 
         private void InMenu_Load(object sender, EventArgs e)
         {
-
             try
             {
-                sqlCon = new SqlConnection(strCon);
-                sqlCon.Open();
+                // Sử dụng LINQ để truy vấn bảng Menu
+                using (var db = new databaseDataContext()) // Sử dụng DataContext
+                {
+                    // Lấy tất cả các bản ghi từ bảng Menu
+                    var menuQuery = db.Menus.ToList(); // Thay thế cho câu lệnh SQL SELECT * FROM Menu
 
-                string sql = "SELECT * FROM Menu";
+                    // Kiểm tra nếu có dữ liệu
+                    if (menuQuery.Any())
+                    {
+                        // Cấu hình ReportViewer
+                        this.reportViewer1.LocalReport.ReportEmbeddedResource = "Do_anLaptrinhWinCK.ReportMenu.rdlc";
 
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, sqlCon);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "Menu");
+                        // Tạo ReportDataSource
+                        ReportDataSource ds2 = new ReportDataSource
+                        {
+                            Name = "MenuTable", // Tên DataSet trong RDLC
+                            Value = menuQuery    // Dữ liệu từ LINQ query
+                        };
 
-                // Đặt Report Embedded Resource
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Do_anLaptrinhWinCK.ReportMenu.rdlc";
+                        // Xóa các DataSource cũ và thêm DataSource mới
+                        this.reportViewer1.LocalReport.DataSources.Clear();
+                        this.reportViewer1.LocalReport.DataSources.Add(ds2);
 
-                // Cấu hình DataSource cho report
-                ReportDataSource ds2 = new ReportDataSource();
-                ds2.Name = "MenuTable"; // Tên DataSet trong RDLC
-                ds2.Value = ds.Tables["Menu"]; // Tên bảng dữ liệu trong DataSet
-                this.reportViewer1.LocalReport.DataSources.Clear(); // Xóa các DataSource cũ
-                this.reportViewer1.LocalReport.DataSources.Add(ds2);
-
-                this.reportViewer1.RefreshReport();
+                        // Refresh báo cáo
+                        this.reportViewer1.RefreshReport();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có dữ liệu trong bảng Menu.");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
-            }
-            finally
-            {
-                if (sqlCon != null && sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
             }
         }
     }

@@ -59,6 +59,35 @@ namespace Do_anLaptrinhWinCK
             }
         }
 
+        private void UpdateLoginState()
+        {
+            lblInfor.Text = infor;
+            bool isLoggedIn = infor != "Bạn chưa đăng nhập!";
+            btnDangxuat.Enabled = isLoggedIn;
+            Logout.Enabled = isLoggedIn;
+            register.Enabled = isLoggedIn;
+
+            if (isLoggedIn)
+            {
+                // Lấy username từ chuỗi infor
+                string username = infor.Split(':').Last().Trim();
+                using (databaseDataContext db = new databaseDataContext())
+                {
+                    Admin user = db.Admins.SingleOrDefault(p => p.Username == username);
+                    if (user != null)
+                    {
+                        btnChucnang.Enabled = true;
+                        btnDanhmuc.Enabled = true;
+                    }
+                }
+            }
+            else
+            {
+                btnChucnang.Enabled = false;
+                btnDanhmuc.Enabled = false;
+            }
+        }
+
         private void customizeDesign()
         {
             subpanelHethong.Visible = false;
@@ -90,46 +119,6 @@ namespace Do_anLaptrinhWinCK
                 subMenu.Visible = false;
             }
         }
-        private void UpdateLoginState()
-        {
-            lblInfor.Text = infor;
-            bool isLoggedIn = infor != "Bạn chưa đăng nhập!";
-            btnDangxuat.Enabled = isLoggedIn;
-            Logout.Enabled = isLoggedIn;
-            btnDangNhap.Enabled = !isLoggedIn;
-            Login.Enabled = !isLoggedIn;
-            register.Enabled = isLoggedIn;
-
-            if (isLoggedIn)
-            {
-                // Lấy username từ chuỗi infor
-                string username = infor.Split(':').Last().Trim();
-                using (databaseDataContext db = new databaseDataContext())
-                {
-                    // Tìm người dùng trong cơ sở dữ liệu
-                    Admin user = db.Admins.SingleOrDefault(p => p.Username == username);
-                    if (user != null)
-                    {
-                        if (user.Role == false)
-                        {
-                            btnChucnang.Enabled = true;
-                            btnDanhmuc.Enabled = true;
-                        }
-                        else
-                        {
-                            // Nhân viên
-                            btnChucnang.Enabled = true;
-                            btnTaikhoan.Visible = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                btnChucnang.Enabled = false;
-                btnDanhmuc.Enabled = false;
-            }
-        }
 
         //Hiện thị subMenu
         private void btnHethong_Click(object sender, EventArgs e)
@@ -151,30 +140,15 @@ namespace Do_anLaptrinhWinCK
 
             if (dialogResult == DialogResult.Yes)
             {
+                // Đặt thông tin về trạng thái đăng nhập thành chưa đăng nhập
                 infor = "Bạn chưa đăng nhập!";
                 UpdateLoginState();
 
-                PanelMain.Controls.Clear();
-
-                frmLogin loginForm = new frmLogin
-                {
-                    TopLevel = false,
-                    FormBorderStyle = FormBorderStyle.None,
-                };
-
-                loginForm.LoginSuccess += LoginForm_LoginSuccess;
-                PanelMain.Controls.Add(loginForm);
+                frmLogin loginForm = new frmLogin();
                 loginForm.Show();
-                CenterFormInPanel(loginForm);
-            }
-        }
 
-        // Xử lý sự kiện khi đăng nhập lại thành công
-        private void LoginForm_LoginSuccess(object sender, string username)
-        {
-            infor = $"Đăng nhập thành công: {username}";
-            UpdateLoginState();
-            PanelMain.Controls.Clear();
+                this.Close();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -237,22 +211,6 @@ namespace Do_anLaptrinhWinCK
             }
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
-        {
-            PanelMain.Controls.Clear();
-
-            frmLogin loginForm = new frmLogin
-            {
-                TopLevel = false,               // Cho phép nhúng form này vào một control khác
-                FormBorderStyle = FormBorderStyle.None,
-            };
-
-            PanelMain.Controls.Add(loginForm);
-            loginForm.Show();
-            CenterFormInPanel(loginForm);
-        }
-
-
         private void btnDangkythe_Click(object sender, EventArgs e)
         {
             PanelMain.Controls.Clear();
@@ -265,10 +223,6 @@ namespace Do_anLaptrinhWinCK
             PanelMain.Controls.Add(cardForm);
             cardForm.Show();
             CenterFormInPanel(cardForm);
-        }
-        private void btnDatmay_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -320,6 +274,35 @@ namespace Do_anLaptrinhWinCK
             BillControl.Dock = DockStyle.Fill;
             PanelMain.Controls.Add(BillControl);
             BillControl.BringToFront();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            PanelMain.Controls.Clear();
+
+            frmReset Reset = new frmReset
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+            PanelMain.Controls.Add(Reset);
+            Reset.Show();
+            CenterFormInPanel(Reset);
+        }
+
+        private void btnHopThu_Click(object sender, EventArgs e)
+        {
+            PanelMain.Controls.Clear();
+
+            frmCheckMessages Check = new frmCheckMessages
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill,
+            };
+            PanelMain.Controls.Add(Check);
+            Check.Show();
+            CenterFormInPanel(Check);
         }
     }
 }

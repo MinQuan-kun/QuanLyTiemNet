@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 
+
 namespace Do_anLaptrinhWinCK.All_Computer
 {
     public partial class ThucDon : UserControl
@@ -17,7 +18,6 @@ namespace Do_anLaptrinhWinCK.All_Computer
         public bool xoa = false;
         public bool tim = false;
         public bool sua = false;
-        public bool inds = false;
         public ThucDon()
         {
             InitializeComponent();
@@ -26,131 +26,73 @@ namespace Do_anLaptrinhWinCK.All_Computer
         private void ThucDon_Load(object sender, EventArgs e)
         {
             loadDuLieu();
-            HienthiDuLieuDong(0);
-            Default();
-            Setup();
-        }
-        private void Setup()
-        {
-            // Lấy username từ chuỗi infor
-            string username = frmMain.infor.Split(':').Last().Trim();
-            using (databaseDataContext db = new databaseDataContext())
-            {
-                // Tìm người dùng trong cơ sở dữ liệu
-                Admin user = db.Admins.SingleOrDefault(p => p.Username == username);
-                if (user != null)
-                {
-                    if (user.Role == true) // Nhân viên
-                    {
-                        PanelAdmin.Visible = false;
-                        PanelNV.Visible = false;
-                    }
-                }
-            }
-        }
-        //Hàm load dữ liệu
-        private void loadDuLieu()
-        {
-            databaseDataContext db = new databaseDataContext();
-            dvgMenu.DataSource = db.Menus
-                .OrderBy(m => m.CategoryID)
-                .Select(m => new
-                {
-                    m.FoodID,
-                    m.CategoryID,
-                    m.FoodName,
-                    m.Price,
-                    m.Quantity
-                }).ToList();
-            loadAllPictuer();
         }
 
-        private void dvgMenu_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int idrow = e.RowIndex;
-            if (idrow < 0 || idrow >= dvgMenu.Rows.Count)
-                return;
-            HienthiDuLieuDong(idrow);
-        }
-        //Hàm hiện thị dữ liệu mỗi dòng
-        private void HienthiDuLieuDong(int idrow)
-        {
-            databaseDataContext db = new databaseDataContext();
-            int mamon = int.Parse(dvgMenu.Rows[idrow].Cells[0].Value.ToString());
-            Menu m = db.Menus.Where(p => p.FoodID == mamon).FirstOrDefault();
-            if (m != null)
-            {
-                txtMaloai.Text = m.CategoryID.ToString();
-                txtDongia.Text = m.Price.ToString();
-                txtTenmon.Text = m.FoodName;
-                txtMamon.Text = m.FoodID.ToString();
-                if (m.Image != null && m.Image.Length > 0)
-                {
-                    try
-                    {
-                        byte[] imageData = m.Image.ToArray();
-                        using (MemoryStream ms = new MemoryStream(imageData))
-                        {
-                            pbFoodImage.Image = Image.FromStream(ms);
-                        }
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        MessageBox.Show($"Lỗi khi tải hình ảnh: {ex.Message}", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        pbFoodImage.Image = null;
-                    }
-                }
-                else
-                {
-                    pbFoodImage.Image = null;
-                }
-            }
-        }
         // Hàm mặc định
         private void Default()
         {
             // vô hiệu các nút
-            txtDongia.Enabled = false;
-            txtMaloai.Enabled = false;
-            txtMamon.Enabled = false;
-            txtTenmon.Enabled = false;
-            pbFoodImage.Enabled = false;
-            // reset các dữ liệu đang có trên textbox
-            txtMamon.Text = null;
-            txtDongia.Text = null;
-            txtTenmon.Text = null;
-            txtMaloai.Text = null;
-            pbFoodImage.Image = null;
+            txtPrice.Enabled = false;
+            txtCategoryID.Enabled = false;
+            txtFoodID.Enabled = false;
+            txtFoodName.Enabled = false;
+            pcAdd.Enabled = false;
+            // reset các dữ liệu đang có trên textbox và pic
+            txtFoodID.Text = null;
+            txtFoodName.Text = null;
+            txtCategoryID.Text = null;
+            pcAdd.Image = null;
             // mặc định các trạng thái cờ bằng false
             them = false;
             xoa = false;
             tim = false;
             sua = false;
-            inds = false;
+
         }
-        // Hàm hiện thị dữ liệu theo Category
-        private void loadDuLieuTheoCategory(int categoryID)
+
+        //Hàm load dữ liệu
+        private void loadDuLieu()
+        {
+            using (databaseDataContext db = new databaseDataContext())
+            {
+                dgvMenu.DataSource = db.Menus
+                    .OrderBy(m => m.CategoryID)
+                    .Select(m => new
+                    {
+                        m.FoodName,
+                        m.FoodID,
+                        m.CategoryID,
+                        m.Quantity,
+                        m.Price
+                    }).ToList();
+            }
+            LoadPictureBoxes(); // Load toàn bộ ảnh menu
+        }
+
+        private void LoadPictureBoxes(int? categoryID = null)
         {
             databaseDataContext db = new databaseDataContext();
-            var data = db.Menus
-                         .Where(menu => menu.CategoryID == categoryID)
-                         .Select(menu => new
-                         {
-                             menu.FoodID,
-                             menu.CategoryID,
-                             menu.FoodName,
-                             menu.Price,
-                             menu.Quantity
-                         }).ToList();
-            dvgMenu.DataSource = data;
-            Default();
-        }
-        //Hàm hiện thị ảnh theo kết quả
-        private void loadPictureBoxesTheoRes(List<Menu> menus)
-        {
-            if (menus == null || menus.Count == 0)
-                return;
-            if (panelMenu.Controls.Count == 0 || !(panelMenu.Controls[0] is FlowLayoutPanel))
+            var query = db.Menus.AsQueryable();
+
+            // Nếu có mã loại
+            if (categoryID.HasValue)
+            {
+                query = query.Where(menu => menu.CategoryID == categoryID.Value);
+            }
+
+            var data = query.Select(menu => new
+            {
+                menu.FoodID,
+                menu.CategoryID,
+                menu.FoodName,
+                menu.Image,
+                menu.Price,
+                menu.Quantity
+            }).ToList();
+            dgvMenu.DataSource = data;
+            //Ẩn cột Image trong DataGridView
+            dgvMenu.Columns["Image"].Visible = false;
+            if (panelHinh.Controls.Count == 0 || !(panelHinh.Controls[0] is FlowLayoutPanel))
             {
                 FlowLayoutPanel flowPanel = new FlowLayoutPanel
                 {
@@ -160,9 +102,134 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     WrapContents = true,
                     Padding = new Padding(5)
                 };
-                panelMenu.Controls.Add(flowPanel);
+                panelHinh.Controls.Add(flowPanel);
             }
-            FlowLayoutPanel currentFlowPanel = (FlowLayoutPanel)panelMenu.Controls[0];
+
+            FlowLayoutPanel currentFlowPanel = (FlowLayoutPanel)panelHinh.Controls[0];
+            currentFlowPanel.Controls.Clear();
+
+            foreach (var item in data)
+            {
+                PictureBox pictureBox = new PictureBox
+                {
+                    //Thiết lập cấu hình cho picturebox
+                    Width = 200,
+                    Height = 200,
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Tag = db.Menus.FirstOrDefault(m => m.FoodID == item.FoodID) // Lưu đối tượng Menu vào Tag
+                };
+
+                // Đăng ký sự kiện Click cho PictureBox
+                pictureBox.Click += new EventHandler(PictureBox_Click);
+
+                if (item.Image != null && item.Image.Length > 0)
+                {
+                    var ms = new MemoryStream(item.Image.ToArray());
+                    pictureBox.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    // Mặc định chưa có ảnh thì cho ảnh tạm thời là nền xám
+                    pictureBox.BackColor = Color.Gray;
+                }
+
+                currentFlowPanel.Controls.Add(pictureBox);
+            }
+            Default();
+        }
+
+        private void PictureBox_Click(object sender, EventArgs e)
+        {
+            databaseDataContext db = new databaseDataContext();
+            PictureBox pictureBox = sender as PictureBox;
+
+            if (pictureBox != null && pictureBox.Tag != null)
+            {
+                // Lấy thông tin món ăn từ Tag
+                var item = pictureBox.Tag as Menu; // Lấy thông tin món ăn đã lưu trong Tag
+
+                if (item != null)
+                {
+                    // Lấy dữ liệu chi tiết món ăn theo FoodID
+                    var result = db.Menus
+                                   .Where(menu => menu.FoodID == item.FoodID)
+                                   .Select(menu => new
+                                   {
+                                       CategoryID = menu.CategoryID,
+                                       FoodID = menu.FoodID,
+                                       FoodName = menu.FoodName,
+                                       Price = menu.Price,
+                                       Quantity = menu.Quantity,
+                                   }).ToList();
+
+                    // Hiển thị dữ liệu lên dgvMenu
+                    dgvMenu.DataSource = result;
+                    txtCategoryID.Text = item.CategoryID.ToString();
+                    txtPrice.Text = item.Price.ToString();
+                    txtFoodID.Text = item.FoodID.ToString();
+                    txtFoodName.Text = item.FoodName.ToString();
+                }
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pcAdd.Image = pictureBox.Image;
+
+            }
+        }
+
+
+        private void dgvMenu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int idrow = e.RowIndex;
+            if (idrow < 0 || idrow >= dgvMenu.Rows.Count)
+                return;
+            HienthiDuLieuDong(idrow);
+        }
+
+        //Hàm hiện thị dữ liệu mỗi dòng
+        private void HienthiDuLieuDong(int idrow)
+        {
+            databaseDataContext db = new databaseDataContext();
+
+            string name = dgvMenu.Rows[idrow].Cells[0].Value.ToString();
+            Menu m = db.Menus.Where(p => p.FoodName == name).FirstOrDefault();
+            if (m != null)
+            {
+                txtCategoryID.Text = m.CategoryID.ToString();
+                txtPrice.Text = m.Price.ToString();
+                txtFoodName.Text = m.FoodName;
+                txtFoodID.Text = m.FoodID.ToString();
+                if (m.Image != null && m.Image.Length > 0)
+                {
+                    byte[] imageData = m.Image.ToArray();
+                    MemoryStream ms = new MemoryStream(imageData);
+
+                    pcAdd.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    pcAdd.Image = null;
+                }
+            }
+        }
+
+        //Hàm hiện thị ảnh theo kết quả
+        private void loadPictureBoxesTheoRes(List<Menu> menus)
+        {
+            if (menus == null || menus.Count == 0)
+                return;
+            if (panelHinh.Controls.Count == 0 || !(panelHinh.Controls[0] is FlowLayoutPanel))
+            {
+                FlowLayoutPanel flowPanel = new FlowLayoutPanel
+                {
+                    Dock = DockStyle.Fill,
+                    AutoScroll = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    WrapContents = true,
+                    Padding = new Padding(5)
+                };
+                panelHinh.Controls.Add(flowPanel);
+            }
+            FlowLayoutPanel currentFlowPanel = (FlowLayoutPanel)panelHinh.Controls[0];
             currentFlowPanel.Controls.Clear();
             foreach (var menu in menus)
             {
@@ -175,18 +242,8 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 };
                 if (menu.Image != null && menu.Image.Length > 0)
                 {
-                    try
-                    {
-                        using (var ms = new MemoryStream(menu.Image.ToArray()))
-                        {
-                            pictureBox.Image = Image.FromStream(ms);
-                        }
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Console.WriteLine($"Error loading image: {ex.Message}");
-                        pictureBox.BackColor = Color.Gray;
-                    }
+                    var ms = new MemoryStream(menu.Image.ToArray());
+                    pictureBox.Image = Image.FromStream(ms);
                 }
                 else
                 {
@@ -199,209 +256,70 @@ namespace Do_anLaptrinhWinCK.All_Computer
             }
             Default();
         }
-        // Hàm hiện thị ảnh theo catagory
-        private void loadPictureBoxesTheoCategory(int categoryID)
-        {
-            databaseDataContext db = new databaseDataContext();
-            var data = db.Menus
-                         .Where(menu => menu.CategoryID == categoryID)
-                         .Select(menu => new
-                         {
-                             menu.CategoryID,
-                             menu.FoodName,
-                             menu.Image,
-                         }).ToList();
-            if (panelMenu.Controls.Count == 0 || !(panelMenu.Controls[0] is FlowLayoutPanel))
-            {
-                FlowLayoutPanel flowPanel = new FlowLayoutPanel
-                {
-                    Dock = DockStyle.Fill,
-                    AutoScroll = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                    WrapContents = true,
-                    Padding = new Padding(5)
-                };
-                panelMenu.Controls.Add(flowPanel);
-            }
-            FlowLayoutPanel currentFlowPanel = (FlowLayoutPanel)panelMenu.Controls[0];
-            currentFlowPanel.Controls.Clear();
-            foreach (var item in data)
-            {
-                PictureBox pictureBox = new PictureBox
-                {
-                    Width = 200,
-                    Height = 200,
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                    BorderStyle = BorderStyle.FixedSingle
-                };
-
-                if (item.Image != null && item.Image.Length > 0)
-                {
-                    try
-                    {
-                        using (var ms = new MemoryStream(item.Image.ToArray()))
-                        {
-                            pictureBox.Image = Image.FromStream(ms);
-                        }
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Console.WriteLine($"Error loading image: {ex.Message}");
-                        pictureBox.BackColor = Color.Gray;
-                    }
-                }
-                else
-                {
-                    pictureBox.BackColor = Color.Gray;
-                }
-
-                currentFlowPanel.Controls.Add(pictureBox);
-            }
-            Default();
-        }
-        // Hàm hiện thị toàn bộ ảnh
-        private void loadAllPictuer()
-        {
-            databaseDataContext db = new databaseDataContext();
-            var data = db.Menus
-                .OrderBy(menu => menu.CategoryID)
-                .Select(menu => new
-                {
-                    menu.CategoryID,
-                    menu.FoodName,
-                    menu.Image
-                }).ToList();
-
-            if (panelMenu.Controls.Count == 0 || !(panelMenu.Controls[0] is FlowLayoutPanel))
-            {
-                FlowLayoutPanel flowPanel = new FlowLayoutPanel
-                {
-                    Dock = DockStyle.Fill,
-                    AutoScroll = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                    WrapContents = true,
-                    Padding = new Padding(10)
-                };
-                panelMenu.Controls.Add(flowPanel);
-            }
-
-            FlowLayoutPanel currentFlowPanel = (FlowLayoutPanel)panelMenu.Controls[0];
-            currentFlowPanel.Controls.Clear();
-
-            foreach (var item in data)
-            {
-                PictureBox pictureBox = new PictureBox
-                {
-                    Width = 200,
-                    Height = 200,
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                    BorderStyle = BorderStyle.FixedSingle
-                };
-
-                if (item.Image != null && item.Image.Length > 0)
-                {
-                    try
-                    {
-                        using (var ms = new MemoryStream(item.Image.ToArray()))
-                        {
-                            pictureBox.Image = Image.FromStream(ms);
-                        }
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Console.WriteLine($"Error loading image: {ex.Message}");
-                        pictureBox.BackColor = Color.Gray;
-                    }
-                }
-                else
-                {
-                    pictureBox.BackColor = Color.Gray;
-                }
-
-                currentFlowPanel.Controls.Add(pictureBox);
-            }
-            Default();
-        }
-
         // Sử lý sự kiện nhấn nút cơm
         private void btnCom_Click(object sender, EventArgs e)
         {
-            loadDuLieuTheoCategory(1); // Cơm
-            loadPictureBoxesTheoCategory(1);
+            // Cơm
+            LoadPictureBoxes(1);
         }
         // Sử lý sự kiện nhấn nút nước
         private void btnNuoc_Click(object sender, EventArgs e)
         {
-            loadDuLieuTheoCategory(2); // Nước uống
-            loadPictureBoxesTheoCategory(2);
+            // Nước uống
+            LoadPictureBoxes(2);
         }
         // Sử lý sự kiện nhấn nút snack
         private void btnSnack_Click(object sender, EventArgs e)
         {
-            loadDuLieuTheoCategory(3); // Snack
-            loadPictureBoxesTheoCategory(3);
+            // Snack
+            LoadPictureBoxes(3);
         }
         // Sử lý sự kiện nhấn nút mì
         private void btnMi_Click(object sender, EventArgs e)
         {
 
-            loadDuLieuTheoCategory(4); // Mì
-            loadPictureBoxesTheoCategory(4);
+            // Mì
+            LoadPictureBoxes(4);
         }
         // Sử lý sự kiện nhấn nút kem
         private void btnKem_Click(object sender, EventArgs e)
         {
-            loadDuLieuTheoCategory(5); // Kem
-            loadPictureBoxesTheoCategory(5);
+            // Kem
+            LoadPictureBoxes(5);
         }
+
         // Sử lý sự kiện nhấn nút tất cả
         private void btnAll_Click(object sender, EventArgs e)
         {
-            databaseDataContext db = new databaseDataContext();
-            var data = db.Menus.Select(menu => new
-            {
-                menu.FoodID,
-                menu.CategoryID,
-                menu.FoodName,
-                menu.Price,
-                menu.Quantity
-            }).ToList();
-            dvgMenu.DataSource = data;
-            loadAllPictuer();
+            LoadPictureBoxes();
         }
+
         // Hàm sử lý ảnh
-        private byte[] ConvertImageToByteArray(Image image)
+        private byte[] ConvertImageToByteArray(Image img)
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                if (image != null)
-                {
-                    image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Lưu dưới dạng JPEG
-                }
-                else
-                {
-                    MessageBox.Show("Ảnh không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                img.Save(ms, img.RawFormat);
                 return ms.ToArray();
             }
         }
+
         // Sử lý sự kiện nhấn nút inds
         private void btnInds_Click(object sender, EventArgs e)
         {
-            inds = true;
-            btnOK.FillColor = System.Drawing.Color.Yellow;
+            btnOk.FillColor = System.Drawing.Color.Yellow;
             InMenu inMenu = new InMenu();
             inMenu.ShowDialog();
         }
         // Sử lý sự kiện nhấn nút sửa
         private void btnSua_Click(object sender, EventArgs e)
         {
-            txtDongia.Enabled = true;
-            txtMaloai.Enabled = true;
-            txtMamon.Enabled = true;
-            txtTenmon.Enabled = true;
-            pbFoodImage.Enabled = true;
-            btnOK.FillColor = System.Drawing.Color.LightGray;
+            txtPrice.Enabled = true;
+            txtCategoryID.Enabled = true;
+            txtFoodID.Enabled = true;
+            txtFoodName.Enabled = true;
+            pcAdd.Enabled = true;
+            btnOk.FillColor = System.Drawing.Color.LightGray;
             sua = true;
         }
         // Sử lý sự kiện nhấn nút tìm
@@ -409,63 +327,87 @@ namespace Do_anLaptrinhWinCK.All_Computer
         {
 
             Default();
-            txtDongia.Enabled = true;
-            txtMaloai.Enabled = true;
-            txtMamon.Enabled = true;
-            txtTenmon.Enabled = true;
-            btnOK.FillColor = System.Drawing.Color.Purple;
+            txtPrice.Enabled = true;
+            txtCategoryID.Enabled = true;
+            txtFoodID.Enabled = true;
+            txtFoodName.Enabled = true;
+            btnOk.FillColor = System.Drawing.Color.Purple;
             tim = true;
         }
         // Sử lý sự kiện nhấn nút thêm
         private void btnThem_Click(object sender, EventArgs e)
         {
             Default();
-            txtDongia.Enabled = true;
-            txtDongia.Enabled = true;
-            txtTenmon.Enabled = true;
-            txtMaloai.Enabled = true;
-            pbFoodImage.Enabled = true;
-            btnOK.FillColor = System.Drawing.Color.Green;
+            txtPrice.Enabled = true;
+            txtFoodName.Enabled = true;
+            txtCategoryID.Enabled = true;
+            pcAdd.Enabled = true;
+            btnOk.FillColor = System.Drawing.Color.Green;
             them = true;
         }
         // Sử lý sự kiện nhấn nút xóa
         private void btnXoa_Click(object sender, EventArgs e)
         {
             Default();
-            txtMamon.Enabled = true;
-            btnOK.FillColor = System.Drawing.Color.Red;
+            txtFoodID.Enabled = true;
+            btnOk.FillColor = System.Drawing.Color.Red;
             xoa = true;
         }
         // Sử lý sự kiện nhấn nút ok
         private void btnOK_Click(object sender, EventArgs e)
         {
+            databaseDataContext db = new databaseDataContext();
             if (them == true)
             {
                 int maloai;
-                if (!int.TryParse(txtMaloai.Text, out maloai))
+                if (!int.TryParse(txtCategoryID.Text, out maloai))
                 {
                     MessageBox.Show("Mã loại không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMaloai.Focus();
+                    txtCategoryID.Focus();
                     return;
                 }
-                string tenmon = txtTenmon.Text;
-                databaseDataContext db = new databaseDataContext();
-                Category ct = db.Categories.Where(c => c.CategoryID == maloai).SingleOrDefault();
+
+                string tenmon = txtFoodName.Text.Trim();
+                if (string.IsNullOrEmpty(tenmon))
+                {
+                    MessageBox.Show("Tên món không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtFoodName.Focus();
+                    return;
+                }
+
+                decimal dongia;
+                if (!decimal.TryParse(txtPrice.Text, out dongia))
+                {
+                    MessageBox.Show("Đơn giá không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPrice.Focus();
+                    return;
+                }
+
+                // Kiểm tra mã loại tồn tại
+                Category ct = db.Categories.SingleOrDefault(c => c.CategoryID == maloai);
                 if (ct == null)
                 {
                     MessageBox.Show("Mã loại không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMaloai.Focus();
+                    txtCategoryID.Focus();
                     return;
                 }
-                if (maloai != 2 && (string.IsNullOrEmpty(ct.CategoryName) || !tenmon.Contains(ct.CategoryName)))
+
+                // Kiểm tra và xử lý ảnh
+                byte[] imageData = null;
+                if (pcAdd.Image != null)
                 {
-                    MessageBox.Show("Tên món ăn không phù hợp với loại món!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtTenmon.Focus();
+                    imageData = ConvertImageToByteArray(pcAdd.Image);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn ảnh trước khi thêm món ăn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                decimal dongia = decimal.Parse(txtDongia.Text);
+
+                // Thêm món mới
                 int maxFoodID = db.Menus.Any() ? db.Menus.Max(m => m.FoodID) : 0;
                 int newFoodID = maxFoodID + 1;
+
                 Menu newMenu = new Menu
                 {
                     FoodID = newFoodID,
@@ -473,28 +415,29 @@ namespace Do_anLaptrinhWinCK.All_Computer
                     FoodName = tenmon,
                     Price = dongia,
                     Quantity = 0,
-                    Image = pbFoodImage.Image != null ? ConvertImageToByteArray(pbFoodImage.Image) : null
+                    Image = imageData
                 };
+
                 db.Menus.InsertOnSubmit(newMenu);
                 db.SubmitChanges();
+
                 loadDuLieu();
                 MessageBox.Show("Thêm món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (xoa == true)
             {
                 int mamon;
-                if (!int.TryParse(txtMamon.Text, out mamon))
+                if (!int.TryParse(txtFoodID.Text, out mamon))
                 {
                     MessageBox.Show("Mã món không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMamon.Focus();
+                    txtFoodID.Focus();
                     return;
                 }
-                databaseDataContext db = new databaseDataContext();
                 Menu m = db.Menus.Where(c => c.FoodID == mamon).SingleOrDefault();
                 if (m == null)
                 {
                     MessageBox.Show("Mã món không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMamon.Focus();
+                    txtFoodID.Focus();
                     return;
                 }
                 else
@@ -507,11 +450,10 @@ namespace Do_anLaptrinhWinCK.All_Computer
             }
             else if (tim == true)
             {
-                int? maloai = string.IsNullOrWhiteSpace(txtMaloai.Text) ? (int?)null : int.Parse(txtMaloai.Text);
-                int? mamon = string.IsNullOrWhiteSpace(txtMamon.Text) ? (int?)null : int.Parse(txtMamon.Text);
-                string tenmon = string.IsNullOrWhiteSpace(txtTenmon.Text) ? null : txtTenmon.Text;
-                decimal? dongia = string.IsNullOrWhiteSpace(txtDongia.Text) ? (decimal?)null : decimal.Parse(txtDongia.Text);
-                databaseDataContext db = new databaseDataContext();
+                int? maloai = string.IsNullOrWhiteSpace(txtCategoryID.Text) ? (int?)null : int.Parse(txtCategoryID.Text);
+                int? mamon = string.IsNullOrWhiteSpace(txtFoodID.Text) ? (int?)null : int.Parse(txtFoodID.Text);
+                string tenmon = string.IsNullOrWhiteSpace(txtFoodName.Text) ? null : txtFoodName.Text;
+                decimal? dongia = string.IsNullOrWhiteSpace(txtPrice.Text) ? (decimal?)null : decimal.Parse(txtPrice.Text);
                 var query = db.Menus.AsQueryable();
 
                 if (maloai.HasValue)
@@ -533,7 +475,7 @@ namespace Do_anLaptrinhWinCK.All_Computer
                 var results = query.ToList();
                 if (results.Count > 0)
                 {
-                    dvgMenu.DataSource = results.Select(m => new
+                    dgvMenu.DataSource = results.Select(m => new
                     {
                         m.FoodID,
                         m.CategoryID,
@@ -551,88 +493,82 @@ namespace Do_anLaptrinhWinCK.All_Computer
             else if (sua == true)
             {
                 int mamon;
-                if (!int.TryParse(txtMamon.Text, out mamon))
+                if (!int.TryParse(txtFoodID.Text, out mamon))
                 {
                     MessageBox.Show("Mã món không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMamon.Focus();
+                    txtFoodID.Focus();
                     return;
                 }
-                databaseDataContext db = new databaseDataContext();
-                Menu existingMenu = db.Menus.SingleOrDefault(menu => menu.FoodID == mamon);
 
+                Menu existingMenu = db.Menus.SingleOrDefault(menu => menu.FoodID == mamon);
                 if (existingMenu == null)
                 {
                     MessageBox.Show("Không tìm thấy món ăn với mã món này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMamon.Focus();
+                    txtFoodID.Focus();
                     return;
                 }
+
                 int maloai;
-                if (!int.TryParse(txtMaloai.Text, out maloai))
+                if (!int.TryParse(txtCategoryID.Text, out maloai))
                 {
                     MessageBox.Show("Mã loại không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMaloai.Focus();
+                    txtCategoryID.Focus();
                     return;
                 }
+
                 decimal dongia;
-                if (!decimal.TryParse(txtDongia.Text, out dongia))
+                if (!decimal.TryParse(txtPrice.Text, out dongia))
                 {
                     MessageBox.Show("Đơn giá không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDongia.Focus();
+                    txtPrice.Focus();
                     return;
                 }
-                string tenmon = txtTenmon.Text.Trim();
+
+                string tenmon = txtFoodName.Text.Trim();
                 if (string.IsNullOrEmpty(tenmon))
                 {
                     MessageBox.Show("Tên món không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtTenmon.Focus();
+                    txtFoodName.Focus();
                     return;
                 }
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        string filePath = openFileDialog.FileName;
-                        pbFoodImage.Image = Image.FromFile(filePath);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Không thể tải ảnh: " + ex.Message);
-                        return;
-                    }
-                }
+
+                // Cập nhật thông tin
                 existingMenu.CategoryID = maloai;
                 existingMenu.FoodName = tenmon;
                 existingMenu.Price = dongia;
-                if (pbFoodImage.Image != null)
+
+                // Cập nhật ảnh nếu có
+                if (pcAdd.Image != null)
                 {
-                    existingMenu.Image = ConvertImageToByteArray(pbFoodImage.Image);
+                    existingMenu.Image = ConvertImageToByteArray(pcAdd.Image);
                 }
+
                 db.SubmitChanges();
+
                 loadDuLieu();
                 MessageBox.Show("Cập nhật thông tin món ăn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (inds == true)
-            {
-                // Phần code
-            }
         }
+
         // Sử lý sự kiện nhấn vào thêm ảnh
-        private void pbFoodImage_Click(object sender, EventArgs e)
+        private void pcAdd_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp",
+                Title = "Chọn ảnh cho món ăn"
+            };
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    string filePath = openFileDialog.FileName;
-                    pbFoodImage.Image = Image.FromFile(filePath);
+                    // Hiển thị ảnh trong PictureBox
+                    pcAdd.Image = Image.FromFile(openFileDialog.FileName);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Không thể tải ảnh: " + ex.Message);
+                    MessageBox.Show($"Lỗi khi tải ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

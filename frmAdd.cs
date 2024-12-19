@@ -38,9 +38,7 @@ namespace Do_anLaptrinhWinCK
         private void LoadName()
         {
             databaseDataContext db = new databaseDataContext();
-            var Foodname = from menu in db.Menus
-                           select menu.FoodName;
-            //Thêm các món ăn có trong menu vào cbName
+            var Foodname = db.Menus.Select(menu => menu.FoodName);
             foreach (var item in Foodname)
             {
                 cbName.Items.Add(item);
@@ -70,72 +68,77 @@ namespace Do_anLaptrinhWinCK
 
         private void cbCategory_Leave(object sender, EventArgs e)
         {
-            if (cbCategory.Text == "") return;
+            if (string.IsNullOrWhiteSpace(cbCategory.Text)) return;
+
+            databaseDataContext db = new databaseDataContext();
+            string name = cbCategory.Text;
+
+            var selectCategory = db.Categories.FirstOrDefault(p => p.CategoryName == name);
+            if (selectCategory != null)
+            {
+                var admin = db.Admins.FirstOrDefault(p => p.ID == ID);
+
+                txtCategoryID.Text = selectCategory.CategoryID.ToString();
+                txtUser.Text = admin?.Username ?? "Không xác định";
+
+                int categoryID = selectCategory.CategoryID;
+
+                var result = db.Menus
+                               .Where(menu => menu.CategoryID == categoryID)
+                               .Select(menu => new
+                               {
+                                   menu.FoodName,
+                                   SumPrice = 0.00,
+                                   menu.Quantity,
+                                   Quantum = 0,
+                                   CustomerID = ID
+                               }).ToList();
+
+                dgvNhap.DataSource = result;
+            }
             else
             {
-                databaseDataContext db = new databaseDataContext();
-                string Name = cbCategory.Text;
-                Category selectCategory = db.Categories.FirstOrDefault(p => p.CategoryName == Name);
-                if (selectCategory != null)
-                {
-                    Admin ad = db.Admins.FirstOrDefault(p => p.ID == ID);
-                    txtCategoryID.Text = selectCategory.CategoryID.ToString();
-                    txtUser.Text = ad.Username.ToString();
-                    int categoryID = selectCategory.CategoryID;
-                    var result = from menu in db.Menus
-                                 where menu.CategoryID == categoryID
-                                 select new
-                                 {
-                                     menu.FoodName,
-                                     SumPrice = 0.00,
-                                     menu.Quantity,
-                                     Quantum = 0,
-                                     CustomerID = ID,
-                                 };
-                    dgvNhap.DataSource = result.ToList();
-                }
-                else
-                {
-                    MessageBox.Show("Lỗi, tên thể loại này không tồn tại", "Thông báo", MessageBoxButtons.OK);
-                    cbCategory.Focus();
-                    return;
-                }
+                MessageBox.Show("Lỗi, tên thể loại này không tồn tại", "Thông báo", MessageBoxButtons.OK);
+                cbCategory.Focus();
             }
         }
 
         private void cbName_Leave(object sender, EventArgs e)
         {
-            if (cbName.Text == "") return;
+            if (string.IsNullOrWhiteSpace(cbName.Text)) return;
+
+            databaseDataContext db = new databaseDataContext();
+            string name = cbName.Text;
+
+            // Tìm món ăn theo tên
+            var selectFood = db.Menus.FirstOrDefault(p => p.FoodName == name);
+            if (selectFood != null)
+            {
+                // Tìm Admin theo ID
+                var admin = db.Admins.FirstOrDefault(p => p.ID == ID);
+
+                txtCategoryID.Text = selectFood.CategoryID.ToString();
+                txtFoodID.Text = selectFood.FoodID.ToString();
+                txtUser.Text = admin.Username;
+
+                // Truy vấn món ăn theo tên
+                var result = db.Menus
+                               .Where(menu => menu.FoodName == name)
+                               .Select(menu => new
+                               {
+                                   FoodName = menu.FoodName,
+                                   SumPrice = 0, // Giá trị mặc định
+                                   Quantity = menu.Quantity,
+                                   Quantum = 0, // Giá trị mặc định
+                                   CustomerID = ID // ID người dùng
+                               }).ToList();
+
+                dgvNhap.DataSource = result;
+            }
             else
             {
-
-                databaseDataContext db = new databaseDataContext();
-                string Name = cbName.Text;
-                Menu SelectFood = db.Menus.FirstOrDefault(p => p.FoodName == Name);
-                if (SelectFood != null)
-                {
-                    Admin ad = db.Admins.FirstOrDefault(p => p.ID == ID);
-                    txtCategoryID.Text = SelectFood.CategoryID.ToString();
-                    txtFoodID.Text = SelectFood.FoodID.ToString();
-                    txtUser.Text = ad.Username.ToString();
-                    var result = from menu in db.Menus
-                                 where menu.FoodName == Name
-                                 select new
-                                 {
-                                     FoodName = menu.FoodName,
-                                     SumPrice = 0,
-                                     Quantity = menu.Quantity,
-                                     Quantum = 0,
-                                     CustomerID = ID,
-                                 };
-                    dgvNhap.DataSource = result.ToList();
-                }
-                else
-                {
-                    MessageBox.Show("Lỗi, tên món này không tồn tại", "Thông báo", MessageBoxButtons.OK);
-                    cbName.Focus();
-                    return;
-                }
+                MessageBox.Show("Lỗi, tên món này không tồn tại", "Thông báo", MessageBoxButtons.OK);
+                cbName.Focus();
             }
         }
 
@@ -152,14 +155,34 @@ namespace Do_anLaptrinhWinCK
         {
             databaseDataContext db = new databaseDataContext();
             string name = dgvNhap.Rows[idrow].Cells[0].Value.ToString();
-            Menu m = db.Menus.Where(p => p.FoodName == name).FirstOrDefault();
-            Category c = db.Categories.Where(p => p.CategoryID == m.CategoryID).FirstOrDefault();
-            Admin a = db.Admins.Where(p => p.ID == ID).FirstOrDefault();
-            txtCategoryID.Text = c.CategoryID.ToString();
-            txtFoodID.Text = m.FoodID.ToString();
-            txtUser.Text = a.Username.ToString();
-            int? maxImportID = db.ImportTables.Max(p => (int?)p.ImportID);
-            int newImportID = (maxImportID.HasValue ? maxImportID.Value + 1 : 1);
+
+            // Lấy thông tin món
+            var menuInfo = db.Menus
+                             .Where(m => m.FoodName == name)
+                             .Select(m => new
+                             {
+                                 m.FoodID,
+                                 m.CategoryID,
+                                 CategoryName = m.Category.CategoryName
+                             })
+                             .FirstOrDefault();
+
+            // Lấy thông tin admin
+            var adminInfo = db.Admins
+                              .Where(a => a.ID == ID)
+                              .Select(a => a.Username)
+                              .FirstOrDefault();
+
+            // Lấy mã nhập hàng max
+            int newImportID = db.ImportTables
+                               .Max(p => (int?)p.ImportID) + 1 ?? 1;
+
+            if (menuInfo != null)
+            {
+                txtCategoryID.Text = menuInfo.CategoryID.ToString();
+                txtFoodID.Text = menuInfo.FoodID.ToString();
+            }
+            txtUser.Text = adminInfo ?? "Không xác định";
             txtImportID.Text = newImportID.ToString();
         }
 
@@ -267,9 +290,7 @@ namespace Do_anLaptrinhWinCK
         {
             // Code in danh sách
             DonHang inDH = new DonHang();
-            inDH.SelectedMonth = dateTimePickerMonth.Value.Month; // Lấy tháng từ DateTimePicker
-            inDH.SelectedYear = dateTimePickerMonth.Value.Year;   // Lấy năm từ DateTimePicker
-
+            inDH.selectedDate = dateTimePickerMonth.Value;
             // Gọi lại hàm DonHang_Load để lọc dữ liệu theo tháng và năm
             inDH.DonHang_Load(sender, e);
             inDH.ShowDialog();
@@ -311,7 +332,5 @@ namespace Do_anLaptrinhWinCK
             Reset();
             Default();
         }
-
-        
     }
 }

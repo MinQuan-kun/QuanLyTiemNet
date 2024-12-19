@@ -30,29 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGioithieu));
             this.Panelnen = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.lblTeam = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelTv3 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblPhuongzu = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.picPhuongzu = new Guna.UI2.WinForms.Guna2PictureBox();
             this.paneltv4 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblQuan = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.picQuan = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Paneltv2 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTin = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.picTin = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Paneltv1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblBinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.picPhuongzu = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.picQuan = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.picTin = new Guna.UI2.WinForms.Guna2PictureBox();
             this.picBinh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Picturenen = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Panelnen.SuspendLayout();
             this.panelTv3.SuspendLayout();
-            this.paneltv4.SuspendLayout();
-            this.Paneltv2.SuspendLayout();
-            this.Paneltv1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhuongzu)).BeginInit();
+            this.paneltv4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picQuan)).BeginInit();
+            this.Paneltv2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTin)).BeginInit();
+            this.Paneltv1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturenen)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,23 @@
             this.Panelnen.Name = "Panelnen";
             this.Panelnen.Size = new System.Drawing.Size(1015, 605);
             this.Panelnen.TabIndex = 0;
+            // 
+            // btnBack
+            // 
+            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBack.FillColor = System.Drawing.Color.Black;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Back;
+            this.btnBack.Location = new System.Drawing.Point(903, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(109, 36);
+            this.btnBack.TabIndex = 7;
+            this.btnBack.Text = "Quay lại";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lblTeam
             // 
@@ -96,12 +113,24 @@
             // 
             this.lblPhuongzu.BackColor = System.Drawing.Color.Silver;
             this.lblPhuongzu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPhuongzu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhuongzu.Location = new System.Drawing.Point(0, 199);
+            this.lblPhuongzu.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblPhuongzu.Location = new System.Drawing.Point(0, 202);
             this.lblPhuongzu.Name = "lblPhuongzu";
-            this.lblPhuongzu.Size = new System.Drawing.Size(280, 22);
+            this.lblPhuongzu.Size = new System.Drawing.Size(205, 19);
             this.lblPhuongzu.TabIndex = 3;
             this.lblPhuongzu.Text = "Vũ Nguyễn Việt Phương-49.01.104.117\r\n\r\n";
+            // 
+            // picPhuongzu
+            // 
+            this.picPhuongzu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picPhuongzu.Image = global::Do_anLaptrinhWinCK.Properties.Resources.z6120276486478_9a4af179357a8e01a59dd5fead4fbaff;
+            this.picPhuongzu.ImageRotate = 0F;
+            this.picPhuongzu.Location = new System.Drawing.Point(0, 0);
+            this.picPhuongzu.Name = "picPhuongzu";
+            this.picPhuongzu.Size = new System.Drawing.Size(205, 221);
+            this.picPhuongzu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPhuongzu.TabIndex = 0;
+            this.picPhuongzu.TabStop = false;
             // 
             // paneltv4
             // 
@@ -116,12 +145,24 @@
             // 
             this.lblQuan.BackColor = System.Drawing.Color.Silver;
             this.lblQuan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblQuan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuan.Location = new System.Drawing.Point(0, 199);
+            this.lblQuan.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblQuan.Location = new System.Drawing.Point(0, 202);
             this.lblQuan.Name = "lblQuan";
-            this.lblQuan.Size = new System.Drawing.Size(281, 22);
+            this.lblQuan.Size = new System.Drawing.Size(203, 19);
             this.lblQuan.TabIndex = 4;
             this.lblQuan.Text = "Nguyễn Hữu Minh Quân-49.01.104.120";
+            // 
+            // picQuan
+            // 
+            this.picQuan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picQuan.Image = global::Do_anLaptrinhWinCK.Properties.Resources.z6120288768959_03e9517f2d05aa55de34f4e36e180290;
+            this.picQuan.ImageRotate = 0F;
+            this.picQuan.Location = new System.Drawing.Point(0, 0);
+            this.picQuan.Name = "picQuan";
+            this.picQuan.Size = new System.Drawing.Size(203, 221);
+            this.picQuan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picQuan.TabIndex = 0;
+            this.picQuan.TabStop = false;
             // 
             // Paneltv2
             // 
@@ -136,12 +177,24 @@
             // 
             this.lblTin.BackColor = System.Drawing.Color.Silver;
             this.lblTin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblTin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTin.Location = new System.Drawing.Point(0, 199);
+            this.lblTin.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblTin.Location = new System.Drawing.Point(0, 202);
             this.lblTin.Name = "lblTin";
-            this.lblTin.Size = new System.Drawing.Size(208, 22);
+            this.lblTin.Size = new System.Drawing.Size(205, 19);
             this.lblTin.TabIndex = 2;
             this.lblTin.Text = "Bùi Minh Tín - 49.01.104.152";
+            // 
+            // picTin
+            // 
+            this.picTin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picTin.Image = global::Do_anLaptrinhWinCK.Properties.Resources.z6117584811822_54088989b9b80191a2d3f095a1f89291;
+            this.picTin.ImageRotate = 0F;
+            this.picTin.Location = new System.Drawing.Point(0, 0);
+            this.picTin.Name = "picTin";
+            this.picTin.Size = new System.Drawing.Size(205, 221);
+            this.picTin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picTin.TabIndex = 4;
+            this.picTin.TabStop = false;
             // 
             // Paneltv1
             // 
@@ -156,65 +209,12 @@
             // 
             this.lblBinh.BackColor = System.Drawing.Color.Silver;
             this.lblBinh.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblBinh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBinh.Location = new System.Drawing.Point(0, 199);
+            this.lblBinh.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblBinh.Location = new System.Drawing.Point(0, 202);
             this.lblBinh.Name = "lblBinh";
-            this.lblBinh.Size = new System.Drawing.Size(240, 22);
+            this.lblBinh.Size = new System.Drawing.Size(206, 19);
             this.lblBinh.TabIndex = 1;
             this.lblBinh.Text = "Nguyễn Thái Bình -49.01.104.011";
-            // 
-            // btnBack
-            // 
-            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBack.FillColor = System.Drawing.Color.Black;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Back;
-            this.btnBack.Location = new System.Drawing.Point(903, 0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(109, 36);
-            this.btnBack.TabIndex = 7;
-            this.btnBack.Text = "Quay lại";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // picPhuongzu
-            // 
-            this.picPhuongzu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picPhuongzu.Image = global::Do_anLaptrinhWinCK.Properties.Resources.z6120276486478_9a4af179357a8e01a59dd5fead4fbaff;
-            this.picPhuongzu.ImageRotate = 0F;
-            this.picPhuongzu.Location = new System.Drawing.Point(0, 0);
-            this.picPhuongzu.Name = "picPhuongzu";
-            this.picPhuongzu.Size = new System.Drawing.Size(205, 221);
-            this.picPhuongzu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPhuongzu.TabIndex = 0;
-            this.picPhuongzu.TabStop = false;
-            // 
-            // picQuan
-            // 
-            this.picQuan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picQuan.Image = global::Do_anLaptrinhWinCK.Properties.Resources.z6120288768959_03e9517f2d05aa55de34f4e36e180290;
-            this.picQuan.ImageRotate = 0F;
-            this.picQuan.Location = new System.Drawing.Point(0, 0);
-            this.picQuan.Name = "picQuan";
-            this.picQuan.Size = new System.Drawing.Size(203, 221);
-            this.picQuan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picQuan.TabIndex = 0;
-            this.picQuan.TabStop = false;
-            // 
-            // picTin
-            // 
-            this.picTin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picTin.Image = global::Do_anLaptrinhWinCK.Properties.Resources.z6117584811822_54088989b9b80191a2d3f095a1f89291;
-            this.picTin.ImageRotate = 0F;
-            this.picTin.Location = new System.Drawing.Point(0, 0);
-            this.picTin.Name = "picTin";
-            this.picTin.Size = new System.Drawing.Size(205, 221);
-            this.picTin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picTin.TabIndex = 4;
-            this.picTin.TabStop = false;
             // 
             // picBinh
             // 
@@ -255,15 +255,15 @@
             this.Panelnen.PerformLayout();
             this.panelTv3.ResumeLayout(false);
             this.panelTv3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPhuongzu)).EndInit();
             this.paneltv4.ResumeLayout(false);
             this.paneltv4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picQuan)).EndInit();
             this.Paneltv2.ResumeLayout(false);
             this.Paneltv2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picTin)).EndInit();
             this.Paneltv1.ResumeLayout(false);
             this.Paneltv1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPhuongzu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picQuan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picTin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picturenen)).EndInit();
             this.ResumeLayout(false);

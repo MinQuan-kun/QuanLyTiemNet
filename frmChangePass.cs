@@ -16,10 +16,6 @@ namespace Do_anLaptrinhWinCK
             InitializeComponent();
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void frmChangepass_Load(object sender, EventArgs e)
         {
             lblerror.Visible = false;

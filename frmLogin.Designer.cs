@@ -295,6 +295,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Enter += new System.EventHandler(this.frmLogin_Enter);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseUp);

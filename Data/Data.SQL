@@ -1,24 +1,24 @@
 CREATE DATABASE QLTiemNet
--- DROP DATABASE QLTiemNet
+--DROP DATABASE QLTiemNet
 -- DROP TABLE Users
 -- DROP TABLE Menu
 -- DROP TABLE Category
--- DROP TABLE Computers
--- DROP TABLE Cards
 -- DROP TABLE Status
 -- DROP TABLE Bill
 -- DROP TABLE BillDetails
 -- DROP TABLE ImportTable
+-- DROP TABLE MESSAGE
+-- DROP TABLE DoanhThu
+-- DROP TABLE Deposits
 Use QLTiemNet
 GO
-
 -- Bảng Admin
 CREATE TABLE Admin(
     ID INT PRIMARY KEY IDENTITY(1,1),
     Username VARCHAR(50) NOT NULL UNIQUE,
-    Password NVARCHAR(MAX) NOT NULL,
-    Role BIT
+    Password NVARCHAR(MAX) NOT NULL
 )
+
 -- Bảng Users
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
@@ -26,7 +26,7 @@ CREATE TABLE Users (
     Password VARBINARY(MAX) NOT NULL,
     RandomKey VARCHAR(50),
     CardID INT,
-    Point DECIMAL(10, 2) DEFAULT 0.00
+    Point DECIMAL(10, 3) DEFAULT 0
 );
 
 -- Bảng thẻ
@@ -35,31 +35,32 @@ CREATE TABLE Cards (
     UserID INT,
     CardType NVARCHAR(500) CHECK (CardType IN (N'VIP', N'Thành viên')) NOT NULL,
     Stas NVARCHAR(500) CHECK (Stas IN (N'đang hoạt động', N'Đã khóa')),
-    Balance DECIMAL(10, 2) DEFAULT 0.0
+    Balance DECIMAL(10, 3) DEFAULT 0,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
 );
 
--- Bảng máy
-CREATE TABLE Computers (
-    ComputerID INT PRIMARY KEY IDENTITY(1,1),  
-    ComputerName NVARCHAR(500) NOT NULL UNIQUE,
-    Phankhuc NVARCHAR(500) CHECK (Phankhuc IN (N'Gaming', N'Tiêu chuẩn', N'VIP')) NOT NULL,
-    Stas NVARCHAR(500) CHECK (Stas IN (N'Online', N'Bảo trì', N'Offline')) NOT NULL
+-- Bảng thẻ loại
+CREATE TABLE Category (
+    CategoryID INT PRIMARY KEY IDENTITY(1,1), 
+    CategoryName NVARCHAR(500) UNIQUE
 );
+
 -- Bảng menu
 CREATE TABLE Menu (
     FoodID INT PRIMARY KEY IDENTITY(1,1),  
     CategoryID INT,
-    FoodName NVARCHAR(100) NOT NULL,
-    Price DECIMAL(10, 2) NOT NULL,
+    FoodName NVARCHAR(100) UNIQUE NOT NULL,
+    Price DECIMAL(10, 3) NOT NULL,
     Quantity INT NOT NULL DEFAULT 0,
     Image Image,
-    Notes TEXT
+    Notes TEXT,
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID),
 );
 -- Bảng hóa đơn
 CREATE TABLE Bill (
     BillID INT PRIMARY KEY IDENTITY(1,1),  
     UserID INT NOT NULL,
-    TotalAmount DECIMAL(10, 2) DEFAULT 0.0, -- Tổng số tiền của hóa đơn
+    TotalAmount DECIMAL(10, 3) DEFAULT 0, -- Tổng số tiền của hóa đơn
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     Status NVARCHAR(50) CHECK (Status IN (N'Đang xử lý', N'Hoàn thành')) NOT NULL DEFAULT N'Đang xử lý',
     FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
@@ -72,28 +73,11 @@ CREATE TABLE BillDetails (
     UserID INT NOT NULL,
     FoodID INT NOT NULL,
     Quantity INT NOT NULL CHECK (Quantity > 0),
-    Price DECIMAL(10, 2) NOT NULL,
+    Price DECIMAL(10, 3) NOT NULL DEFAULT 0,
     TotalPrice AS (Quantity * Price) PERSISTED,
     FOREIGN KEY (BillID) REFERENCES Bill(BillID) ON DELETE CASCADE,
     FOREIGN KEY (FoodID) REFERENCES Menu(FoodID) ON DELETE NO ACTION,
     FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE NO ACTION
-);
-
--- Bảng thẻ loại
-CREATE TABLE Category (
-    CategoryID INT PRIMARY KEY IDENTITY(1,1), 
-    CategoryName NVARCHAR(500) UNIQUE
-);
--- Bảng trạng thái
-CREATE TABLE Status (
-    StationID INT PRIMARY KEY IDENTITY(1,1),  
-    ComputerID INT,
-    Stas NVARCHAR(500) CHECK (Stas IN (N'Online', N'Bảo trì', N'Offline')) NOT NULL,
-    CurrentUserID INT,
-    StartTime DATETIME,
-    RemainingTime INT,
-    Notes TEXT,
-    FOREIGN KEY (CurrentUserID) REFERENCES Users(UserID) ON DELETE SET NULL
 );
 
 -- Bảng nhập hàng
@@ -103,26 +87,31 @@ CREATE TABLE ImportTable (
     FoodID INT NOT NULL,
     CategoryID INT NOT NULL,
     Quantum INT NOT NULL DEFAULT 0,
-    SumPrice DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    SumPrice DECIMAL(10, 3) NOT NULL DEFAULT 0,
     ImportDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (CustomerID) REFERENCES Admin(ID),
     FOREIGN KEY (FoodID) REFERENCES Menu(FoodID),
     FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
 );
 
-GO
--- Xử lý khóa ngoại cho bảng `user`
-ALTER TABLE Users
-    ADD CONSTRAINT FK_Card FOREIGN KEY (CardID) REFERENCES Cards(CardID);
+-- Bảng tin nhắn
+CREATE TABLE Messages (
+    Username VARCHAR(50) NOT NULL,
+    SentTime DATETIME NOT NULL,
+    Mess NVARCHAR(MAX) NOT NULL,
+    Stas NVARCHAR(20) DEFAULT 'Chưa xem' CHECK (Stas IN (N'Chưa xem', N'Đã xem')) NOT NULL,
+	FOREIGN KEY (Username) REFERENCES Users(Username),
+    PRIMARY KEY (Username, SentTime),
+);
 
--- Xử lý khóa ngoại cho bảng `Status`
-ALTER TABLE Status
-    ADD CONSTRAINT FK_Computer FOREIGN KEY (ComputerID) REFERENCES Computers(ComputerID);
-
--- Xử lý khóa ngoại cho bảng `Menu`
-ALTER TABLE Menu
-    ADD CONSTRAINT FK_Category FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID);
-
+-- Bảng nạp tiền
+CREATE TABLE Deposits (
+    DepositID INT IDENTITY(1,1) PRIMARY KEY, -- Khóa chính tự tăng
+    UserID INT NOT NULL,
+    Amount DECIMAL(10, 3) NOT NULL DEFAULT 0,
+    DepositTime DATETIME NOT NULL DEFAULT GETDATE(),
+	FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
 
 -- Thêm dữ liệu mẫu vào bảng Category
 INSERT INTO Category (CategoryName)
@@ -136,64 +125,49 @@ VALUES
 -- Thêm dữ liệu mẫu vào bảng Menu
 INSERT INTO Menu (CategoryID, FoodName, Price, Quantity)
 VALUES 
-(1, N'Cơm gà', 25.000, 50),
-(1, N'Cơm sườn', 25.000, 50),
-(1, N'Cơm trộn hàn quốc', 25.000, 50),
-(1, N'Cơm chiên trứng ốp la', 25.000, 50),
-(2, N'Sting', 15.000, 70),
-(2, N'Pepsi', 15.000, 70),
-(2, N'Sprite', 15.000, 70),
-(2, N'Coca cola', 15.000, 70),
-(3, N'Snack khoai tây', 10.000, 60),
-(3, N'Snack ngô', 10.000, 60),
-(3, N'Snack bí đỏ', 10.000, 60),
-(3, N'Snack cua', 10.000, 60),
-(4, N'Mì tương đen', 25.000, 50),
-(4, N'Mì ý', 25.000, 50),
-(4, N'Mì ly', 10.000, 50),
-(4, N'Mì trộn', 25.000, 50),
-(5, N'Kem vani', 20.000, 40),
-(5, N'Kem socola', 20.000, 40),
-(5, N'Kem matcha', 20.000, 40),
-(5, N'Kem dâu', 20.000, 40);
-
--- Dữ liệu cho bảng Computers
-INSERT INTO Computers (ComputerName, Phankhuc, Stas)
-VALUES
-('Comp01', N'VIP', 'Offline'),
-('Comp02', N'VIP', 'Offline'),
-('Comp03', N'VIP', 'Offline'),
-('Comp04', N'Gaming', 'Offline'),
-('Comp05', N'Tiêu chuẩn', 'Offline'),
-('Comp06', N'VIP', 'Offline'),
-('Comp07', N'Gaming', 'Offline');
+(1, N'Cơm gà', 25000, 50),
+(1, N'Cơm sườn', 25000, 50),
+(1, N'Cơm trộn hàn quốc', 25000, 50),
+(1, N'Cơm chiên trứng ốp la', 25000, 50),
+(2, N'Sting', 15000, 70),
+(2, N'Pepsi', 15000, 70),
+(2, N'Sprite', 15000, 70),
+(2, N'Coca cola', 15000, 70),
+(3, N'Snack khoai tây', 10000, 60),
+(3, N'Snack ngô', 10000, 60),
+(3, N'Snack bí đỏ', 10000, 60),
+(3, N'Snack cua', 10000, 60),
+(4, N'Mì tương đen', 25000, 50),
+(4, N'Mì ý', 25000, 50),
+(4, N'Mì ly', 10000, 50),
+(4, N'Mì trộn', 25000, 50),
+(5, N'Kem vani', 20000, 40),
+(5, N'Kem socola', 20000, 40),
+(5, N'Kem matcha', 20000, 40),
+(5, N'Kem dâu', 20000, 40);
 
 -- Dữ liệu cho bảng Quanly
-INSERT INTO Admin (Username, Password, Role)
+INSERT INTO Admin (Username, Password)
 VALUES
-('Admin', 123, 0),
-('Tín', 123, 1),
-('Quân',123, 1)
+('Admin', 123),
+('Tín', 123),
+('Quân',123)
 
 -- Dữ liệu cho bảng ImportTable
 INSERT INTO ImportTable (CustomerID, FoodID, CategoryID, Quantum, SumPrice ,ImportDate)
 VALUES
-(1,	5,	2 ,2, 30000.00, '2024-12-10 22:40:34.407'),
-(2,	6,	2, 4, 30000.00, '2020-12-10 20:46:34.300'),
-(2,	7,	2, 6, 30000.00,	'2020-12-10 20:44:34.300'),
-(1, 1, 1, 2, 50.00, '2024-12-10 23:03:13.620'),
-(1, 1, 1, 1, 25.00, '2024-12-10 23:03:19.823'),
-(1, 4, 1, 2, 50.00, '2024-12-10 23:05:04.053'),
-(1, 3, 1, 2, 50.00, '2024-12-10 23:07:37.453'),
-(1, 5, 2, 1, 15.00, '2024-12-10 23:10:57.467'),
-(1, 5, 2, 1, 15.00, '2024-12-10 23:11:07.733'),
-(1, 3, 1, 1, 25.00, '2024-12-10 23:11:20.520'),
-(1, 6, 2, 1, 15.00, '2024-12-10 23:12:07.193'),
-(1, 17, 5, 0, 0.00, '2024-12-10 23:12:17.797'),
-(1, 18, 5, 0, 0.00, '2024-12-10 23:12:17.797'),
-(1, 19, 5, 0, 0.00, '2024-12-10 23:12:17.800'),
-(1, 20, 5, 0, 0.00, '2024-12-10 23:12:17.803'),
-(1, 12, 3, 12, 120.00, '2024-12-10 23:12:36.097')
+(1,	5,	2 ,2, 30000, '2024-12-10 22:40:34.407'),
+(2,	6,	2, 4, 30000, '2020-12-10 20:46:34.300'),
+(2,	7,	2, 6, 30000, '2020-12-10 20:44:34.300'),
+(1, 1, 1, 2, 50000, '2024-12-10 23:03:13.620'),
+(1, 1, 1, 1, 25000, '2024-12-10 23:03:19.823'),
+(1, 4, 1, 2, 50000, '2024-12-10 23:05:04.053'),
+(1, 3, 1, 2, 50000, '2024-12-10 23:07:37.453'),
+(1, 5, 2, 1, 15000, '2024-12-10 23:10:57.467'),
+(1, 5, 2, 1, 15000, '2024-12-10 23:11:07.733'),
+(1, 3, 1, 1, 25000, '2024-12-10 23:11:20.520'),
+(1, 6, 2, 1, 15000, '2024-12-10 23:12:07.193'),
+(1, 12, 3, 12, 12000, '2024-12-10 23:12:36.097')
 
 -- Dữ liệu cho bảng Users
 INSERT INTO Users (Username, Password, RandomKey)
@@ -202,16 +176,23 @@ VALUES
 (N'Kiet', 0x5EB5B769B9DF4A8E3FAEC8E90DEB2205, 9078),
 (N'Minhtin', 0xADCF328C18AC264CFDEF4424F53F0F6A, 7385)
 
+-- Dữ liệu cho bảng Messages
+INSERT INTO Messages (Username, SentTime, Mess, Stas)
+VALUES
+('Phuongzu', '2024-12-14 09:00:00', N'Chuột liệt rồi ad ơi', N'Chưa xem'),
+('Phuongzu', '2024-12-16 14:45:45', N'Có thằng hút thuốc ad ơi', N'Chưa xem'),
+('Kiet', '2024-12-14 10:15:00', N'Mẹ em hỏi thì đừng khai nha', N'Chưa xem')
+
 -- Trigger cập nhật CardID
 GO
 CREATE TRIGGER trg_UpdateCardID
 ON Cards
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
 BEGIN
-    -- Cập nhật CardID trong bảng Users
     UPDATE Users
-    SET CardID = inserted.CardID
+    SET Users.CardID = inserted.CardID,
+        Users.Point = 0
     FROM Users
     INNER JOIN inserted ON Users.UserID = inserted.UserID;
 END;
@@ -234,9 +215,9 @@ END;
 GO
 INSERT INTO Cards (UserID, CardType, Stas,  Balance)
 VALUES
-(1, N'Thành viên' , N'Đang hoạt động', 0.00),
-(2, N'VIP' , N'Đã khóa', 0.00),
-(3, N'Thành viên' , N'Đang hoạt động', 0.00)
+(1, N'Thành viên' , N'Đang hoạt động', 0),
+(2, N'VIP' , N'Đã khóa', 0),
+(3, N'Thành viên' , N'Đang hoạt động', 0)
 
 -- Trigger cập nhật tổng bill
 GO
@@ -343,112 +324,25 @@ VALUES
 (3),
 (1)
 
-
+-- Thêm dữ liệu cho bảng BillDetails
 GO
 INSERT INTO BillDetails (BillID, UserID, FoodID, Quantity, Price)
 VALUES 
 -- Hóa đơn 1
-(1, 1, 1, 2, 25.000), 
-(1, 1, 5, 1, 15.000), 
+(1, 1, 1, 2, 25000), 
+(1, 1, 5, 1, 15000), 
 -- Hóa đơn 2
-(2, 2, 6, 2, 15.000), 
-(2, 2, 13, 1, 10.000), 
+(2, 2, 6, 2, 15000), 
+(2, 2, 13, 1, 10000), 
 -- Hóa đơn 3
-(3, 3, 17, 3, 20.000), 
-(3, 3, 18, 2, 20.000),
+(3, 3, 17, 3, 20000), 
+(3, 3, 18, 2, 20000),
 -- Hóa đơn 4
-(4, 1, 1, 2, 25.000), 
-(4, 1, 5, 1, 15.000);
-
---Truy xuất tài khoản
-GO
-CREATE PROC GetAccoount
-@username NVARCHAR(100)
-AS
-BEGIN
-    SELECT * FROM Users WHERE Username = @username
-END 
--- DROP PROC GetAccount;
-
---Truy xuất đăng nhập
-GO
-CREATE PROC Go_Login
-@username NVARCHAR(100), @password NVARCHAR(100)
-AS
-BEGIN
-    SELECT * FROM Users WHERE Username = @username AND Password = @password
-END
--- DROP PROC Go_Login;
-
---Truy xuất danh mục 
-GO
-CREATE PROC GetMenu
-@Category NVARCHAR(500)
-AS 
-BEGIN
-    SELECT * 
-    FROM Menu M
-    JOIN Category CT ON CT.CategoryID = M.CategoryID
-    WHERE CT.CategoryName = @Category
-END
--- DROP PROC GetMenu;
-
---Truy vấn món ăn
-GO
-CREATE PROC GetFood
-@Name NVARCHAR(500)
-AS
-BEGIN 
-    SELECT *
-    FROM Menu
-    WHERE FoodName = @Name
-END
--- DROP PROC GetFood;
-
---Tạo trigger thay đổi số tiền trong ví
-GO
-CREATE TRIGGER Up_Money
-ON Bill
-AFTER INSERT, UPDATE, DELETE
-AS
-BEGIN
-    SET NOCOUNT ON; -- Bỏ thông báo ảnh hưởng của trigger
-
-    -- Trừ tiền khi thêm hóa đơn mới
-    IF EXISTS (SELECT 1 FROM inserted)
-    BEGIN
-        UPDATE Cards
-        SET Balance = Balance - i.TotalAmount
-        FROM Cards w
-        INNER JOIN inserted i ON w.UserID = i.UserID
-        WHERE w.Stas = N'Đang hoạt động';
-    END
-
-    -- Hoàn tiền khi xóa hóa đơn
-    IF EXISTS (SELECT 1 FROM deleted)
-    BEGIN
-        UPDATE Cards
-        SET Balance = Balance + d.TotalAmount
-        FROM Cards w
-        INNER JOIN deleted d ON w.UserID = d.UserID
-        WHERE w.Stas = N'Đang hoạt động';
-    END
-
-    -- Cập nhật tiền khi sửa hóa đơn (UPDATE)
-    IF EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
-    BEGIN
-        UPDATE Cards
-        SET Balance = Balance - i.TotalAmount + d.TotalAmount
-        FROM Cards w
-        INNER JOIN inserted i ON w.UserID = i.UserID
-        INNER JOIN deleted d ON w.UserID = d.UserID
-        WHERE w.Stas = N'Đang hoạt động';
-    END
-END
-GO
--- DROP TRIGGER Up_Money;
+(4, 1, 1, 2, 25000), 
+(4, 1, 5, 1, 15000);
 
 --TRIGGER ngăn chặn thẻ khóa nạp vào
+GO
 CREATE TRIGGER Prevent_LockCards
 ON Cards
 FOR UPDATE
@@ -465,6 +359,7 @@ BEGIN
     END
 END;
 -- DROP TRIGGER Prevent_LockCards
+
 -- Trigger xử lý khi cập nhật điểm và loại thẻ
 GO
 CREATE TRIGGER trg_UpdatePoints
@@ -472,7 +367,7 @@ ON Cards
 AFTER UPDATE
 AS
 BEGIN
-    DECLARE @UserID INT, @Balance DECIMAL(10, 2), @Points DECIMAL(10, 2);
+    DECLARE @UserID INT, @Balance DECIMAL(10, 3), @Points DECIMAL(10, 3);
 
     -- Lấy thông tin từ bảng inserted
     SELECT @UserID = UserID, @Balance = Balance FROM inserted;
@@ -505,207 +400,3 @@ BEGIN
     COMMIT TRANSACTION;
 END;
 -- DROP TRIGGER trg_UpdateQuantum
-
-GO
-DECLARE @ImageData VARBINARY(MAX);
---Ảnh lấy từ Resources thế vào chỗ C:user
-
--- Cập nhật ảnh cho món ăn "Cơm gà"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comga.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Cơm gà';
-
--- Cập nhật ảnh cho món ăn "Cơm sườn"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comsuon.PNG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Cơm sườn';
-
--- Cập nhật ảnh cho món ăn "Cơm trộn hàn quốc"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\ComtronHanquoc.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Cơm trộn hàn quốc';
-
--- Cập nhật ảnh cho món ăn "Cơm chiên trứng ốp la"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Comchientrungopla.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Cơm chiên trứng ốp la';
-
--- Cập nhật ảnh cho món ăn "Sting"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Sting.PNG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Sting';
-
--- Cập nhật ảnh cho món ăn "Pepsi"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Pepsi.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Pepsi';
-
--- Cập nhật ảnh cho món ăn "Sprite"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Sprite.PNG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Sprite';
-
--- Cập nhật ảnh cho món ăn "Coca cola"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Cocacola.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Coca cola';
-
--- Cập nhật ảnh cho món ăn "Snack khoai tây"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackkhoaitay.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Snack khoai tây';
-
--- Cập nhật ảnh cho món ăn "Snack ngô"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackngo.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Snack ngô';
-
--- Cập nhật ảnh cho món ăn "Snack bí đỏ"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackbido.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Snack bí đỏ';
-
--- Cập nhật ảnh cho món ăn "Snack cua"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Snackcua.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Snack cua';
-
--- Cập nhật ảnh cho món ăn "Mì tương đen"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Mituongden.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Mì tương đen';
-
--- Cập nhật ảnh cho món ăn "Mì ý"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Miy.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Mì ý';
-
--- Cập nhật ảnh cho món ăn "Mì ly"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Mily.PNG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Mì ly';
-
--- Cập nhật ảnh cho món ăn "Mì trộn"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Mitron.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Mì trộn';
-
--- Cập nhật ảnh cho món ăn "Kem vani"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemvani.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Kem vani';
-
--- Cập nhật ảnh cho món ăn "Kem socola"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemsocola.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Kem socola';
-
--- Cập nhật ảnh cho món ăn "Kem dâu"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemdau.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Kem dâu';
-
--- Cập nhật ảnh cho món ăn "Kem matcha"
--- Đọc ảnh từ file vào biến @ImageData
-SELECT @ImageData = BulkColumn
-FROM OPENROWSET(BULK 'C:\Users\ASUS\Pictures\Món ăn\Kemmatcha.JPG', SINGLE_BLOB) AS img;
-
--- Cập nhật ảnh vào bảng Menu
-UPDATE Menu
-SET Image = @ImageData
-WHERE FoodName = N'Kem matcha';

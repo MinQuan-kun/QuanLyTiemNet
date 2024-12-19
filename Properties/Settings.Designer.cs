@@ -26,8 +26,19 @@ namespace Do_anLaptrinhWinCK.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-6MUPO0FT\\MSSQLSERVER01;Initial Catalog=QLTiemNet;Integrated Se" +
-            "curity=True;Encrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-O6VGHSO\\SQLEXPRESS;Initial Catalog=QLTiemNet;Integrated Secur" +
+            "ity=True;TrustServerCertificate=True")]
+        public string QLTiemNetConnectionString {
+            get {
+                return ((string)(this["QLTiemNetConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-O6VGHSO\\SQLEXPRESS;Initial Catalog=QLTiemNet;Integrated Secur" +
+            "ity=True;Encrypt=True;TrustServerCertificate=True")]
         public string QLTiemNetConnectionString1 {
             get {
                 return ((string)(this["QLTiemNetConnectionString1"]));
@@ -37,11 +48,11 @@ namespace Do_anLaptrinhWinCK.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-O6VGHSO\\SQLEXPRESS;Initial Catalog=QLTiemNet;Integrated Secur" +
-            "ity=True;TrustServerCertificate=True")]
-        public string QLTiemNetConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-N4AIIQFB;Initial Catalog=QLTiemNet;Integrated Security=True;Tr" +
+            "ustServerCertificate=True")]
+        public string QLTiemNetConnectionString2 {
             get {
-                return ((string)(this["QLTiemNetConnectionString"]));
+                return ((string)(this["QLTiemNetConnectionString2"]));
             }
         }
     }

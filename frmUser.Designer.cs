@@ -34,7 +34,6 @@
             this.txtDate = new System.Windows.Forms.ToolStripLabel();
             this.lblInfor = new System.Windows.Forms.ToolStripLabel();
             this.Logout = new System.Windows.Forms.ToolStripButton();
-            this.Login = new System.Windows.Forms.ToolStripButton();
             this.panelhethong = new System.Windows.Forms.Panel();
             this.btnminisize = new Guna.UI2.WinForms.Guna2Button();
             this.btnfullsize = new Guna.UI2.WinForms.Guna2Button();
@@ -50,14 +49,14 @@
             this.subpanelHethong = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDangxuat = new System.Windows.Forms.Button();
-            this.btnDangNhap = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNhantin = new System.Windows.Forms.Button();
             this.subpanelChucnang = new System.Windows.Forms.Panel();
-            this.btndoiqua = new System.Windows.Forms.Button();
             this.btnchangepass = new System.Windows.Forms.Button();
             this.btnDatdoan = new System.Windows.Forms.Button();
             this.btnChucnang = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.lblPlayTime = new System.Windows.Forms.Label();
             this.toolStrip2.SuspendLayout();
             this.panelhethong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -77,11 +76,10 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txtDate,
             this.lblInfor,
-            this.Logout,
-            this.Login});
+            this.Logout});
             this.toolStrip2.Location = new System.Drawing.Point(4, 9);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(321, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(292, 27);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "Bạn chưa đăng nhập";
             // 
@@ -109,19 +107,10 @@
             this.Logout.Text = "Đăng xuất";
             this.Logout.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
-            // Login
-            // 
-            this.Login.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Login.Image = global::Do_anLaptrinhWinCK.Properties.Resources.Import;
-            this.Login.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(29, 24);
-            this.Login.Text = "Login";
-            this.Login.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
             // panelhethong
             // 
             this.panelhethong.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelhethong.Controls.Add(this.lblPlayTime);
             this.panelhethong.Controls.Add(this.btnminisize);
             this.panelhethong.Controls.Add(this.btnfullsize);
             this.panelhethong.Controls.Add(this.toolStrip2);
@@ -204,6 +193,7 @@
             // 
             // PanelMain
             // 
+            this.PanelMain.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(246, 0);
             this.PanelMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -227,7 +217,7 @@
             this.btnNaptien.Text = "Nạp tiền";
             this.btnNaptien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNaptien.UseVisualStyleBackColor = false;
-            this.btnNaptien.Click += new System.EventHandler(this.btnNaptien_Click_1);
+            this.btnNaptien.Click += new System.EventHandler(this.btnNaptien_Click);
             // 
             // timer1
             // 
@@ -276,12 +266,11 @@
             // 
             this.subpanelHethong.Controls.Add(this.btnThoat);
             this.subpanelHethong.Controls.Add(this.btnDangxuat);
-            this.subpanelHethong.Controls.Add(this.btnDangNhap);
             this.subpanelHethong.Dock = System.Windows.Forms.DockStyle.Top;
             this.subpanelHethong.Location = new System.Drawing.Point(0, 152);
             this.subpanelHethong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.subpanelHethong.Name = "subpanelHethong";
-            this.subpanelHethong.Size = new System.Drawing.Size(246, 135);
+            this.subpanelHethong.Size = new System.Drawing.Size(246, 88);
             this.subpanelHethong.TabIndex = 2;
             // 
             // btnThoat
@@ -291,7 +280,7 @@
             this.btnThoat.FlatAppearance.BorderSize = 0;
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnThoat.Location = new System.Drawing.Point(0, 86);
+            this.btnThoat.Location = new System.Drawing.Point(0, 43);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
@@ -309,7 +298,7 @@
             this.btnDangxuat.FlatAppearance.BorderSize = 0;
             this.btnDangxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangxuat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDangxuat.Location = new System.Drawing.Point(0, 43);
+            this.btnDangxuat.Location = new System.Drawing.Point(0, 0);
             this.btnDangxuat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDangxuat.Name = "btnDangxuat";
             this.btnDangxuat.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
@@ -319,24 +308,6 @@
             this.btnDangxuat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangxuat.UseVisualStyleBackColor = false;
             this.btnDangxuat.Click += new System.EventHandler(this.btnDangxuat_Click);
-            // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDangNhap.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDangNhap.FlatAppearance.BorderSize = 0;
-            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDangNhap.Location = new System.Drawing.Point(0, 0);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btnDangNhap.Size = new System.Drawing.Size(246, 43);
-            this.btnDangNhap.TabIndex = 7;
-            this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangNhap.UseVisualStyleBackColor = false;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // panel1
             // 
@@ -370,36 +341,19 @@
             this.btnNhantin.Text = "Ý kiến";
             this.btnNhantin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNhantin.UseVisualStyleBackColor = false;
+            this.btnNhantin.Click += new System.EventHandler(this.btnNhantin_Click);
             // 
             // subpanelChucnang
             // 
-            this.subpanelChucnang.Controls.Add(this.btndoiqua);
             this.subpanelChucnang.Controls.Add(this.btnchangepass);
             this.subpanelChucnang.Controls.Add(this.btnDatdoan);
             this.subpanelChucnang.Controls.Add(this.btnNaptien);
             this.subpanelChucnang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subpanelChucnang.Location = new System.Drawing.Point(0, 339);
+            this.subpanelChucnang.Location = new System.Drawing.Point(0, 292);
             this.subpanelChucnang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.subpanelChucnang.Name = "subpanelChucnang";
-            this.subpanelChucnang.Size = new System.Drawing.Size(246, 175);
+            this.subpanelChucnang.Size = new System.Drawing.Size(246, 128);
             this.subpanelChucnang.TabIndex = 8;
-            // 
-            // btndoiqua
-            // 
-            this.btndoiqua.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btndoiqua.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btndoiqua.FlatAppearance.BorderSize = 0;
-            this.btndoiqua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndoiqua.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btndoiqua.Location = new System.Drawing.Point(0, 129);
-            this.btndoiqua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btndoiqua.Name = "btndoiqua";
-            this.btndoiqua.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btndoiqua.Size = new System.Drawing.Size(246, 43);
-            this.btndoiqua.TabIndex = 14;
-            this.btndoiqua.Text = "Đổi quà";
-            this.btndoiqua.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndoiqua.UseVisualStyleBackColor = false;
             // 
             // btnchangepass
             // 
@@ -444,7 +398,7 @@
             this.btnChucnang.FlatAppearance.BorderSize = 0;
             this.btnChucnang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucnang.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnChucnang.Location = new System.Drawing.Point(0, 287);
+            this.btnChucnang.Location = new System.Drawing.Point(0, 240);
             this.btnChucnang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnChucnang.Name = "btnChucnang";
             this.btnChucnang.Size = new System.Drawing.Size(246, 52);
@@ -453,6 +407,17 @@
             this.btnChucnang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChucnang.UseVisualStyleBackColor = false;
             this.btnChucnang.Click += new System.EventHandler(this.btnChucnang_Click);
+            // 
+            // lblPlayTime
+            // 
+            this.lblPlayTime.AutoSize = true;
+            this.lblPlayTime.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPlayTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPlayTime.Location = new System.Drawing.Point(317, 9);
+            this.lblPlayTime.Name = "lblPlayTime";
+            this.lblPlayTime.Size = new System.Drawing.Size(65, 28);
+            this.lblPlayTime.TabIndex = 16;
+            this.lblPlayTime.Text = "label1";
             // 
             // frmUser
             // 
@@ -490,7 +455,6 @@
         private System.Windows.Forms.ToolStripLabel txtDate;
         private System.Windows.Forms.ToolStripLabel lblInfor;
         private System.Windows.Forms.ToolStripButton Logout;
-        private System.Windows.Forms.ToolStripButton Login;
         private System.Windows.Forms.Panel panelhethong;
         private Guna.UI2.WinForms.Guna2Button btnminisize;
         private Guna.UI2.WinForms.Guna2Button btnfullsize;
@@ -506,13 +470,13 @@
         private System.Windows.Forms.Panel subpanelHethong;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnDangxuat;
-        private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel subpanelChucnang;
         private System.Windows.Forms.Button btnChucnang;
-        private System.Windows.Forms.Button btndoiqua;
         private System.Windows.Forms.Button btnchangepass;
         private System.Windows.Forms.Button btnDatdoan;
         private System.Windows.Forms.Button btnNhantin;
+        private System.Windows.Forms.Label lblPlayTime;
+        private System.Windows.Forms.Timer timer2;
     }
 }

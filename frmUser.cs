@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,12 +11,69 @@ namespace Do_anLaptrinhWinCK
         public static int ID { get; set; }
         public static int cardID { get; set; }
         public static string infor = "Bạn chưa đăng nhập!";
+        private decimal currentBalance;
+        private int remainingSeconds;
+        private DateTime startTime;  // Lưu thời gian bắt đầu
+        private TimeSpan elapsedTime;  // Lưu thời gian đã trôi qua
+        private Timer playTimer; // Timer để giảm giờ chơi
+        private const decimal COST_PER_SECOND = 2.78m;
         public frmUser()
         {
             InitializeComponent();
             customizeDesign();
             this.StartPosition = FormStartPosition.CenterScreen;
+            playTimer = new Timer();
+            playTimer.Interval = 1000;  // Thiết lập thời gian quay lại mỗi 1000 ms (1 giây)
+            playTimer.Tick += timer2_Tick;  // Gán sự kiện Tick để xử lý khi timer hết thời gian
+            playTimer.Start();  // Bắt đầu timer
+            LoadCardInfo();
         }
+
+        private void LoadCardInfo()
+        {
+            using (var db = new databaseDataContext())
+            {
+                var card = db.Cards.FirstOrDefault(c => c.UserID == ID && c.Stas == "đang hoạt động");
+
+                if (card != null)
+                {
+                    currentBalance = (decimal)card.Balance;
+                    remainingSeconds = (int)(currentBalance / COST_PER_SECOND);  // Tính số giây còn lại
+
+                    startTime = DateTime.Now;  // Lưu thời gian bắt đầu
+                    elapsedTime = TimeSpan.Zero;  // Thời gian đã trôi qua bằng 0 khi bắt đầu
+
+                    // Chuyển số giây còn lại thành giờ, phút, giây
+                    TimeSpan remainingTime = TimeSpan.FromSeconds(remainingSeconds);
+                    string formattedTime = remainingTime.ToString(@"hh\:mm\:ss");
+                    lblPlayTime.Text = $"Thời gian chơi còn lại: {formattedTime}";
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy thẻ của bạn hoặc thẻ đã bị khóa.");
+                }
+            }
+        }
+        private void UpdateBalanceInDatabase(decimal newBalance)
+        {
+            using (var db = new databaseDataContext())
+            {
+                var card = db.Cards.FirstOrDefault(c => c.UserID == ID && c.Stas == "đang hoạt động");
+
+                if (card != null)
+                {
+                    card.Balance = newBalance;  // Cập nhật số dư mới
+
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy thẻ của bạn hoặc thẻ đã bị khóa.");
+                }
+            }
+        }
+
         public frmUser(string _infor)
         {
             InitializeComponent();
@@ -37,6 +95,34 @@ namespace Do_anLaptrinhWinCK
         private void btnminisize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            elapsedTime = DateTime.Now - startTime;  // Tính thời gian đã trôi qua
+
+            // Nếu số giây còn lại và số dư đủ, giảm thời gian và số dư
+            if (remainingSeconds > 0 && currentBalance >= COST_PER_SECOND)
+            {
+                remainingSeconds--;  // Giảm số giây
+                currentBalance -= COST_PER_SECOND;  // Trừ số dư theo giây
+
+                // Cập nhật thời gian còn lại theo định dạng hh:mm:ss
+                TimeSpan remainingTime = TimeSpan.FromSeconds(remainingSeconds);  // Chuyển số giây còn lại thành TimeSpan
+                string formattedTime = remainingTime.ToString(@"hh\:mm\:ss");  // Định dạng: giờ:phút:giây
+                lblPlayTime.Text = $"Thời gian chơi còn lại: {formattedTime}";
+
+                // Cập nhật cơ sở dữ liệu
+                UpdateBalanceInDatabase(currentBalance);
+
+                // Dừng khi hết thời gian hoặc số dư không đủ
+                if (remainingSeconds == 0 || currentBalance < COST_PER_SECOND)
+                {
+                    playTimer.Stop();  // Dừng Timer
+                    lblPlayTime.Text = "Thời gian chơi đã hết!";
+                    MessageBox.Show("Thẻ của bạn đã hết thời gian hoặc số dư không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void btnfullsize_Click(object sender, EventArgs e)
@@ -81,8 +167,6 @@ namespace Do_anLaptrinhWinCK
             bool isLoggedIn = infor != "Bạn chưa đăng nhập!";
             btnDangxuat.Enabled = isLoggedIn;
             Logout.Enabled = isLoggedIn;
-            btnDangNhap.Enabled = !isLoggedIn;
-            Login.Enabled = !isLoggedIn;
 
             if (isLoggedIn)
             {
@@ -112,26 +196,10 @@ namespace Do_anLaptrinhWinCK
                 infor = "Bạn chưa đăng nhập!";
                 UpdateLoginState();
 
-                PanelMain.Controls.Clear();
-
-                frmLogin loginForm = new frmLogin
-                {
-                    TopLevel = false,
-                    FormBorderStyle = FormBorderStyle.None,
-                };
-
-                loginForm.LoginSuccess += LoginForm_LoginSuccess;
-                PanelMain.Controls.Add(loginForm);
+                frmLogin loginForm = new frmLogin();
                 loginForm.Show();
-                CenterFormInPanel(loginForm);
+                this.Close();
             }
-        }
-        // Xử lý sự kiện khi đăng nhập lại thành công
-        private void LoginForm_LoginSuccess(object sender, string username)
-        {
-            infor = $"Đăng nhập thành công: {username}";
-            UpdateLoginState();
-            PanelMain.Controls.Clear();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -237,19 +305,35 @@ namespace Do_anLaptrinhWinCK
             CenterFormInPanel(ord);
 
         }
-        private void btnNaptien_Click_1(object sender, EventArgs e)
+
+        private void btnNhantin_Click(object sender, EventArgs e)
         {
             PanelMain.Controls.Clear();
 
-            NapTien napTien = new NapTien
+            frmMessage nhanTin = new frmMessage
             {
                 TopLevel = false,
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill,
             };
-            PanelMain.Controls.Add(napTien);
-            napTien.Show();
-            CenterFormInPanel(napTien);
+            PanelMain.Controls.Add(nhanTin);
+            nhanTin.Show();
+            CenterFormInPanel(nhanTin);
+        }
+
+        private void btnNaptien_Click(object sender, EventArgs e)
+        {
+            PanelMain.Controls.Clear();
+
+            NapTien nap = new NapTien
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill,
+            };
+            PanelMain.Controls.Add(nap);
+            nap.Show();
+            CenterFormInPanel(nap);
         }
     }
 }

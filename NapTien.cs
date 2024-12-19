@@ -1,5 +1,4 @@
-﻿using Do_anLaptrinhWinCK.All_Cards;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,19 +16,22 @@ namespace Do_anLaptrinhWinCK
         {
             InitializeComponent();
         }
+
         private void NapTien_Load(object sender, EventArgs e)
         {
             // Hiển thị số dư và điểm hiện tại của người dùng
             using (databaseDataContext db = new databaseDataContext())
             {
                 var user = db.Users.SingleOrDefault(u => u.UserID == frmUser.ID);
-                if (user != null)
+                var card = db.Cards.SingleOrDefault(c => c.UserID == frmUser.ID);
+                if (user != null && card != null)
                 {
-                    lblBalance.Text = $"Số dư hiện tại: {user.Card.Balance} VND";
+                    lblBalance.Text = $"Số dư hiện tại: {card.Balance} VND";
                     lblPoint.Text = $"Điểm hiện tại: {user.Point} điểm";
                 }
             }
         }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem số tiền đã được nhập chưa

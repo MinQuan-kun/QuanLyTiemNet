@@ -5,30 +5,38 @@ namespace Do_anLaptrinhWinCK
 {
     internal static class Program
     {
-        [STAThread]
+        public static string UserRole = string.Empty;
+        [STAThread] // để mở thư mục
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            frmLogin loginForm = new frmLogin();
-            if (loginForm.ShowDialog() == DialogResult.OK)
+            while (true)
             {
-                string userRole = loginForm.UserRole;
-
-                if (userRole == "Admin" || userRole == "Nhân viên")
+                // Mở form đăng nhập
+                frmLogin loginForm = new frmLogin();
+                DialogResult result = loginForm.ShowDialog();
+                // Kiểm tra kết quả đăng nhập
+                if (result == DialogResult.OK)
                 {
-                    Application.Run(new frmMain());
+                    UserRole = loginForm.UserRole;
+                    // Mở form chính dựa trên vai trò
+                    if (UserRole == "Admin")
+                    {
+                        Application.Run(new frmMain());
+                    }
+                    else if (UserRole == "Người dùng")
+                    {
+                        Application.Run(new frmUser());
+                    }
                 }
-                else if (userRole == "Người dùng")
+                else
                 {
-                    Application.Run(new frmUser());
+                    Application.Exit();
+                    break;
                 }
-            }
-            else
-            {
-                Application.Exit();
             }
         }
     }
 }
+

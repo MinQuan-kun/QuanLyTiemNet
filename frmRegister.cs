@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -15,48 +16,38 @@ namespace Do_anLaptrinhWinCK
             InitializeComponent();
         }
 
-
-        private void frmDangky_Load(object sender, EventArgs e)
-        {
-            SetRoundedCorners(30);
-        }
-        private void SetRoundedCorners(int radius)
-        {
-            radius = Math.Min(radius, Math.Min(this.Width / 2, this.Height / 2));
-
-            var path = new GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(this.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(this.Width - radius, this.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, this.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            this.Region = new Region(path);
-        }
-
         private void btnDangky_Click(object sender, EventArgs e)
         {
-            if (txtUser.Text == "")
+            if (txtUsername.Text == "")
             {
                 MessageBox.Show("Vui lòng điền username thông tin", "Thông báo");
                 return;
             }
             // Kiểm tra username và email đã tồn tại chưa 
             databaseDataContext db = new databaseDataContext();
-            User user = db.Users.FirstOrDefault(x => x.Username == txtUser.Text);
-            if (user != null)
+            User user = db.Users.FirstOrDefault(x => x.Username == txtUsername.Text);
+            Admin ad = db.Admins.FirstOrDefault(y => y.Username == txtUsername.Text);
+            // Tránh trường hợp đặt tên giống admin
+            if (ad != null)
             {
-                if (user.Username == txtUser.Text)
+                lblerror.Visible = true;
+                txtUsername.Focus();
+            }
+            else if (user != null)
+            {
+                if (user.Username == txtUsername.Text)
                 {
-                    MessageBox.Show("Tên tài khoản đã tồn tại. Vui lòng chọn tên khác!", "Thông báo");
-                    txtUser.Focus();
+                    lblerror2.Visible = true;
+                    txtUsername.Focus();
                 }
                 return;
             }
             else
             {
                 // Tạo Randomkey
-                string taikhoan = txtUser.Text;
+                lblerror.Visible = false;
+                lblerror2.Visible = false;
+                string taikhoan = txtUsername.Text;
                 int matkhau = 1;
                 Random rd = new Random();
                 string key = rd.Next(1000, 9999).ToString();
@@ -73,7 +64,7 @@ namespace Do_anLaptrinhWinCK
                 Us.RandomKey = key;
                 db.Users.InsertOnSubmit(Us);
                 db.SubmitChanges();
-                MessageBox.Show("Đăng ký thành công!", "Thông báo");
+                lblsucces.Visible = true;
             }
         }
     }

@@ -16,11 +16,8 @@ namespace Do_anLaptrinhWinCK
 {
     public partial class InHoaDon : Form
     {
-        string strCon = @"Data Source=DESKTOP-O6VGHSO\SQLEXPRESS;Initial Catalog=QLTiemNet;Integrated Security=True;TrustServerCertificate=True";
-        SqlConnection sqlCon = null;
-
-        private List <int> BillIDs;
-        public InHoaDon(List <int> billIDs)
+        private List<int> BillIDs;
+        public InHoaDon(List<int> billIDs)
         {
             InitializeComponent();
             this.BillIDs = billIDs;
@@ -30,38 +27,34 @@ namespace Do_anLaptrinhWinCK
         {
             try
             {
-                sqlCon = new SqlConnection(strCon);
-                sqlCon.Open();
+                // Using LINQ to query the Bill table
+                databaseDataContext db = new databaseDataContext();
 
-                // Truy vấn chỉ lấy hóa đơn với BillID
-                string sql = "SELECT * FROM Bill WHERE BillID IN (" + string.Join(",",this.BillIDs) + ")";
-
-                SqlDataAdapter adapter = new SqlDataAdapter(sql,sqlCon);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "Bill");
+                // Query to fetch bills by BillID using LINQ
+                var billQuery = db.Bills
+                                  .Where(b => this.BillIDs.Contains(b.BillID))
+                                  .ToList();
 
                 // Cấu hình ReportViewer
                 this.reportViewer1.LocalReport.ReportEmbeddedResource = "Do_anLaptrinhWinCK.ReportHoaDon.rdlc";
+
+                // Create ReportDataSource
                 ReportDataSource ds2 = new ReportDataSource
                 {
                     Name = "HoaDonTable",
-                    Value = ds.Tables["Bill"]
+                    Value = billQuery
                 };
+
+                // Clear existing data sources and add the new one
                 this.reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.DataSources.Add(ds2);
 
+                // Refresh the report
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
-            }
-            finally
-            {
-                if (sqlCon != null && sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
             }
         }
     }

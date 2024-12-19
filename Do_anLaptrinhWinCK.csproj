@@ -104,17 +104,14 @@
     <Compile Include="All Cards\Cards.Designer.cs">
       <DependentUpon>Cards.cs</DependentUpon>
     </Compile>
-    <Compile Include="All Computer\Computer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="All Computer\Computer.Designer.cs">
-      <DependentUpon>Computer.cs</DependentUpon>
-    </Compile>
     <Compile Include="All Menu\ThucDon.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="All Menu\ThucDon.Designer.cs">
       <DependentUpon>ThucDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="database.cs">
+      <DependentUpon>database.dbml</DependentUpon>
     </Compile>
     <Compile Include="database.designer.cs">
       <AutoGen>True</AutoGen>
@@ -126,12 +123,6 @@
     </Compile>
     <Compile Include="DonHang.Designer.cs">
       <DependentUpon>DonHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAccount.Designer.cs">
-      <DependentUpon>frmAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdd.cs">
       <SubType>Form</SubType>
@@ -151,6 +142,12 @@
     <Compile Include="frmChangePass.Designer.cs">
       <DependentUpon>frmChangePass.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCheckMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckMessages.Designer.cs">
+      <DependentUpon>frmCheckMessages.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGioithieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +166,9 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +180,12 @@
     </Compile>
     <Compile Include="frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReset.Designer.cs">
+      <DependentUpon>frmReset.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUser.cs">
       <SubType>Form</SubType>
@@ -218,10 +224,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="QLTiemNetDataSet.cs">
-      <DependentUpon>QLTiemNetDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QLTiemNetDataSet.Designer.cs">
+    <Compile Include="QLTiemNetDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLTiemNetDataSet.xsd</DependentUpon>
@@ -234,9 +237,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="All Cards\Cards.resx">
       <DependentUpon>Cards.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="All Computer\Computer.resx">
-      <DependentUpon>Computer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All Menu\ThucDon.resx">
       <DependentUpon>ThucDon.cs</DependentUpon>
@@ -253,6 +253,9 @@
     <EmbeddedResource Include="frmChangePass.resx">
       <DependentUpon>frmChangePass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCheckMessages.resx">
+      <DependentUpon>frmCheckMessages.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGioithieu.resx">
       <DependentUpon>frmGioithieu.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,12 +265,18 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReset.resx">
+      <DependentUpon>frmReset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
@@ -289,6 +298,7 @@
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportDoanhThu.rdlc" />
     <EmbeddedResource Include="ReportDonHang.rdlc" />
     <EmbeddedResource Include="ReportHoaDon.rdlc" />
     <EmbeddedResource Include="ReportMenu.rdlc" />
@@ -320,7 +330,7 @@
     </None>
     <None Include="QLTiemNetDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLTiemNetDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLTiemNetDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="QLTiemNetDataSet.xss">
